@@ -27,49 +27,49 @@ def pidr():
         y = ("Игорь", file1)
         bot.send_photo('@hloappstest', y[1])
         bot.send_message('@hloappstest', f'''Всем привет!!! Пидарасом дня 
-        {datetime.now().year, datetime.now().month, datetime.now().day} объявляется {y[0]} 
+{datetime.now().year, datetime.now().month, datetime.now().day} объявляется {y[0]} 
                                                                                     Вызвать орловского помощника: /orel''')
     if x == 2:
         file1 = open("Филч.png", 'rb')
         y = ("Филч", file1)
         bot.send_photo('@hloappstest', y[1])
         bot.send_message('@hloappstest', f'''Всем привет!!! Пидарасом дня 
-        {datetime.now().year, datetime.now().month, datetime.now().day} объявляется {y[0]} 
+{datetime.now().year, datetime.now().month, datetime.now().day} объявляется {y[0]} 
                                                                                     Вызвать орловского помощника: /orel''')
     if x == 3:
         file1 = open("Серега.png", 'rb')
         y = ("Серега", file1)
         bot.send_photo('@hloappstest', y[1])
         bot.send_message('@hloappstest', f'''Всем привет!! Пидарасом дня 
-        {datetime.now().year, datetime.now().month, datetime.now().day} объявляется {y[0]} 
+{datetime.now().year, datetime.now().month, datetime.now().day} объявляется {y[0]} 
                                                                                     Вызвать орловского помощника: /orel''')
     if x == 4:
         file1 = open("Леха.png", 'rb')
         y = ("Леха(Саня)", file1)
         bot.send_photo('@hloappstest', y[1])
         bot.send_message('@hloappstest', f'''Всем привет!! Пидарасом дня 
-        {datetime.now().year, datetime.now().month, datetime.now().day} объявляется {y[0]} 
+{datetime.now().year, datetime.now().month, datetime.now().day} объявляется {y[0]} 
                                                                                     Вызвать орловского помощника: /orel''')
     if x == 5:
         file1 = open("фитиль.jpg", 'rb')
         y = ("Леха(Фитиль)", file1)
         bot.send_photo('@hloappstest', y[1])
         bot.send_message('@hloappstest', f'''Всем привет!! Пидарасом дня 
-        {datetime.now().year, datetime.now().month, datetime.now().day} объявляется {y[0]} 
+{datetime.now().year, datetime.now().month, datetime.now().day} объявляется {y[0]} 
                                                                                     Вызвать орловского помощника: /orel''')
     if x == 6:
         file1 = open("маугли.png", 'rb')
         y = ("Маугли", file1)
         bot.send_photo('@hloappstest', y[1])
         bot.send_message('@hloappstest', f'''Всем привет!! Пидарасом дня 
-        {datetime.now().year, datetime.now().month, datetime.now().day} объявляется {y[0]} 
+{datetime.now().year, datetime.now().month, datetime.now().day} объявляется {y[0]} 
                                                                             Вызвать орловского помощника: /orel''')
     if x == 7:
         file1 = open("саня.png", 'rb')
         y = ("Саня", file1)
         bot.send_photo('@hloappstest', y[1])
         bot.send_message('@hloappstest', f'''Всем привет!! Пидарасом дня 
-        {datetime.now().year, datetime.now().month, datetime.now().day} объявляется {y[0]} 
+{datetime.now().year, datetime.now().month, datetime.now().day} объявляется {y[0]} 
                                                                                     Вызвать орловского помощника: /orel''')
 
 
