@@ -5,6 +5,13 @@ from telebot import types
 from apscheduler.schedulers.background import BackgroundScheduler
 from datetime import datetime
 from random import *
+# -*- coding: utf-8 -*-
+import telebot
+import os
+from telebot import types
+from apscheduler.schedulers.background import BackgroundScheduler
+from datetime import datetime
+from random import *
 
 token = os.environ['TELEGRAM_TOKEN']
 
@@ -25,50 +32,50 @@ def pidr():
     if x == 1:
         file1 = open("Я.png", 'rb')
         y = ("Игорь", file1)
-        bot.send_photo('@hloappstest', y[1])
-        bot.send_message('@hloappstest', f'''Всем привет!!! Пидарасом дня 
+        bot.send_photo('@suetologyorla', y[1])
+        bot.send_message('@suetologyorla', f'''Всем привет!!! Пидарасом дня 
 {datetime.now().day, datetime.now().month, datetime.now().year} объявляется {y[0]} 
                                                                                     Вызвать орловского помощника: /orel''')
     if x == 2:
         file1 = open("Филч.png", 'rb')
         y = ("Филч", file1)
-        bot.send_photo('@hloappstest', y[1])
-        bot.send_message('@hloappstest', f'''Всем привет!!! Пидарасом дня 
+        bot.send_photo('@suetologyorla', y[1])
+        bot.send_message('@suetologyorla', f'''Всем привет!!! Пидарасом дня 
 {datetime.now().day, datetime.now().month, datetime.now().year} объявляется {y[0]} 
                                                                                     Вызвать орловского помощника: /orel''')
     if x == 3:
         file1 = open("Серега.png", 'rb')
         y = ("Серега", file1)
-        bot.send_photo('@hloappstest', y[1])
-        bot.send_message('@hloappstest', f'''Всем привет!! Пидарасом дня 
+        bot.send_photo('@suetologyorla', y[1])
+        bot.send_message('@suetologyorla', f'''Всем привет!! Пидарасом дня 
 {datetime.now().day, datetime.now().month, datetime.now().year} объявляется {y[0]} 
                                                                                     Вызвать орловского помощника: /orel''')
     if x == 4:
         file1 = open("Леха.png", 'rb')
         y = ("Леха(Саня)", file1)
-        bot.send_photo('@hloappstest', y[1])
-        bot.send_message('@hloappstest', f'''Всем привет!! Пидарасом дня 
+        bot.send_photo('@suetologyorla', y[1])
+        bot.send_message('@suetologyorla', f'''Всем привет!! Пидарасом дня 
 {datetime.now().day, datetime.now().month, datetime.now().year} объявляется {y[0]} 
                                                                                     Вызвать орловского помощника: /orel''')
     if x == 5:
         file1 = open("фитиль.jpg", 'rb')
         y = ("Леха(Фитиль)", file1)
-        bot.send_photo('@hloappstest', y[1])
-        bot.send_message('@hloappstest', f'''Всем привет!! Пидарасом дня 
+        bot.send_photo('@suetologyorla', y[1])
+        bot.send_message('@suetologyorla', f'''Всем привет!! Пидарасом дня 
 {datetime.now().day, datetime.now().month, datetime.now().year} объявляется {y[0]} 
                                                                                     Вызвать орловского помощника: /orel''')
     if x == 6:
         file1 = open("маугли.png", 'rb')
         y = ("Маугли", file1)
-        bot.send_photo('@hloappstest', y[1])
-        bot.send_message('@hloappstest', f'''Всем привет!! Пидарасом дня 
+        bot.send_photo('@suetologyorla', y[1])
+        bot.send_message('@suetologyorla', f'''Всем привет!! Пидарасом дня 
 {datetime.now().day, datetime.now().month, datetime.now().year} объявляется {y[0]} 
                                                                             Вызвать орловского помощника: /orel''')
     if x == 7:
         file1 = open("саня.png", 'rb')
         y = ("Саня", file1)
-        bot.send_photo('@hloappstest', y[1])
-        bot.send_message('@hloappstest', f'''Всем привет!! Пидарасом дня 
+        bot.send_photo('@suetologyorla', y[1])
+        bot.send_message('@suetologyorla', f'''Всем привет!! Пидарасом дня 
 {datetime.now().day, datetime.now().month, datetime.now().year} объявляется {y[0]} 
                                                                                     Вызвать орловского помощника: /orel''')
 
@@ -77,7 +84,7 @@ def pidr():
 def check_callback(callback):
     if callback.data == 'btn':
         file2 = open("важно.png", 'rb')
-        bot.send_photo('@hloappstest', file2)
+        bot.send_photo('@suetologyorla', file2)
 
 
 if __name__ == '__main__':
@@ -88,7 +95,7 @@ if __name__ == '__main__':
     try:
         @bot.message_handler(commands=['orel'])
         def orel(message):
-            bot.send_message('@hloappstest', 'Орловский помощник..', reply_markup=kb1)
+            bot.send_message('@suetologyorla', 'Орловский помощник..', reply_markup=kb1)
     except KeyboardInterrupt:
         pass
 
