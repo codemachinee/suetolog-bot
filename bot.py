@@ -43,7 +43,7 @@ def pidr():
         bot.send_photo('@suetologyorla', y[1])
         bot.send_message('@suetologyorla', f'''Всем привет!!! Пидарасом дня 
 {datetime.now().day, datetime.now().month, datetime.now().year} объявляется {y[0]} 
-Вызвать орловского помощника: /orel''')
+Справка по боту: /help''')
 
     if x == 2:
         file1 = open("Филч.png", 'rb')
@@ -59,7 +59,7 @@ def pidr():
         bot.send_photo('@suetologyorla', y[1])
         bot.send_message('@suetologyorla', f'''Всем привет!!! Пидарасом дня 
 {datetime.now().day, datetime.now().month, datetime.now().year} объявляется {y[0]} 
-Вызвать орловского помощника: /orel''')
+Справка по боту: /help''')
 
     if x == 3:
         file1 = open("Серега.png", 'rb')
@@ -75,7 +75,7 @@ def pidr():
         bot.send_photo('@suetologyorla', y[1])
         bot.send_message('@suetologyorla', f'''Всем привет!! Пидарасом дня 
 {datetime.now().day, datetime.now().month, datetime.now().year} объявляется {y[0]} 
-Вызвать орловского помощника: /orel''')
+Справка по боту: /help''')
 
     if x == 4:
         file1 = open("Леха.png", 'rb')
@@ -91,7 +91,7 @@ def pidr():
         bot.send_photo('@suetologyorla', y[1])
         bot.send_message('@suetologyorla', f'''Всем привет!! Пидарасом дня 
 {datetime.now().day, datetime.now().month, datetime.now().year} объявляется {y[0]} 
-Вызвать орловского помощника: /orel''')
+Справка по боту: /help''')
 
     if x == 5:
         file1 = open("фитиль.jpg", 'rb')
@@ -107,7 +107,7 @@ def pidr():
         bot.send_photo('@suetologyorla', y[1])
         bot.send_message('@suetologyorla', f'''Всем привет!! Пидарасом дня 
 {datetime.now().day, datetime.now().month, datetime.now().year} объявляется {y[0]} 
-Вызвать орловского помощника: /orel''')
+Справка по боту: /help''')
 
     if x == 6:
         file1 = open("маугли.png", 'rb')
@@ -123,7 +123,7 @@ def pidr():
         bot.send_photo('@suetologyorla', y[1])
         bot.send_message('@suetologyorla', f'''Всем привет!! Пидарасом дня 
 {datetime.now().day, datetime.now().month, datetime.now().year} объявляется {y[0]} 
-Вызвать орловского помощника: /orel''')
+Справка по боту: /help''')
 
     if x == 7:
         file1 = open("саня.png", 'rb')
@@ -139,7 +139,7 @@ def pidr():
         bot.send_photo('@suetologyorla', y[1])
         bot.send_message('@suetologyorla', f'''Всем привет!! Пидарасом дня 
 {datetime.now().day, datetime.now().month, datetime.now().year} объявляется {y[0]} 
-Вызвать орловского помощника: /orel''')
+Справка по боту: /help''')
 
 
 @bot.callback_query_handler(func=lambda callback: callback.data)
