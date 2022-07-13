@@ -206,7 +206,7 @@ def start(message):
 
 if __name__ == '__main__':
     scheduler = BackgroundScheduler()
-    scheduler.add_job(pidr, 'interval', seconds=30)
+    scheduler.add_job(pidr, "cron", day_of_week='mon-sun', hour=11)
     scheduler.start()
 
     try:
