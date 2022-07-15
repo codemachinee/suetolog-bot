@@ -5,13 +5,6 @@ from telebot import types
 from apscheduler.schedulers.background import BackgroundScheduler
 from datetime import datetime
 from random import *
-# -*- coding: utf-8 -*-
-import telebot
-import os
-from telebot import types
-from apscheduler.schedulers.background import BackgroundScheduler
-from datetime import datetime
-from random import *
 
 token = os.environ['TELEGRAM_TOKEN']
 
