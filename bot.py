@@ -20,7 +20,7 @@ but4 = types.InlineKeyboardButton(text='Бронь стола Шаривари',
 but5 = types.InlineKeyboardButton(text='Таблица расходов', url='https://docs.google.com/spreadsheets/d'
                                                                '/1OJVOVnfRygWLN_OIK3w7FuAh37z0eAio0AkTbF7nBf4/edit'
                                                                '#gid=431148771')
-but6 = types.InlineKeyboardButton(text='Таблица расходов', url='https://disk.yandex.ru/client/disk/бот%20суетологов/суетологи')
+but6 = types.InlineKeyboardButton(text='Яндекс.Диск', url='https://disk.yandex.ru/client/disk/бот%20суетологов/суетологи')
 but7 = types.InlineKeyboardButton(text='Важное про Орёл', callback_data='btn')
 kb1.add(but1, but2, but3, but4, but5, but6, but7)
 
