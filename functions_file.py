@@ -41,7 +41,7 @@ def pstat():
 
 # функция обнуляющая все значения статистики в первый день нового месяца
 def obnulenie_stat():
-    if datetime.now().day == 14:
+    if datetime.now().day == 1:
         gc = gspread.service_account(filename='pidor-of-the-day-af3dd140b860.json')
         sh = gc.open("bot_statistic")
         worksheet = sh.get_worksheet(0)
