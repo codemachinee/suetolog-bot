@@ -17,8 +17,11 @@ but1 = types.InlineKeyboardButton(text='Купить билет в Орёл',
 but2 = types.InlineKeyboardButton(text='Бронь стола на Привале', url='http://onmap.uz/tel/74862484006')
 but3 = types.InlineKeyboardButton(text='Бронь стола 7 пятниц', url='http://onmap.uz/tel/74862490008')
 but4 = types.InlineKeyboardButton(text='Бронь стола Шаривари', url='http://onmap.uz/tel/74862445303')
-but5 = types.InlineKeyboardButton(text='Важное про Орёл', callback_data='btn')
-kb1.add(but1, but2, but3, but4, but5)
+but5 = types.InlineKeyboardButton(text='Таблица расходов', url='https://docs.google.com/spreadsheets/d'
+                                                               '/1OJVOVnfRygWLN_OIK3w7FuAh37z0eAio0AkTbF7nBf4/edit'
+                                                               '#gid=431148771') 
+but6 = types.InlineKeyboardButton(text='Важное про Орёл', callback_data='btn')
+kb1.add(but1, but2, but3, but4, but5, but6)
 
 
 def pidr():
