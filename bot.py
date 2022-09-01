@@ -164,12 +164,12 @@ def dr():
 def check_callback(callback):
     if callback.data == 'btn':
         file2 = open("важно.png", 'rb')
-        bot.send_photo('@suetologyorla', file2)
+        bot.send_photo(message.chat.id, file2)
 
 
 @bot.message_handler(commands=['help'])
 def help(message):
-    bot.send_message('@suetologyorla', ('Основные команды поддерживаемые ботом:\n'
+    bot.send_message(message.chat.id, ('Основные команды поддерживаемые ботом:\n'
                                         '/orel -  вызвать орловского помощника\n'
                                         '/pidorstat - пидорский рейтинг \n'
                                         '/start - инициализация бота\n'
@@ -179,7 +179,7 @@ def help(message):
 
 @bot.message_handler(commands=['start'])
 def start(message):
-    bot.send_message('@suetologyorla', '''Бот уже инициализирован.
+    bot.send_message(message.chat.id, '''Бот уже инициализирован.
 Я работаю по расписанию. Пидр дня назначается ежедневно 
 в 11:00 по московскому времени
 
@@ -188,12 +188,12 @@ def start(message):
 
 @bot.message_handler(commands=['pidorstat'])
 def test(message):
-    bot.send_message('@suetologyorla', pstat())
+    bot.send_message(message.chat.id, pstat())
 
 
 @bot.message_handler(commands=['test'])
 def start(message):
-    bot.send_message('@suetologyorla', '''Протестируй себя петушок...А моя работа давно проверена и отлажена.
+    bot.send_message(message.chat.id, '''Протестируй себя петушок...А моя работа давно проверена и отлажена.
 
 /help - справка по боту''')
 
@@ -206,7 +206,7 @@ if __name__ == '__main__':
     try:
         @bot.message_handler(commands=['orel'])
         def orel(message):
-            bot.send_message('@suetologyorla', 'Орловский помощник..', reply_markup=kb1)
+            bot.send_message(message.chat.id, 'Орловский помощник..', reply_markup=kb1)
     except KeyboardInterrupt:
         pass
 
