@@ -164,7 +164,7 @@ def dr():
 def check_callback(callback):
     if callback.data == 'btn':
         file2 = open("важно.png", 'rb')
-        bot.send_photo(callback.chat.id, file2)
+        bot.send_photo('@suetologyorla', file2)
 
 
 @bot.message_handler(commands=['help'])
