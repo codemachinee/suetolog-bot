@@ -22,7 +22,8 @@ but5 = types.InlineKeyboardButton(text='Таблица расходов', url='h
                                                                '#gid=431148771')
 but6 = types.InlineKeyboardButton(text='Яндекс.Диск', url='https://disk.yandex.ru/client/disk/бот%20суетологов/суетологи')
 but7 = types.InlineKeyboardButton(text='Важное про Орёл', callback_data='btn')
-kb1.add(but1, but2, but3, but4, but5, but6, but7)
+but8 = types.InlineKeyboardButton(text='Шар судьбы', callback_data='bof')
+kb1.add(but1, but2, but3, but4, but5, but6, but7, but8)
 
 
 def pidr():
@@ -164,7 +165,17 @@ def dr():
 def check_callback(callback):
     if callback.data == 'btn':
         file2 = open("важно.png", 'rb')
-        bot.send_photo('@suetologyorla', file2)
+        bot.send_photo('@hloappstest', file2)
+    if callback.data == 'bof':
+        start_file = open("шар/пустой шар.png", 'rb')
+        bot.send_photo(callback.message.chat.id, start_file)
+        bot.send_message(callback.message.chat.id,  '''Решил попытать удачу или просто переложить ответственность?
+Что ж.. Чтобы все прошло как надо просто переведи сотку моему создателю на сбер и погладь шар''')
+        kb1 = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
+        but1 = types.KeyboardButton(text='Погладить шар')
+        but2 = types.KeyboardButton(text='Шар съебись')
+        kb1.add(but1, but2)
+        bot.send_message(callback.message.chat.id, '...', reply_markup=kb1)
 
 
 @bot.message_handler(commands=['help'])
@@ -196,6 +207,15 @@ def start(message):
     bot.send_message(message.chat.id, '''Протестируй себя петушок...А моя работа давно проверена и отлажена.
 
 /help - справка по боту''')
+    
+    
+@bot.message_handler(func=lambda v: v.text)
+def chek_message(v):
+    if v.text == 'Погладить шар':
+        bot.send_photo(v.chat.id, ball_of_fate())
+    if v.text == 'Шар съебись':
+        kb2 = types.ReplyKeyboardRemove()
+        bot.send_message(v.chat.id, '...', reply_markup=kb2)
 
 
 if __name__ == '__main__':
