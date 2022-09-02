@@ -159,6 +159,11 @@ def dr():
                                           f'горит и просто пиздатый пацан. Леха с днем рождения!!! Пусть ФИФА длится '
                                           f'столько сколько тебе нужно брат!'))
         bot.send_message('@suetologyorla', 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
+        
+        
+@bot.message_handler(commands=['orel'])
+        def orel(message):
+            bot.send_message(message.chat.id, 'Орловский помощник..', reply_markup=kb1)
 
 
 @bot.callback_query_handler(func=lambda callback: callback.data)
@@ -222,12 +227,5 @@ if __name__ == '__main__':
     scheduler = BackgroundScheduler()
     scheduler.add_job(pidr, "cron", day_of_week='mon-sun', hour=8)
     scheduler.start()
-
-    try:
-        @bot.message_handler(commands=['orel'])
-        def orel(message):
-            bot.send_message(message.chat.id, 'Орловский помощник..', reply_markup=kb1)
-    except KeyboardInterrupt:
-        pass
 
 bot.polling()
