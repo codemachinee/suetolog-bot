@@ -172,7 +172,7 @@ def check_callback(callback):
         file2 = open("важно.png", 'rb')
         bot.send_photo('@hloappstest', file2)
     if callback.data == 'bof':
-        start_file = open("\ball\пустой шар.png", 'rb')
+        start_file = open("ball\пустой шар.png", 'rb')
         bot.send_photo(callback.message.chat.id, start_file)
         bot.send_message(callback.message.chat.id,  '''Решил попытать удачу или просто переложить ответственность?
 Что ж.. Чтобы все прошло как надо просто переведи сотку моему создателю на сбер и погладь шар''')
