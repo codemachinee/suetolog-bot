@@ -162,8 +162,8 @@ def dr():
         
         
 @bot.message_handler(commands=['orel'])
-        def orel(message):
-            bot.send_message(message.chat.id, 'Орловский помощник..', reply_markup=kb1)
+def orel(message):
+  bot.send_message(message.chat.id, 'Орловский помощник..', reply_markup=kb1)
 
 
 @bot.callback_query_handler(func=lambda callback: callback.data)
@@ -228,4 +228,5 @@ if __name__ == '__main__':
     scheduler.add_job(pidr, "cron", day_of_week='mon-sun', hour=8)
     scheduler.start()
 
+    
 bot.polling()
