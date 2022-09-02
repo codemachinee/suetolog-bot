@@ -52,35 +52,35 @@ def obnulenie_stat():
 def ball_of_fate():
     ball_choice = choice([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
     if ball_choice == 1:
-        ball_answer = open("шар/береги ебальник.png", 'rb')
+        ball_answer = open("береги ебальник.png", 'rb')
         return ball_answer
     if ball_choice == 2:
-        ball_answer = open("шар/возможно.png", 'rb')
+        ball_answer = open("возможно.png", 'rb')
         return ball_answer
     if ball_choice == 3:
-        ball_answer = open("шар/даже не думай.png", 'rb')
+        ball_answer = open("даже не думай.png", 'rb')
         return ball_answer
     if ball_choice == 4:
-        ball_answer = open("шар/даже не старайся.png", 'rb')
+        ball_answer = open("даже не старайся.png", 'rb')
         return ball_answer
     if ball_choice == 5:
-        ball_answer = open("шар/друзья боты.png", 'rb')
+        ball_answer = open("друзья боты.png", 'rb')
         return ball_answer
     if ball_choice == 6:
-        ball_answer = open("шар/звезды говорят.png", 'rb')
+        ball_answer = open("звезды говорят.png", 'rb')
         return ball_answer
     if ball_choice == 7:
-        ball_answer = open("шар/нет.png", 'rb')
+        ball_answer = open("нет.png", 'rb')
         return ball_answer
     if ball_choice == 8:
-        ball_answer = open("шар/полюбому да.png", 'rb')
+        ball_answer = open("полюбому да.png", 'rb')
         return ball_answer
     if ball_choice == 9:
-        ball_answer = open("шар/посоветуйся с пидаром.png", 'rb')
+        ball_answer = open("посоветуйся с пидаром.png", 'rb')
         return ball_answer
     if ball_choice == 10:
-        ball_answer = open("шар/прогнозы хуевые.png", 'rb')
+        ball_answer = open("прогнозы хуевые.png", 'rb')
         return ball_answer
     if ball_choice == 11:
-        ball_answer = open("шар/спроси у Димана.png", 'rb')
+        ball_answer = open("спроси у Димана.png", 'rb')
         return ball_answer
