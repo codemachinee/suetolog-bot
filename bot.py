@@ -5,7 +5,7 @@ from telebot import types
 from apscheduler.schedulers.background import BackgroundScheduler
 from datetime import datetime
 from random import *
-from functions_file import value_plus_one, pstat, obnulenie_stat
+from functions_file import value_plus_one, pstat, obnulenie_stat, ball_of_fate
 
 token = os.environ['TELEGRAM_TOKEN']
 
@@ -174,7 +174,7 @@ def check_callback(callback):
     if callback.data == 'bof':
         start_file = open('пустойшар.png', 'rb')
         bot.send_photo(callback.message.chat.id, start_file)
-        bot.send_message(callback.message.chat.id,  '''Решил попытать удачу или просто переложить ответственность?
+        bot.send_message(callback.message.chat.id, '''Решил попытать удачу или просто переложить ответственность?
 Что ж.. Чтобы все прошло как надо просто переведи сотку моему создателю на сбер и погладь шар''')
         kb1 = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
         but1 = types.KeyboardButton(text='Погладить шар')
