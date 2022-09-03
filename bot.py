@@ -159,20 +159,15 @@ def dr():
                                           f'горит и просто пиздатый пацан. Леха с днем рождения!!! Пусть ФИФА длится '
                                           f'столько сколько тебе нужно брат!'))
         bot.send_message('@suetologyorla', 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
-        
-        
-@bot.message_handler(commands=['orel'])
-def orel(message):
-  bot.send_message(message.chat.id, 'Орловский помощник..', reply_markup=kb1)
 
 
 @bot.callback_query_handler(func=lambda callback: callback.data)
 def check_callback(callback):
     if callback.data == 'btn':
         file2 = open("важно.png", 'rb')
-        bot.send_photo('@hloappstest', file2)
+        bot.send_photo('@suetologyorla', file2)
     if callback.data == 'bof':
-        start_file = open('пустойшар.png', 'rb')
+        start_file = open("пустойшар.png", 'rb')
         bot.send_photo(callback.message.chat.id, start_file)
         bot.send_message(callback.message.chat.id, '''Решил попытать удачу или просто переложить ответственность?
 Что ж.. Чтобы все прошло как надо просто переведи сотку моему создателю на сбер и погладь шар''')
@@ -200,6 +195,11 @@ def start(message):
 в 11:00 по московскому времени
 
 /help - справка по боту''')
+    
+    
+@bot.message_handler(commands=['orel'])
+def orel(message):
+    bot.send_message(message.chat.id, 'Орловский помощник..', reply_markup=kb1)
 
 
 @bot.message_handler(commands=['pidorstat'])
