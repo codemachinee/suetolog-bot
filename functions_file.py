@@ -54,35 +54,35 @@ def obnulenie_stat():
 def ball_of_fate():
     ball_choice = choice([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
     if ball_choice == 1:
-        ball_answer = open("береги ебальник.png", 'rb')
+        ball_answer = open("ball/var_one.png", 'rb')
         return ball_answer
     if ball_choice == 2:
-        ball_answer = open("возможно.png", 'rb')
+        ball_answer = open("ball/var_two.png", 'rb')
         return ball_answer
     if ball_choice == 3:
-        ball_answer = open("даже не думай.png", 'rb')
+        ball_answer = open("ball/var_tree.png", 'rb')
         return ball_answer
     if ball_choice == 4:
-        ball_answer = open("даже не старайся.png", 'rb')
+        ball_answer = open("ball/var_four.png", 'rb')
         return ball_answer
     if ball_choice == 5:
-        ball_answer = open("друзья боты.png", 'rb')
+        ball_answer = open("ball/var_five.png", 'rb')
         return ball_answer
     if ball_choice == 6:
-        ball_answer = open("звезды говорят.png", 'rb')
+        ball_answer = open("ball/var_six.png", 'rb')
         return ball_answer
     if ball_choice == 7:
-        ball_answer = open("нет.png", 'rb')
+        ball_answer = open("ball/var_seven.png", 'rb')
         return ball_answer
     if ball_choice == 8:
-        ball_answer = open("полюбому да.png", 'rb')
+        ball_answer = open("ball/var_eight.png", 'rb')
         return ball_answer
     if ball_choice == 9:
-        ball_answer = open("посоветуйся с пидаром.png", 'rb')
+        ball_answer = open("ball/var_nine.png", 'rb')
         return ball_answer
     if ball_choice == 10:
-        ball_answer = open("прогнозы хуевые.png", 'rb')
+        ball_answer = open("ball/var_ten.png", 'rb')
         return ball_answer
     if ball_choice == 11:
-        ball_answer = open("спроси у Димана.png", 'rb')
+        ball_answer = open("ball/var_eleven.png", 'rb')
         return ball_answer
