@@ -167,8 +167,8 @@ def check_callback(callback):
         file2 = open("важно.png", 'rb')
         bot.send_photo('@suetologyorla', file2)
     if callback.data == 'bof':
-        start_file = open("пустойшар.png", 'rb')
-        bot.send_photo(callback.message.chat.id, start_file)
+        #start_file = open("пустойшар.png", 'rb')
+        #bot.send_photo(callback.message.chat.id, start_file)
         bot.send_message(callback.message.chat.id, '''Решил попытать удачу или просто переложить ответственность?
 Что ж.. Чтобы все прошло как надо просто переведи сотку моему создателю на сбер и погладь шар''')
         kb1 = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
