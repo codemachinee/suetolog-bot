@@ -164,7 +164,7 @@ def dr():
 @bot.callback_query_handler(func=lambda callback: callback.data)
 def check_callback(callback):
     if callback.data == 'btn':
-        file2 = open("важно.png", 'rb')
+        file2 = open("важно.jpeg", 'rb')
         bot.send_photo('@suetologyorla', file2)
     if callback.data == 'bof':
         start_file = open("ball/start_image.png", 'rb')
