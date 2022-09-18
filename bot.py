@@ -37,6 +37,7 @@ def pidr():
         bot.send_message('@suetologyorla', f'''Всем привет!!! Пидарасом дня 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
+        bot.send_message('@suetologyorla', f'''Сорян мужики забухал вчера с ебанным шаром, проспал малясь каюсь..''')
         dr()
 
     if x == 2:
@@ -47,6 +48,7 @@ def pidr():
         bot.send_message('@suetologyorla', f'''Всем привет!!! Пидарасом дня 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
+        bot.send_message('@suetologyorla', f'''Сорян мужики забухал вчера с ебанным шаром, проспал малясь каюсь..''')
         dr()
 
     if x == 3:
@@ -57,6 +59,7 @@ def pidr():
         bot.send_message('@suetologyorla', f'''Всем привет!! Пидарасом дня 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
+        bot.send_message('@suetologyorla', f'''Сорян мужики забухал вчера с ебанным шаром, проспал малясь каюсь..''')
         dr()
 
     if x == 4:
@@ -67,6 +70,7 @@ def pidr():
         bot.send_message('@suetologyorla', f'''Всем привет!! Пидарасом дня 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
+        bot.send_message('@suetologyorla', f'''Сорян мужики забухал вчера с ебанным шаром, проспал малясь каюсь..''')
         dr()
 
     if x == 5:
@@ -77,6 +81,7 @@ def pidr():
         bot.send_message('@suetologyorla', f'''Всем привет!! Пидарасом дня 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
+        bot.send_message('@suetologyorla', f'''Сорян мужики забухал вчера с ебанным шаром, проспал малясь каюсь..''')
         dr()
 
     if x == 6:
@@ -87,6 +92,7 @@ def pidr():
         bot.send_message('@suetologyorla', f'''Всем привет!! Пидарасом дня 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
+        bot.send_message('@suetologyorla', f'''Сорян мужики забухал вчера с ебанным шаром, проспал малясь каюсь..''')
         dr()
 
     if x == 7:
@@ -97,20 +103,19 @@ def pidr():
         bot.send_message('@suetologyorla', f'''Всем привет!! Пидарасом дня 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
+        bot.send_message('@suetologyorla', f'''Сорян мужики забухал вчера с ебанным шаром, проспал малясь каюсь..''')
         dr()
         
         
 def dr():
     if datetime.now().day == 20 and datetime.now().month == 4:
-        bot.send_message('@suetologyorla', (f' Дорогие друзья! Все эти рейтинги и звания конечно очень круто, но это '
-                                          f'ежедневная рутина. Сегодня же особенный, ЛЕГЕНДАРНЫЙ день!!! А виновник '
+        bot.send_message('@suetologyorla', (f' Кстати, ебать сегодня же особенный, ЛЕГЕНДАРНЫЙ день!!! А виновник '
                                           f'всего этого Игорь, да именно он вне всяких рейтингов и чартов, ведь у него '
                                           f'самый большой член в этом сообществе и самый скромный нрав. Игорян с днем '
                                           f'рождения!!! Двигайся по поводу и без, главное не останавливайся!'))
         bot.send_message('@suetologyorla', 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
     elif datetime.now().day == 27 and datetime.now().month == 4:
-        bot.send_message('@suetologyorla', (f' Дорогие друзья! Все эти рейтинги и звания конечно очень круто, но это '
-                                          f'ежедневная рутина. Сегодня же особенный, ЛЕГЕНДАРНЫЙ день!!! А виновник '
+        bot.send_message('@suetologyorla', (f'И к слову, сегодня охуеть какой особенный, ЛЕГЕНДАРНЫЙ день!!! А виновник '
                                           f'всего этого Алексей! И вы спросите: "тот Алексей который Саня?" - и я вам '
                                           f'отвечу: нет! Этот парень настолько легендарный, что его видно издалека. '
                                           f'Многие девушки/женщины могут делать ему миньет не вставая на колени, но они'
@@ -120,11 +125,10 @@ def dr():
                                           f' никогда не бежал!'))
         bot.send_message('@suetologyorla', 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
     elif datetime.now().day == 5 and datetime.now().month == 5:
-        bot.send_message('@suetologyorla', f''' Дорогие друзья! Все эти рейтинги и звания конечно очень круто, но это
-ежедневная рутина. Сегодня же особенный, ЛЕГЕНДАРНЫЙ день!!! А виновник всего этого Илюха, он же легендарный Филч!
-Обладатель фамилии на которую были забронированы все столики заведений Орла, а также способности вызывать 
-умиление у самых непробиваемых девушек как молодого зала, так и женщин зала милф...жаль ему эта способность не нужна ибо
-он на другой стороне. Илюха с днем рождения!!! Выскакивай на челноке, но только не на Герценском мосту!''')
+        bot.send_message('@suetologyorla', f'''Господа, мне тут ебанный шар сообщил, что движение по Герценскому мосту перекрыто!!! 
+А виновник всего этого Илюха, он же легендарный Филч! Обладатель фамилии на которую были забронированы все столики заведений Орла, 
+а также способности вызывать умиление у самых непробиваемых девушек как молодого зала, так и женщин зала милф...жаль ему эта способность не нужна 
+ибо он на другой стороне. Илюха с днем рождения!!! Выскакивай на челноке, но только не на Герценском мосту!''')
         bot.send_message('@suetologyorla', 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
     elif datetime.now().day == 14 and datetime.now().month == 7:
         bot.send_message('@suetologyorla', (f' Дорогие друзья! Все эти рейтинги и звания конечно очень круто,но это'
@@ -151,8 +155,7 @@ def dr():
 Саня с днем рождения!!! Кайфуй, не теряй время и скорее заканчивай шарагу!''')
         bot.send_message('@suetologyorla', 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
     elif datetime.now().day == 17 and datetime.now().month == 11:
-        bot.send_message('@suetologyorla', (f' Дорогие друзья! Все эти рейтинги и звания конечно очень круто, но это '
-                                          f'ежедневная рутина. Сегодня же особенный, ЛЕГЕНДАРНЫЙ день!!! А виновник '
+        bot.send_message('@suetologyorla', (f' ВНИМАНИЕ! Мне тут сорока на хвосте принесла, что сегодня ЛЕГЕНДАРНЫЙ день!!! А виновник '
                                           f'всего этого Леха! Вы спросите: "тот самый длинный Леха?" - и я отвечу: нет!'
                                           f' Тот Леха, который Саня. И Скажу еще то, что длину своего роста и заодно '
                                           f'члена он компенсирует длиной тайма в ФИФЕ. Легендарный сомелье всего что '
@@ -225,7 +228,7 @@ def chek_message(v):
 
 if __name__ == '__main__':
     scheduler = BackgroundScheduler()
-    scheduler.add_job(pidr, "cron", day_of_week='mon-sun', hour=8)
+    scheduler.add_job(pidr, "cron", day_of_week='mon-sun', hour=13)
     scheduler.start()
 
     
