@@ -37,7 +37,6 @@ def pidr():
         bot.send_message('@suetologyorla', f'''Всем привет!!! Пидарасом дня 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
-        bot.send_message('@suetologyorla', f'''Сорян мужики забухал вчера с ебанным шаром, проспал малясь каюсь..''')
         dr()
 
     if x == 2:
@@ -48,7 +47,6 @@ def pidr():
         bot.send_message('@suetologyorla', f'''Всем привет!!! Пидарасом дня 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
-        bot.send_message('@suetologyorla', f'''Сорян мужики забухал вчера с ебанным шаром, проспал малясь каюсь..''')
         dr()
 
     if x == 3:
@@ -59,7 +57,6 @@ def pidr():
         bot.send_message('@suetologyorla', f'''Всем привет!! Пидарасом дня 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
-        bot.send_message('@suetologyorla', f'''Сорян мужики забухал вчера с ебанным шаром, проспал малясь каюсь..''')
         dr()
 
     if x == 4:
@@ -70,7 +67,6 @@ def pidr():
         bot.send_message('@suetologyorla', f'''Всем привет!! Пидарасом дня 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
-        bot.send_message('@suetologyorla', f'''Сорян мужики забухал вчера с ебанным шаром, проспал малясь каюсь..''')
         dr()
 
     if x == 5:
@@ -81,7 +77,6 @@ def pidr():
         bot.send_message('@suetologyorla', f'''Всем привет!! Пидарасом дня 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
-        bot.send_message('@suetologyorla', f'''Сорян мужики забухал вчера с ебанным шаром, проспал малясь каюсь..''')
         dr()
 
     if x == 6:
@@ -92,7 +87,6 @@ def pidr():
         bot.send_message('@suetologyorla', f'''Всем привет!! Пидарасом дня 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
-        bot.send_message('@suetologyorla', f'''Сорян мужики забухал вчера с ебанным шаром, проспал малясь каюсь..''')
         dr()
 
     if x == 7:
@@ -103,7 +97,6 @@ def pidr():
         bot.send_message('@suetologyorla', f'''Всем привет!! Пидарасом дня 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
-        bot.send_message('@suetologyorla', f'''Сорян мужики забухал вчера с ебанным шаром, проспал малясь каюсь..''')
         dr()
         
         
