@@ -7,7 +7,7 @@ from datetime import datetime
 from random import *
 from functions_file import value_plus_one, pstat, obnulenie_stat, ball_of_fate
 
-token = os.environ['TELEGRAM_TOKEN']
+token =
 
 bot = telebot.TeleBot(token)
 
