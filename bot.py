@@ -221,8 +221,8 @@ def chek_message(v):
 
 if __name__ == '__main__':
     scheduler = BackgroundScheduler()
-    scheduler.add_job(pidr, "cron", day_of_week='mon-sun', hour=8)
+    scheduler.add_job(pidr, "cron", day_of_week='mon-sun', hour=11)
     scheduler.start()
 
     
-bot.polling()
+bot.infinity_polling()
