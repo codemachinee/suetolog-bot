@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import telebot
+import gspread
 import os
 from telebot import types
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -155,6 +156,30 @@ def dr():
                                           f'горит и просто пиздатый пацан. Леха с днем рождения!!! Пусть ФИФА длится '
                                           f'столько сколько тебе нужно брат!'))
         bot.send_message('@suetologyorla', 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
+
+    elif datetime.now().day == 31 and datetime.now().month == 12:
+        bot.send_message('@suetologyorla', f'🚨🚨🚨Внимание!🚨🚨🚨 Пидр Клаус подводит итоги...\n'
+                                           f'Кто же станет пидаром года?')
+        file = open('gif_mr.Bin.mp4', 'rb')
+        bot.send_animation('@suetologyorla', file)
+        gc = gspread.service_account(filename='pidor-of-the-day-af3dd140b860.json')
+        sh = gc.open("bot_statistic")
+        worksheet = sh.get_worksheet(0)
+        d1 = [(int(worksheet.acell('A1').value), "Филч"), (int(worksheet.acell('A2').value), "Игорь"),
+              (int(worksheet.acell('A3').value), "Серега"), (int(worksheet.acell('A4').value), "Саня"),
+              (int(worksheet.acell('A5').value), "Леха(Саня)"), (int(worksheet.acell('A6').value), "Леха(Фитиль)"),
+              (int(worksheet.acell('A7').value), "Диман")]
+        d1_sort = sorted(d1, reverse=True)
+        bot.send_message('@suetologyorla', f'🍾🍾🍾ии.. им становится {d1_sort[0][1]}! Самый главный пидрила черезвычайно'
+                                           f' пидарского года!!! {d1_sort[0][1]} прийми наши поздравления, а также '
+                                           f'обязательства по амбоссадорству "Голубой устрицы". На ближайший год'
+                                           f'на всех наших тусовках ты на разливе ибо больше всех заинтересован поскорее'
+                                           f'споить пацанов. Тебе также полагается денежный приз в размере всех денег '
+                                           f'накопленных в нашем фонде (в случае их отсутствия возмещаем глубоким '
+                                           f'уважением. Хорошего нового года в новом статусе!')
+        bot.send_message('@suetologyorla', f'За тобой приехали..')
+        file = open('gif_zverev.mp4', 'rb')
+        bot.send_animation('@suetologyorla', file)
 
 
 @bot.callback_query_handler(func=lambda callback: callback.data)
