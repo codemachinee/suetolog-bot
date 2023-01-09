@@ -1,9 +1,11 @@
 # библиотека работы с гугл таблицами
 import gspread
+import openai
 # библиотека проверки даты
 from datetime import datetime
 # библиотека рандома
 from random import *
+from paswords import *
 
 
 # функция открывает гугл таблицу статистики, начисляет балл и возвращает новое значение
@@ -86,3 +88,22 @@ def ball_of_fate():
     if ball_choice == 11:
         ball_answer = open("ball/var_eleven.png", 'rb')
         return ball_answer
+
+
+class Davinci:
+    def __init__(self, bot, message):
+        self.bot = bot
+        self.message = message
+        openai.api_key = Davinci_key
+
+        response = openai.Completion.create(
+            model="text-davinci-003",
+            prompt=self.message.text[8:],
+            temperature=0.7,
+            max_tokens=150,
+            top_p=1,
+            frequency_penalty=0.0,
+            presence_penalty=0.6,
+        )
+        self.bot.send_message(message.chat.id, f'секунду..')
+        self.bot.send_message(message.chat.id, f'{response["choices"][0]["text"]}')

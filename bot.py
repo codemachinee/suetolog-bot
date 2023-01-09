@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 import telebot
+import telebot
 import gspread
 import os
 from telebot import types
 from apscheduler.schedulers.background import BackgroundScheduler
 from datetime import datetime
 from random import *
-from functions_file import value_plus_one, pstat, obnulenie_stat, ball_of_fate
+from functions_file import value_plus_one, pstat, obnulenie_stat, ball_of_fate, Davinci
 from paswords import *
 
 token = lemonade
@@ -253,6 +254,13 @@ def chek_message(v):
     if v.text == 'Шар съебись':
         kb2 = types.ReplyKeyboardRemove()
         bot.send_message(v.chat.id, '...', reply_markup=kb2)
+
+
+@bot.message_handler(func=lambda _: True)
+def chek_message(message):
+    if 'Davinci' or 'davinci' or 'Давинчи' or 'давинчи' in message.text:
+        Davinci(bot, message)
+
 
 
 def sent_message_perehvat(message):
