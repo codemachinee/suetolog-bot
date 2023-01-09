@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import telebot
-import telebot
 import gspread
 import os
 from telebot import types
@@ -254,13 +253,8 @@ def chek_message(v):
     if v.text == 'Шар съебись':
         kb2 = types.ReplyKeyboardRemove()
         bot.send_message(v.chat.id, '...', reply_markup=kb2)
-
-
-@bot.message_handler(func=lambda _: True)
-def chek_message(message):
-    if 'Davinci' or 'davinci' or 'Давинчи' or 'давинчи' in message.text:
-        Davinci(bot, message)
-
+    if 'Davinci' or 'davinci' or 'Давинчи' or 'давинчи' in v.text:
+        Davinci(bot, v)
 
 
 def sent_message_perehvat(message):
