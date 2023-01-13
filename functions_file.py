@@ -7,6 +7,7 @@ from datetime import datetime
 from random import *
 from paswords import *
 
+saved_messages = []
 
 # функция открывает гугл таблицу статистики, начисляет балл и возвращает новое значение
 def value_plus_one(j):
@@ -91,19 +92,28 @@ def ball_of_fate():
 
 
 class Davinci:
-    def __init__(self, bot, message):
+    global saved_messages
+
+    def __init__(self, bot, message, text):
         self.bot = bot
         self.message = message
+        self.text = text
         openai.api_key = Davinci_key
+        answer_model = open('davinci.txt', 'r')
+        saved_messages.insert(0, f'Вы: {self.text}\n')
+        self.bot.send_message(message.chat.id, f'секунду..')
 
         response = openai.Completion.create(
             model="text-davinci-003",
-            prompt=self.message.text[8:],
-            temperature=0.7,
+            prompt=(str(answer_model.read()) + ''.join(reversed(saved_messages))),
+            temperature=0.3,
             max_tokens=1000,
             top_p=1,
             frequency_penalty=0.0,
-            presence_penalty=0.6,
+            presence_penalty=0.0,
         )
-        self.bot.send_message(message.chat.id, f'секунду..')
         self.bot.send_message(message.chat.id, f'{response["choices"][0]["text"]}')
+        saved_messages.insert(0, f'{str(response["choices"][0]["text"])}\n')
+        if len(saved_messages) >= 12:
+            del saved_messages[6:]
+

@@ -253,8 +253,14 @@ def chek_message(v):
     if v.text == 'Шар съебись':
         kb2 = types.ReplyKeyboardRemove()
         bot.send_message(v.chat.id, '...', reply_markup=kb2)
-    if 'Davinci' or 'davinci' or 'Давинчи' or 'давинчи' in v.text:
-        Davinci(bot, v)
+    if 'Давинчи' in v.text:
+        b = str(v.text).replace('Давинчи ', '', 1).replace('Давинчи, ', '', 1).replace('Давинчи,', '', 1).replace(
+            ' Давинчи', '', 1)
+        Davinci(bot, v, b)
+    if 'давинчи' in v.text:
+        b = str(v.text).replace('давинчи ', '', 1).replace('давинчи, ', '', 1).replace('давинчи,', '', 1).replace(
+            ' давинчи', '', 1)
+        Davinci(bot, v, b)
 
 
 def sent_message_perehvat(message):
