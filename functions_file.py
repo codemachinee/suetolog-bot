@@ -114,6 +114,36 @@ class Davinci:
         )
         self.bot.send_message(message.chat.id, f'{response["choices"][0]["text"]}')
         saved_messages.insert(0, f'{str(response["choices"][0]["text"])}\n')
+        self.bot.send_message(1338281106, f'{answer_model.read()}')
         if len(saved_messages) >= 12:
             del saved_messages[6:]
+
+
+class Artur:
+    global saved_messages
+
+    def __init__(self, bot, message, text):
+        self.bot = bot
+        self.message = message
+        self.text = text
+        openai.api_key = Davinci_key
+        answer_model = open('Artur.txt', 'r')
+        saved_messages.insert(0, f'Вы: {self.text}\n')
+        self.bot.send_message(message.chat.id, f'секунду..')
+
+        response = openai.Completion.create(
+            model="text-davinci-003",
+            prompt=(str(answer_model.read()) + ''.join(reversed(saved_messages))),
+            temperature=0.5,
+            max_tokens=1000,
+            top_p=0.3,
+            frequency_penalty=0.5,
+            presence_penalty=0.0,
+        )
+        self.bot.send_message(message.chat.id, f'{response["choices"][0]["text"]}')
+        saved_messages.insert(0, f'{str(response["choices"][0]["text"])}\n')
+        print(str(answer_model.read()))
+        print(len(saved_messages))
+        if len(saved_messages) <= 6:
+            del saved_messages[2:]
 

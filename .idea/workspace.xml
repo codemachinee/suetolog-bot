@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ecff6803-db69-4b4f-a48a-2f3ab061ed8f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/davinci.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/suetolog-bot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/suetolog-bot.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Artur.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions_file.py" afterDir="false" />
@@ -48,7 +48,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.bot">
+  <component name="RunManager" selected="Python.test">
     <configuration name="bot" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="suetolog-bot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -114,9 +114,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.bot" />
         <item itemvalue="Python.test_" />
-        <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
@@ -191,7 +191,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/functions_file.py</url>
-          <line>116</line>
+          <line>117</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>

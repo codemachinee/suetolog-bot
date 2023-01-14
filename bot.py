@@ -6,7 +6,7 @@ from telebot import types
 from apscheduler.schedulers.background import BackgroundScheduler
 from datetime import datetime
 from random import *
-from functions_file import value_plus_one, pstat, obnulenie_stat, ball_of_fate, Davinci
+from functions_file import value_plus_one, pstat, obnulenie_stat, ball_of_fate, Davinci, Artur
 from paswords import *
 
 token = lemonade
@@ -261,6 +261,14 @@ def chek_message(v):
         b = str(v.text).replace('давинчи ', '', 1).replace('давинчи, ', '', 1).replace('давинчи,', '', 1).replace(
             ' давинчи', '', 1)
         Davinci(bot, v, b)
+    if 'Артур' in v.text:
+        b = str(v.text).replace('Артур ', '', 1).replace('Артур, ', '', 1).replace('Артур,', '', 1).replace(
+            ' Артур', '', 1)
+        Artur(bot, v, b)
+    if 'артур' in v.text:
+        b = str(v.text).replace('артур ', '', 1).replace('артур, ', '', 1).replace('артур,', '', 1).replace(
+            ' артур', '', 1)
+        Artur(bot, v, b)
 
 
 def sent_message_perehvat(message):
