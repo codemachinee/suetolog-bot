@@ -7,7 +7,8 @@ from datetime import datetime
 from random import *
 from paswords import *
 
-saved_messages = []
+saved_messages_davinci = []
+saved_messages_artur = []
 
 # функция открывает гугл таблицу статистики, начисляет балл и возвращает новое значение
 def value_plus_one(j):
@@ -92,58 +93,66 @@ def ball_of_fate():
 
 
 class Davinci:
-    global saved_messages
+    global saved_messages_davinci
 
     def __init__(self, bot, message, text):
-        self.bot = bot
-        self.message = message
-        self.text = text
-        openai.api_key = Davinci_key
-        answer_model = open('davinci.txt', 'r')
-        saved_messages.insert(0, f'Вы: {self.text}\n')
-        self.bot.send_message(message.chat.id, f'секунду..')
+        try:
+            self.bot = bot
+            self.message = message
+            self.text = text
+            openai.api_key = Davinci_key
+            answer_davinci = open('davinci.txt', 'r', encoding='utf-8')
+            saved_messages_davinci.insert(0, f'Вы: {self.text}\n')
+            prompt_davinci = (str(answer_davinci.read()) + ''.join(reversed(saved_messages_davinci)))
+            self.bot.send_message(message.chat.id, f'секунду..')
 
-        response = openai.Completion.create(
-            model="text-davinci-003",
-            prompt=(str(answer_model.read()) + ''.join(reversed(saved_messages))),
-            temperature=0.3,
-            max_tokens=1000,
-            top_p=1,
-            frequency_penalty=0.0,
-            presence_penalty=0.0,
-        )
-        self.bot.send_message(message.chat.id, f'{response["choices"][0]["text"]}')
-        saved_messages.insert(0, f'{str(response["choices"][0]["text"])}\n')
-        self.bot.send_message(1338281106, f'{answer_model.read()}')
-        if len(saved_messages) >= 12:
-            del saved_messages[6:]
+            response = openai.Completion.create(
+                model="text-davinci-003",
+                prompt=prompt_davinci,
+                temperature=0.3,
+                max_tokens=1000,
+                top_p=1,
+                frequency_penalty=0.0,
+                presence_penalty=0.0,
+            )
+            self.bot.send_message(message.chat.id, f'{response["choices"][0]["text"]}')
+            saved_messages_davinci.insert(0, f'{str(response["choices"][0]["text"])}\n')
+            if len(saved_messages_davinci) >= 8:
+                del saved_messages_davinci[3:]
+        except Exception:
+            self.bot.send_message(message.chat.id, "Простите но мне нужен перекур..")
+            del saved_messages_davinci[1:]
 
 
 class Artur:
-    global saved_messages
+    global saved_messages_artur
 
     def __init__(self, bot, message, text):
-        self.bot = bot
-        self.message = message
-        self.text = text
-        openai.api_key = Davinci_key
-        answer_model = open('Artur.txt', 'r')
-        saved_messages.insert(0, f'Вы: {self.text}\n')
-        self.bot.send_message(message.chat.id, f'секунду..')
+        try:
+            self.bot = bot
+            self.message = message
+            self.text = text
+            openai.api_key = Davinci_key
+            answer_model = open('Artur.txt', 'r', encoding='utf-8')
+            saved_messages_artur.insert(0, f'Вы: {self.text}\n')
+            prompt_text = (str(answer_model.read()) + ''.join(reversed(saved_messages_artur)))
+            self.bot.send_message(message.chat.id, f'секунду..')
+            response = openai.Completion.create(
+                model="text-davinci-003",
+                prompt=prompt_text,
+                temperature=0.5,
+                max_tokens=1000,
+                top_p=0.3,
+                frequency_penalty=0.5,
+                presence_penalty=0.0,
+            )
+            self.bot.send_message(message.chat.id, f'{response["choices"][0]["text"]}')
+            saved_messages_artur.insert(0, f'{str(response["choices"][0]["text"])}\n')
+            if len(saved_messages_artur) >= 6:
+                del saved_messages_artur[3:]
+        except Exception:
+            self.bot.send_message(message.chat.id, "Занимайся..")
+            del saved_messages_artur[1:]
 
-        response = openai.Completion.create(
-            model="text-davinci-003",
-            prompt=(str(answer_model.read()) + ''.join(reversed(saved_messages))),
-            temperature=0.5,
-            max_tokens=1000,
-            top_p=0.3,
-            frequency_penalty=0.5,
-            presence_penalty=0.0,
-        )
-        self.bot.send_message(message.chat.id, f'{response["choices"][0]["text"]}')
-        saved_messages.insert(0, f'{str(response["choices"][0]["text"])}\n')
-        print(str(answer_model.read()))
-        print(len(saved_messages))
-        if len(saved_messages) <= 6:
-            del saved_messages[2:]
+
 
