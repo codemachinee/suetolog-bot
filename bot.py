@@ -35,7 +35,7 @@ def pidr():
         file1 = open("Я.png", 'rb')
         y = ("Игорь", file1)
         value_plus_one('A2')
-        bot.send_photo('group_id', y[1])
+        bot.send_photo(group_id, y[1])
         bot.send_message(group_id, f'''Всем привет!!! Пидарасом дня 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
