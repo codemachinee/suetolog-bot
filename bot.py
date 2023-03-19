@@ -30,7 +30,7 @@ kb1.add(but1, but2, but3, but4, but5, but6, but7, but8)
 
 def pidr():
     obnulenie_stat()
-    x = choice([1, 2, 3, 4, 5, 6, 7])
+    x = choice([1, 2, 3, 4, 5, 6, 7, 8, 9])
     if x == 1:
         file1 = open("Я.png", 'rb')
         y = ("Игорь", file1)
@@ -100,6 +100,26 @@ def pidr():
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
         dr()
+
+        if x == 8:
+            file1 = open("Кирилл.png", 'rb')
+            y = ("Кирюха подкастер", file1)
+            value_plus_one('A8')
+            bot.send_photo(group_id, y[1])
+            bot.send_message(group_id, f'''Всем привет!! Пидарасом дня 
+    {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
+    Справка по боту: /help''')
+            dr()
+
+            if x == 9:
+                file1 = open("Женек.png", 'rb')
+                y = ("Женек спасатель", file1)
+                value_plus_one('A9')
+                bot.send_photo(group_id, y[1])
+                bot.send_message(group_id, f'''Всем привет!! Пидарасом дня 
+        {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
+        Справка по боту: /help''')
+                dr()
         
         
 def dr():
