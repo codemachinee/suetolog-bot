@@ -10,6 +10,7 @@ from functions_file import value_plus_one, pstat, obnulenie_stat, ball_of_fate, 
 from paswords import *
 
 token = lemonade
+#token = major_suetolog
 
 bot = telebot.TeleBot(token)
 
@@ -101,25 +102,25 @@ def pidr():
 Справка по боту: /help''')
         dr()
 
-        if x == 8:
-            file1 = open("Кирилл.png", 'rb')
-            y = ("Кирюха подкастер", file1)
-            value_plus_one('A8')
-            bot.send_photo(group_id, y[1])
-            bot.send_message(group_id, f'''Всем привет!! Пидарасом дня 
-    {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
-    Справка по боту: /help''')
-            dr()
+    if x == 8:
+        file1 = open("Кирилл.png", 'rb')
+        y = ("Кирюха подкастер", file1)
+        value_plus_one('A8')
+        bot.send_photo(group_id, y[1])
+        bot.send_message(group_id, f'''Всем привет!! Пидарасом дня 
+{datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
+Справка по боту: /help''')
+        dr()
 
-            if x == 9:
-                file1 = open("Женек.png", 'rb')
-                y = ("Женек спасатель", file1)
-                value_plus_one('A9')
-                bot.send_photo(group_id, y[1])
-                bot.send_message(group_id, f'''Всем привет!! Пидарасом дня 
-        {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
-        Справка по боту: /help''')
-                dr()
+    if x == 9:
+        file1 = open("Женек.png", 'rb')
+        y = ("Женек спасатель", file1)
+        value_plus_one('A9')
+        bot.send_photo(group_id, y[1])
+        bot.send_message(group_id, f'''Всем привет!! Пидарасом дня 
+{datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
+Справка по боту: /help''')
+        dr()
         
         
 def dr():
@@ -298,7 +299,8 @@ def sent_message_perehvat(message):
 
 if __name__ == '__main__':
     scheduler = BackgroundScheduler()
-    scheduler.add_job(pidr, "cron", day_of_week='mon-sun', hour=11)
+    #scheduler.add_job(pidr, "cron", day_of_week='mon-sun', hour=11)
+    scheduler.add_job(pidr, "interval", seconds=5)
     scheduler.start()
 
     
