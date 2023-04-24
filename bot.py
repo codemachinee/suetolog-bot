@@ -9,8 +9,8 @@ from random import *
 from functions_file import value_plus_one, pstat, obnulenie_stat, ball_of_fate, Davinci, Artur
 from paswords import *
 
-token = lemonade
-#token = major_suetolog
+#token = lemonade
+token = major_suetolog
 
 bot = telebot.TeleBot(token)
 
@@ -33,7 +33,7 @@ def pidr():
     obnulenie_stat()
     x = choice([1, 2, 3, 4, 5, 6, 7, 8, 9])
     if x == 1:
-        file1 = open("Я.png", 'rb')
+        file1 = open("Я.jpg", 'rb')
         y = ("Игорь", file1)
         value_plus_one('A2')
         bot.send_photo(group_id, y[1])
@@ -43,7 +43,7 @@ def pidr():
         dr()
 
     if x == 2:
-        file1 = open("Филч.png", 'rb')
+        file1 = open("Филч.jpg", 'rb')
         y = ("Филч", file1)
         value_plus_one('A1')
         bot.send_photo(group_id, y[1])
@@ -53,7 +53,7 @@ def pidr():
         dr()
 
     if x == 3:
-        file1 = open("Серега.png", 'rb')
+        file1 = open("Серега.jpg", 'rb')
         y = ("Серега", file1)
         value_plus_one('A3')
         bot.send_photo(group_id, y[1])
@@ -63,7 +63,7 @@ def pidr():
         dr()
 
     if x == 4:
-        file1 = open("Леха.png", 'rb')
+        file1 = open("Леха.jpg", 'rb')
         y = ("Леха(Саня)", file1)
         value_plus_one('A5')
         bot.send_photo(group_id, y[1])
@@ -83,7 +83,7 @@ def pidr():
         dr()
 
     if x == 6:
-        file1 = open("маугли.png", 'rb')
+        file1 = open("маугли.jpg", 'rb')
         y = ("Маугли", file1)
         value_plus_one('A7')
         bot.send_photo(group_id, y[1])
@@ -93,7 +93,7 @@ def pidr():
         dr()
 
     if x == 7:
-        file1 = open("саня.png", 'rb')
+        file1 = open("саня.jpg", 'rb')
         y = ("Саня", file1)
         value_plus_one('A4')
         bot.send_photo(group_id, y[1])
@@ -103,7 +103,7 @@ def pidr():
         dr()
 
     if x == 8:
-        file1 = open("Кирилл.png", 'rb')
+        file1 = open("Кирилл.jpg", 'rb')
         y = ("Кирюха подкастер", file1)
         value_plus_one('A8')
         bot.send_photo(group_id, y[1])
@@ -113,7 +113,7 @@ def pidr():
         dr()
 
     if x == 9:
-        file1 = open("Женек.png", 'rb')
+        file1 = open("Женек.jpg", 'rb')
         y = ("Женек спасатель", file1)
         value_plus_one('A9')
         bot.send_photo(group_id, y[1])
