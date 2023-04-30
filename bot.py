@@ -26,7 +26,8 @@ but5 = types.InlineKeyboardButton(text='Таблица расходов', url='h
 but6 = types.InlineKeyboardButton(text='Яндекс.Диск', url='https://disk.yandex.ru/client/disk/бот%20суетологов/суетологи')
 but7 = types.InlineKeyboardButton(text='Важное про Орёл', callback_data='btn')
 but8 = types.InlineKeyboardButton(text='Шар судьбы', callback_data='bof')
-kb1.add(but1, but2, but3, but4, but5, but6, but7, but8)
+but9 = types.InlineKeyboardButton(text='Игровой чат', url='http://178.57.222.84/http://178.57.222.84/')
+kb1.add(but1, but2, but3, but4, but5, but6, but7, but8, but9)
 
 
 def pidr():
