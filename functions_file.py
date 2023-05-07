@@ -19,15 +19,15 @@ def value_plus_one(j):
 
 
 # функция открывает гугл таблицу статистики и возвращает все значения в отсортированном виде
-def pstat():
+def pstat(cell):
     gc = gspread.service_account(filename='pidor-of-the-day-af3dd140b860.json')
     sh = gc.open("bot_statistic")
     worksheet = sh.get_worksheet(0)
-    d1 = [(int(worksheet.acell('A1').value), "Филч"), (int(worksheet.acell('A2').value), "Игорь"),
-          (int(worksheet.acell('A3').value), "Серега"), (int(worksheet.acell('A4').value), "Саня"),
-          (int(worksheet.acell('A5').value), "Леха(Саня)"), (int(worksheet.acell('A6').value), "Леха(Фитиль)"),
-          (int(worksheet.acell('A7').value), "Диман"), (int(worksheet.acell('A8').value), "Кирюха подкастер"),
-          (int(worksheet.acell('A9').value), "Женек спасатель")]
+    d1 = [(int(worksheet.acell(f'{cell}1').value), "Филч"), (int(worksheet.acell(f'{cell}2').value), "Игорь"),
+          (int(worksheet.acell(f'{cell}3').value), "Серега"), (int(worksheet.acell(f'{cell}4').value), "Саня"),
+          (int(worksheet.acell(f'{cell}5').value), "Леха(Саня)"), (int(worksheet.acell(f'{cell}6').value), "Леха(Фитиль)"),
+          (int(worksheet.acell(f'{cell}7').value), "Диман"), (int(worksheet.acell(f'{cell}8').value), "Кирюха подкастер"),
+          (int(worksheet.acell(f'{cell}9').value), "Женек спасатель")]
     d1_sort = sorted(d1, reverse=True)
     return (f'''РЕЙТИНГ ПИДАРАСОВ:
 
@@ -54,7 +54,57 @@ def obnulenie_stat():
         gc = gspread.service_account(filename='pidor-of-the-day-af3dd140b860.json')
         sh = gc.open("bot_statistic")
         worksheet = sh.get_worksheet(0)
+        d1 = [(int(worksheet.acell('A1').value), "Филч"), (int(worksheet.acell('A2').value), "Игорь"),
+              (int(worksheet.acell('A3').value), "Серега"), (int(worksheet.acell('A4').value), "Саня"),
+              (int(worksheet.acell('A5').value), "Леха(Саня)"), (int(worksheet.acell('A6').value), "Леха(Фитиль)"),
+              (int(worksheet.acell('A7').value), "Диман"), (int(worksheet.acell('A8').value), "Кирюха подкастер"),
+              (int(worksheet.acell('A9').value), "Женек спасатель")]
+        d1_sort = sorted(d1, reverse=True)
+        cell = worksheet.find(d1_sort[0][1], in_column=2)
+        worksheet.update(f'C{cell.row}', f'{int(worksheet.acell(f"C{cell.row}").value) + 1}')
         worksheet.update('A1:A9', [[0], [0], [0], [0], [0], [0], [0], [0], [0]])
+        return (f'''ИТОГИ МЕСЯЦА:
+
+        1. {d1_sort[0][1]} -----> {d1_sort[0][0]} раз(а) 🎉🎉🎉 ЧЕМПИОН!!!
+        2. {d1_sort[1][1]} -----> {d1_sort[1][0]} раз(а)
+        3. {d1_sort[2][1]} -----> {d1_sort[2][0]} раз(а)
+        4. {d1_sort[3][1]} -----> {d1_sort[3][0]} раз(а)
+        5. {d1_sort[4][1]} -----> {d1_sort[4][0]} раз(а)
+        6. {d1_sort[5][1]} -----> {d1_sort[5][0]} раз(а)
+        7. {d1_sort[6][1]} -----> {d1_sort[6][0]} раз(а)
+        8. {d1_sort[7][1]} -----> {d1_sort[7][0]} раз(а)
+        9. {d1_sort[8][1]} -----> {d1_sort[8][0]} раз(а)
+
+        Да здравствует наш чемпион месяца {d1_sort[0][1]}! В тяжелейшей борьбе он таки вырвал свою заслуженную победу.
+        Пожелаем ему здоровья, успехов в личной жизни и новых побед.''')
+    if datetime.now().day == 31 and datetime.now().day == 12:
+        gc = gspread.service_account(filename='pidor-of-the-day-af3dd140b860.json')
+        sh = gc.open("bot_statistic")
+        worksheet = sh.get_worksheet(0)
+        d1 = [(int(worksheet.acell('A1').value), "Филч"), (int(worksheet.acell('A2').value), "Игорь"),
+              (int(worksheet.acell('A3').value), "Серега"), (int(worksheet.acell('A4').value), "Саня"),
+              (int(worksheet.acell('A5').value), "Леха(Саня)"), (int(worksheet.acell('A6').value), "Леха(Фитиль)"),
+              (int(worksheet.acell('A7').value), "Диман"), (int(worksheet.acell('A8').value), "Кирюха подкастер"),
+              (int(worksheet.acell('A9').value), "Женек спасатель")]
+        d1_sort = sorted(d1, reverse=True)
+        cell = worksheet.find(d1_sort[0][1], in_column=2)
+        worksheet.update(f'C{cell.row}', f'{int(worksheet.acell(f"C{cell.row}").value) + 1}')
+        worksheet.update('A1:A9', [[0], [0], [0], [0], [0], [0], [0], [0], [0]])
+        return (f'''ИТОГИ МЕСЯЦА:
+
+                1. {d1_sort[0][1]} -----> {d1_sort[0][0]} раз(а) 🎉🎉🎉 ЧЕМПИОН!!!
+                2. {d1_sort[1][1]} -----> {d1_sort[1][0]} раз(а)
+                3. {d1_sort[2][1]} -----> {d1_sort[2][0]} раз(а)
+                4. {d1_sort[3][1]} -----> {d1_sort[3][0]} раз(а)
+                5. {d1_sort[4][1]} -----> {d1_sort[4][0]} раз(а)
+                6. {d1_sort[5][1]} -----> {d1_sort[5][0]} раз(а)
+                7. {d1_sort[6][1]} -----> {d1_sort[6][0]} раз(а)
+                8. {d1_sort[7][1]} -----> {d1_sort[7][0]} раз(а)
+                9. {d1_sort[8][1]} -----> {d1_sort[8][0]} раз(а)
+
+                Да здравствует наш чемпион месяца {d1_sort[0][1]}! В тяжелейшей борьбе он таки вырвал свою заслуженную победу.
+                Пожелаем ему здоровья, успехов в личной жизни и новых побед.''')
+
 
 
 # функция шара судьбы

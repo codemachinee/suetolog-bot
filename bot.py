@@ -207,11 +207,14 @@ def dr():
         gc = gspread.service_account(filename='pidor-of-the-day-af3dd140b860.json')
         sh = gc.open("bot_statistic")
         worksheet = sh.get_worksheet(0)
-        d1 = [(int(worksheet.acell('A1').value), "Филч"), (int(worksheet.acell('A2').value), "Игорь"),
-              (int(worksheet.acell('A3').value), "Серега"), (int(worksheet.acell('A4').value), "Саня"),
-              (int(worksheet.acell('A5').value), "Леха(Саня)"), (int(worksheet.acell('A6').value), "Леха(Фитиль)"),
-              (int(worksheet.acell('A7').value), "Диман")]
+        d1 = [(int(worksheet.acell('C1').value), "Филч"), (int(worksheet.acell('C2').value), "Игорь"),
+              (int(worksheet.acell('C3').value), "Серега"), (int(worksheet.acell('C4').value), "Саня"),
+              (int(worksheet.acell('C5').value), "Леха(Саня)"), (int(worksheet.acell('C6').value), "Леха(Фитиль)"),
+              (int(worksheet.acell('C7').value), "Диман"), (int(worksheet.acell('C8').value), "Кирюха подкастер"),
+              (int(worksheet.acell('C9').value), "Женек спасатель")]
         d1_sort = sorted(d1, reverse=True)
+        cell = worksheet.find(d1_sort[0][1], in_column=2)
+        worksheet.update(f'D{cell.row}', f'{int(worksheet.acell(f"D{cell.row}").value) + 1}')
         bot.send_message(group_id, f'🍾🍾🍾ии.. им становится {d1_sort[0][1]}! Самый главный пидрила черезвычайно'
                                    f' пидарского года!!! {d1_sort[0][1]} прийми наши поздравления, а также '
                                    f'обязательства по амбоссадорству "Голубой устрицы". На ближайший год '
@@ -229,7 +232,7 @@ def check_callback(callback):
     if callback.data == 'btn':
         file2 = open("важно.jpeg", 'rb')
         bot.send_photo(group_id, file2)
-    if callback.data == 'bof':
+    elif callback.data == 'bof':
         start_file = open("ball/start_image.png", 'rb')
         bot.send_photo(callback.message.chat.id, start_file)
         bot.send_message(callback.message.chat.id, '''Решил попытать удачу или просто переложить ответственность?
@@ -239,6 +242,27 @@ def check_callback(callback):
         but2 = types.KeyboardButton(text='Шар съебись')
         kb1.add(but1, but2)
         bot.send_message(callback.message.chat.id, '...', reply_markup=kb1)
+    elif callback.data == 'stat_day':
+        kb2 = types.InlineKeyboardMarkup(row_width=1)
+        but1 = types.InlineKeyboardButton(text='Статистика по месяцам', callback_data='stat_month')
+        but2 = types.InlineKeyboardButton(text='Статистика по годам', callback_data='stat_year')
+        kb2.add(but1, but2)
+        bot.edit_message_text(pstat('A'), callback.message.chat.id, callback.message.id)
+        bot.edit_message_reply_markup(callback.message.chat.id, callback.message.id, reply_markup=kb2)
+    elif callback.data == 'stat_month':
+        kb2 = types.InlineKeyboardMarkup(row_width=1)
+        but1 = types.InlineKeyboardButton(text='Статистика по дням', callback_data='stat_day')
+        but2 = types.InlineKeyboardButton(text='Статистика по годам', callback_data='stat_year')
+        kb2.add(but1, but2)
+        bot.edit_message_text(pstat('C'), callback.message.chat.id, callback.message.id)
+        bot.edit_message_reply_markup(callback.message.chat.id, callback.message.id, reply_markup=kb2)
+    elif callback.data == 'stat_year':
+        kb2 = types.InlineKeyboardMarkup(row_width=1)
+        but1 = types.InlineKeyboardButton(text='Статистика по дням', callback_data='stat_day', commands=['pidorstat'])
+        but2 = types.InlineKeyboardButton(text='Статистика по месяцам', callback_data='stat_month')
+        kb2.add(but1, but2)
+        bot.edit_message_text(pstat('D'), callback.message.chat.id, callback.message.id)
+        bot.edit_message_reply_markup(callback.message.chat.id, callback.message.id, reply_markup=kb2)
 
 
 @bot.message_handler(commands=['help'])
@@ -267,7 +291,11 @@ def orel(message):
 
 @bot.message_handler(commands=['pidorstat'])
 def test(message):
-    bot.send_message(message.chat.id, pstat())
+    kb2 = types.InlineKeyboardMarkup(row_width=1)
+    but1 = types.InlineKeyboardButton(text='Статистика по месяцам', callback_data='stat_month')
+    but2 = types.InlineKeyboardButton(text='Статистика по годам', callback_data='stat_year')
+    kb2.add(but1, but2)
+    bot.send_message(message.chat.id, pstat('A'), reply_markup=kb2)
 
 
 @bot.message_handler(commands=['test'])
@@ -319,8 +347,8 @@ def sent_message_perehvat(message):
 
 if __name__ == '__main__':
     scheduler = BackgroundScheduler()
-    #scheduler.add_job(pidr, "cron", day_of_week='mon-sun', hour=11)
-    scheduler.add_job(pidr, "interval", seconds=5)
+    scheduler.add_job(pidr, "cron", day_of_week='mon-sun', hour=11)
+    #scheduler.add_job(pidr, "interval", seconds=10)
     scheduler.start()
 
     
