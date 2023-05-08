@@ -9,8 +9,8 @@ from random import *
 from functions_file import value_plus_one, pstat, obnulenie_stat, ball_of_fate, Davinci, Artur
 from paswords import *
 
-#token = lemonade
-token = major_suetolog
+token = lemonade
+# token = major_suetolog
 
 bot = telebot.TeleBot(token)
 
@@ -243,25 +243,28 @@ def check_callback(callback):
         kb1.add(but1, but2)
         bot.send_message(callback.message.chat.id, '...', reply_markup=kb1)
     elif callback.data == 'stat_day':
+        load_message = (bot.edit_message_text('Загрузка..⏳', callback.message.chat.id, callback.message.id).message_id)
         kb2 = types.InlineKeyboardMarkup(row_width=1)
         but1 = types.InlineKeyboardButton(text='Статистика по месяцам', callback_data='stat_month')
         but2 = types.InlineKeyboardButton(text='Статистика по годам', callback_data='stat_year')
         kb2.add(but1, but2)
-        bot.edit_message_text(pstat('A'), callback.message.chat.id, callback.message.id)
+        bot.edit_message_text(pstat('A'), callback.message.chat.id, load_message)
         bot.edit_message_reply_markup(callback.message.chat.id, callback.message.id, reply_markup=kb2)
     elif callback.data == 'stat_month':
+        load_message = (bot.edit_message_text('Загрузка..⏳', callback.message.chat.id, callback.message.id).message_id)
         kb2 = types.InlineKeyboardMarkup(row_width=1)
         but1 = types.InlineKeyboardButton(text='Статистика по дням', callback_data='stat_day')
         but2 = types.InlineKeyboardButton(text='Статистика по годам', callback_data='stat_year')
         kb2.add(but1, but2)
-        bot.edit_message_text(pstat('C'), callback.message.chat.id, callback.message.id)
+        bot.edit_message_text(pstat('C'), callback.message.chat.id, load_message)
         bot.edit_message_reply_markup(callback.message.chat.id, callback.message.id, reply_markup=kb2)
     elif callback.data == 'stat_year':
+        load_message = (bot.edit_message_text('Загрузка..⏳', callback.message.chat.id, callback.message.id).message_id)
         kb2 = types.InlineKeyboardMarkup(row_width=1)
         but1 = types.InlineKeyboardButton(text='Статистика по дням', callback_data='stat_day', commands=['pidorstat'])
         but2 = types.InlineKeyboardButton(text='Статистика по месяцам', callback_data='stat_month')
         kb2.add(but1, but2)
-        bot.edit_message_text(pstat('D'), callback.message.chat.id, callback.message.id)
+        bot.edit_message_text(pstat('D'), callback.message.chat.id, load_message)
         bot.edit_message_reply_markup(callback.message.chat.id, callback.message.id, reply_markup=kb2)
 
 
@@ -291,11 +294,12 @@ def orel(message):
 
 @bot.message_handler(commands=['pidorstat'])
 def test(message):
+    b = (bot.send_message(message.chat.id, 'Загрузка..⏳').message_id)
     kb2 = types.InlineKeyboardMarkup(row_width=1)
     but1 = types.InlineKeyboardButton(text='Статистика по месяцам', callback_data='stat_month')
     but2 = types.InlineKeyboardButton(text='Статистика по годам', callback_data='stat_year')
     kb2.add(but1, but2)
-    bot.send_message(message.chat.id, pstat('A'), reply_markup=kb2)
+    bot.edit_message_text(pstat('A'), message.chat.id, b, reply_markup=kb2)
 
 
 @bot.message_handler(commands=['test'])
