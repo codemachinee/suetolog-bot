@@ -31,7 +31,7 @@ kb1.add(but1, but2, but3, but4, but5, but6, but7, but8, but9)
 
 
 def pidr():
-    obnulenie_stat()
+    obnulenie_stat(bot)
     x = choice([1, 2, 3, 4, 5, 6, 7, 8, 9])
     if x == 1:
         file1 = open("Я.jpg", 'rb')

@@ -49,7 +49,7 @@ def pstat(cell):
 
 
 # функция обнуляющая все значения статистики в первый день нового месяца
-def obnulenie_stat():
+def obnulenie_stat(bot):
     if datetime.now().day == 1:
         gc = gspread.service_account(filename='pidor-of-the-day-af3dd140b860.json')
         sh = gc.open("bot_statistic")
@@ -63,7 +63,7 @@ def obnulenie_stat():
         cell = worksheet.find(d1_sort[0][1], in_column=2)
         worksheet.update(f'C{cell.row}', f'{int(worksheet.acell(f"C{cell.row}").value) + 1}')
         worksheet.update('A1:A9', [[0], [0], [0], [0], [0], [0], [0], [0], [0]])
-        return (f'''ИТОГИ МЕСЯЦА:
+        bot.send_message(group_id, f'''ИТОГИ МЕСЯЦА:
 
         1. {d1_sort[0][1]} -----> {d1_sort[0][0]} раз(а) 🎉🎉🎉 ЧЕМПИОН!!!
         2. {d1_sort[1][1]} -----> {d1_sort[1][0]} раз(а)
@@ -90,7 +90,7 @@ def obnulenie_stat():
         cell = worksheet.find(d1_sort[0][1], in_column=2)
         worksheet.update(f'C{cell.row}', f'{int(worksheet.acell(f"C{cell.row}").value) + 1}')
         worksheet.update('A1:A9', [[0], [0], [0], [0], [0], [0], [0], [0], [0]])
-        return (f'''ИТОГИ МЕСЯЦА:
+        bot.send_message(group_id, f'''ИТОГИ МЕСЯЦА:
 
                 1. {d1_sort[0][1]} -----> {d1_sort[0][0]} раз(а) 🎉🎉🎉 ЧЕМПИОН!!!
                 2. {d1_sort[1][1]} -----> {d1_sort[1][0]} раз(а)
