@@ -77,7 +77,7 @@ def obnulenie_stat(bot):
 
         Да здравствует наш чемпион месяца {d1_sort[0][1]}! В тяжелейшей борьбе он таки вырвал свою заслуженную победу.
         Пожелаем ему здоровья, успехов в личной жизни и новых побед.''')
-    if datetime.now().day == 31 and datetime.now().day == 12:
+    if datetime.now().day == 31 and datetime.now().month == 12:
         gc = gspread.service_account(filename='pidor-of-the-day-af3dd140b860.json')
         sh = gc.open("bot_statistic")
         worksheet = sh.get_worksheet(0)
@@ -88,9 +88,10 @@ def obnulenie_stat(bot):
               (int(worksheet.acell('A9').value), "Женек спасатель")]
         d1_sort = sorted(d1, reverse=True)
         cell = worksheet.find(d1_sort[0][1], in_column=2)
-        worksheet.update(f'C{cell.row}', f'{int(worksheet.acell(f"C{cell.row}").value) + 1}')
+        worksheet.update(f'D{cell.row}', f'{int(worksheet.acell(f"D{cell.row}").value) + 1}')
         worksheet.update('A1:A9', [[0], [0], [0], [0], [0], [0], [0], [0], [0]])
-        bot.send_message(group_id, f'''ИТОГИ МЕСЯЦА:
+        worksheet.update('C1:C9', [[0], [0], [0], [0], [0], [0], [0], [0], [0]])
+        bot.send_message(group_id, f'''ИТОГИ ГОДА:
 
                 1. {d1_sort[0][1]} -----> {d1_sort[0][0]} раз(а) 🎉🎉🎉 ЧЕМПИОН!!!
                 2. {d1_sort[1][1]} -----> {d1_sort[1][0]} раз(а)
