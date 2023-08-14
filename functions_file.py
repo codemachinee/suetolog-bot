@@ -81,11 +81,11 @@ def obnulenie_stat(bot):
         gc = gspread.service_account(filename='pidor-of-the-day-af3dd140b860.json')
         sh = gc.open("bot_statistic")
         worksheet = sh.get_worksheet(0)
-        d1 = [(int(worksheet.acell('A1').value), "Филч"), (int(worksheet.acell('A2').value), "Игорь"),
-              (int(worksheet.acell('A3').value), "Серега"), (int(worksheet.acell('A4').value), "Саня"),
-              (int(worksheet.acell('A5').value), "Леха(Саня)"), (int(worksheet.acell('A6').value), "Леха(Фитиль)"),
-              (int(worksheet.acell('A7').value), "Диман"), (int(worksheet.acell('A8').value), "Кирюха подкастер"),
-              (int(worksheet.acell('A9').value), "Женек спасатель")]
+        d1 = [(int(worksheet.acell('C1').value), "Филч"), (int(worksheet.acell('C2').value), "Игорь"),
+              (int(worksheet.acell('C3').value), "Серега"), (int(worksheet.acell('C4').value), "Саня"),
+              (int(worksheet.acell('C5').value), "Леха(Саня)"), (int(worksheet.acell('C6').value), "Леха(Фитиль)"),
+              (int(worksheet.acell('C7').value), "Диман"), (int(worksheet.acell('C8').value), "Кирюха подкастер"),
+              (int(worksheet.acell('C9').value), "Женек спасатель")]
         d1_sort = sorted(d1, reverse=True)
         cell = worksheet.find(d1_sort[0][1], in_column=2)
         worksheet.update(f'D{cell.row}', f'{int(worksheet.acell(f"D{cell.row}").value) + 1}')
@@ -103,8 +103,33 @@ def obnulenie_stat(bot):
                 8. {d1_sort[7][1]} -----> {d1_sort[7][0]} раз(а)
                 9. {d1_sort[8][1]} -----> {d1_sort[8][0]} раз(а)
 
-                Да здравствует наш чемпион месяца {d1_sort[0][1]}! В тяжелейшей борьбе он таки вырвал свою заслуженную победу.
+                Да здравствует наш ПИДАРАС года {d1_sort[0][1]}! В тяжелейшей борьбе он таки вырвал свою заслуженную победу.
                 Пожелаем ему здоровья, успехов в личной жизни и новых побед.''')
+    else:
+        pass
+
+
+def celebrate_day():
+    if datetime.now().day == 31 and datetime.now().month == 12:
+        return '🎉Новогодним пидарасом🎉'
+    elif datetime.now().day == 7 and datetime.now().month == 1:
+        return '🎉Рождественским пидарасом🎉'
+    elif datetime.now().day == 14 and datetime.now().month == 1:
+        return '🎉Староновогодним пидарасом🎉'
+    elif datetime.now().day == 14 and datetime.now().month == 2:
+        return '🎉Личным пидарасом Валентина🎉'
+    elif datetime.now().day == 23 and datetime.now().month == 2:
+        return '🎉Защищенным пидарасом🎉'
+    elif datetime.now().day == 8 and datetime.now().month == 3:
+        return '🎉Международным женским пидарасом🎉'
+    elif datetime.now().day == 1 and datetime.now().month == 5:
+        return '🎉Мирным трудолюбивым и майским пидарасом🎉'
+    elif datetime.now().day == 1 and datetime.now().month == 9:
+        return '🎉Школьным пидарасом🎉'
+    elif datetime.now().day == 4 and datetime.now().month == 11:
+        return '🎉Народным пидарасом🎉'
+    else:
+        return 'Пидарасом дня'
 
 
 

@@ -6,7 +6,7 @@ from telebot import types
 from apscheduler.schedulers.background import BackgroundScheduler
 from datetime import datetime
 from random import *
-from functions_file import value_plus_one, pstat, obnulenie_stat, ball_of_fate, Davinci, Artur
+from functions_file import value_plus_one, pstat, obnulenie_stat, ball_of_fate, Davinci, Artur, celebrate_day
 from paswords import *
 
 token = lemonade
@@ -38,7 +38,7 @@ def pidr():
         y = ("Игорь", file1)
         value_plus_one('A2')
         bot.send_photo(group_id, y[1])
-        bot.send_message(group_id, f'''Всем привет!!! Пидарасом дня 
+        bot.send_message(group_id, f'''Всем привет!!! {celebrate_day()} 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
         dr()
@@ -48,7 +48,7 @@ def pidr():
         y = ("Филч", file1)
         value_plus_one('A1')
         bot.send_photo(group_id, y[1])
-        bot.send_message(group_id, f'''Всем привет!!! Пидарасом дня 
+        bot.send_message(group_id, f'''Всем привет!!! {celebrate_day()} 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
         dr()
@@ -58,7 +58,7 @@ def pidr():
         y = ("Серега", file1)
         value_plus_one('A3')
         bot.send_photo(group_id, y[1])
-        bot.send_message(group_id, f'''Всем привет!! Пидарасом дня 
+        bot.send_message(group_id, f'''Всем привет!! {celebrate_day()} 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
         dr()
@@ -68,7 +68,7 @@ def pidr():
         y = ("Леха(Саня)", file1)
         value_plus_one('A5')
         bot.send_photo(group_id, y[1])
-        bot.send_message(group_id, f'''Всем привет!! Пидарасом дня 
+        bot.send_message(group_id, f'''Всем привет!! {celebrate_day()} 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
         dr()
@@ -78,7 +78,7 @@ def pidr():
         y = ("Леха(Фитиль)", file1)
         value_plus_one('A6')
         bot.send_photo(group_id, y[1])
-        bot.send_message(group_id, f'''Всем привет!! Пидарасом дня 
+        bot.send_message(group_id, f'''Всем привет!! {celebrate_day()} 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
         dr()
@@ -88,7 +88,7 @@ def pidr():
         y = ("Маугли", file1)
         value_plus_one('A7')
         bot.send_photo(group_id, y[1])
-        bot.send_message(group_id, f'''Всем привет!! Пидарасом дня 
+        bot.send_message(group_id, f'''Всем привет!! {celebrate_day()}
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
         dr()
@@ -98,7 +98,7 @@ def pidr():
         y = ("Саня", file1)
         value_plus_one('A4')
         bot.send_photo(group_id, y[1])
-        bot.send_message(group_id, f'''Всем привет!! Пидарасом дня 
+        bot.send_message(group_id, f'''Всем привет!! {celebrate_day()} 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
         dr()
@@ -108,7 +108,7 @@ def pidr():
         y = ("Кирюха подкастер", file1)
         value_plus_one('A8')
         bot.send_photo(group_id, y[1])
-        bot.send_message(group_id, f'''Всем привет!! Пидарасом дня 
+        bot.send_message(group_id, f'''Всем привет!! {celebrate_day()} 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
         dr()
@@ -118,7 +118,7 @@ def pidr():
         y = ("Женек спасатель", file1)
         value_plus_one('A9')
         bot.send_photo(group_id, y[1])
-        bot.send_message(group_id, f'''Всем привет!! Пидарасом дня 
+        bot.send_message(group_id, f'''Всем привет!! {celebrate_day()} 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
         dr()
