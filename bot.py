@@ -9,8 +9,9 @@ from random import *
 from functions_file import value_plus_one, pstat, obnulenie_stat, ball_of_fate, Davinci, Artur, celebrate_day
 from paswords import *
 
-token = lemonade
-# token = major_suetolog
+#token = lemonade
+#token = codemashine_test
+token = major_suetolog
 
 bot = telebot.TeleBot(token)
 
@@ -32,7 +33,7 @@ kb1.add(but1, but2, but3, but4, but5, but6, but7, but8, but9)
 
 def pidr():
     obnulenie_stat(bot)
-    x = choice([1, 2, 3, 4, 5, 6, 7, 8, 9])
+    x = choice([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
     if x == 1:
         file1 = open("Я.jpg", 'rb')
         y = ("Игорь", file1)
@@ -117,6 +118,15 @@ def pidr():
         file1 = open("Женек.jpg", 'rb')
         y = ("Женек спасатель", file1)
         value_plus_one('A9')
+        bot.send_photo(group_id, y[1])
+        bot.send_message(group_id, f'''Всем привет!! {celebrate_day()} 
+{datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
+Справка по боту: /help''')
+        dr()
+    if x == 10:
+        file1 = open("Евгений.png", 'rb')
+        y = ("Женек старый", file1)
+        value_plus_one('A10')
         bot.send_photo(group_id, y[1])
         bot.send_message(group_id, f'''Всем привет!! {celebrate_day()} 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
@@ -211,7 +221,7 @@ def dr():
               (int(worksheet.acell('C3').value), "Серега"), (int(worksheet.acell('C4').value), "Саня"),
               (int(worksheet.acell('C5').value), "Леха(Саня)"), (int(worksheet.acell('C6').value), "Леха(Фитиль)"),
               (int(worksheet.acell('C7').value), "Диман"), (int(worksheet.acell('C8').value), "Кирюха подкастер"),
-              (int(worksheet.acell('C9').value), "Женек спасатель")]
+              (int(worksheet.acell('C9').value), "Женек спасатель"), (int(worksheet.acell('C10').value), "Женек старый")]
         d1_sort = sorted(d1, reverse=True)
         cell = worksheet.find(d1_sort[0][1], in_column=2)
         worksheet.update(f'D{cell.row}', f'{int(worksheet.acell(f"D{cell.row}").value) + 1}')
