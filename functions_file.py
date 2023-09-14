@@ -238,7 +238,6 @@ def Artur_pozdravlyaet(bot, text):
         answer_model = open('Artur.txt', 'r', encoding='utf-8')
         saved_messages_artur.insert(0, f'Вы: {text}\n')
         prompt_text = (str(answer_model.read()) + ''.join(reversed(saved_messages_artur)))
-        bot.send_message(group_id, f'секунду..')
         response = g4f.ChatCompletion.create(
             model='gpt-3.5-turbo',
             messages=[{"role": "user", "content": f'{prompt_text}'}],
