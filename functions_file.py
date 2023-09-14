@@ -1,6 +1,9 @@
 # библиотека работы с гугл таблицами
 import gspread
 import openai
+import g4f
+from g4f.Provider import (
+    Aichat)
 # библиотека проверки даты
 from datetime import datetime
 # библиотека рандома
@@ -9,6 +12,7 @@ from paswords import *
 
 saved_messages_davinci = []
 saved_messages_artur = []
+
 
 # функция открывает гугл таблицу статистики, начисляет балл и возвращает новое значение
 def value_plus_one(j):
@@ -183,23 +187,19 @@ class Davinci:
             self.bot = bot
             self.message = message
             self.text = text
-            openai.api_key = Davinci_key
-            answer_davinci = open('davinci.txt', 'r', encoding='utf-8')
+            answer_davinci = open('davinci.txt.txt', 'r', encoding='utf-8')
             saved_messages_davinci.insert(0, f'Вы: {self.text}\n')
             prompt_davinci = (str(answer_davinci.read()) + ''.join(reversed(saved_messages_davinci)))
             self.bot.send_message(message.chat.id, f'секунду..')
 
-            response = openai.Completion.create(
-                model="text-davinci-003",
-                prompt=prompt_davinci,
-                temperature=0.3,
-                max_tokens=1000,
-                top_p=1,
-                frequency_penalty=0.0,
-                presence_penalty=0.0,
-            )
-            self.bot.send_message(message.chat.id, f'{response["choices"][0]["text"]}')
-            saved_messages_davinci.insert(0, f'{str(response["choices"][0]["text"])}\n')
+            response = g4f.ChatCompletion.create(
+                model='gpt-3.5-turbo',
+                messages=[{"role": "user", "content": f'{prompt_davinci}'}],
+                provider=Aichat,
+                stream=False)
+
+            self.bot.send_message(message.chat.id, f'{response}')
+            saved_messages_davinci.insert(0, f'{str(response)}\n')
             if len(saved_messages_davinci) >= 8:
                 del saved_messages_davinci[3:]
         except Exception:
@@ -215,22 +215,17 @@ class Artur:
             self.bot = bot
             self.message = message
             self.text = text
-            openai.api_key = Davinci_key
             answer_model = open('Artur.txt', 'r', encoding='utf-8')
             saved_messages_artur.insert(0, f'Вы: {self.text}\n')
             prompt_text = (str(answer_model.read()) + ''.join(reversed(saved_messages_artur)))
             self.bot.send_message(message.chat.id, f'секунду..')
-            response = openai.Completion.create(
-                model="text-davinci-003",
-                prompt=prompt_text,
-                temperature=0.5,
-                max_tokens=1000,
-                top_p=0.3,
-                frequency_penalty=0.5,
-                presence_penalty=0.0,
-            )
-            self.bot.send_message(message.chat.id, f'{response["choices"][0]["text"]}')
-            saved_messages_artur.insert(0, f'{str(response["choices"][0]["text"])}\n')
+            response = g4f.ChatCompletion.create(
+                model='gpt-3.5-turbo',
+                messages=[{"role": "user", "content": f'{prompt_text}'}],
+                provider=Aichat,
+                stream=False)
+            self.bot.send_message(message.chat.id, f'{response}')
+            saved_messages_artur.insert(0, f'{str(response)}\n')
             if len(saved_messages_artur) >= 6:
                 del saved_messages_artur[3:]
         except Exception:
@@ -238,4 +233,22 @@ class Artur:
             del saved_messages_artur[1:]
 
 
-
+def Artur_pozdravlyaet(bot, text):
+    try:
+        answer_model = open('Artur.txt', 'r', encoding='utf-8')
+        saved_messages_artur.insert(0, f'Вы: {text}\n')
+        prompt_text = (str(answer_model.read()) + ''.join(reversed(saved_messages_artur)))
+        bot.send_message(group_id, f'секунду..')
+        response = g4f.ChatCompletion.create(
+            model='gpt-3.5-turbo',
+            messages=[{"role": "user", "content": f'{prompt_text}'}],
+            provider=Aichat,
+            stream=False)
+        bot.send_message(group_id, f'{response}')
+        saved_messages_artur.insert(0, f'{str(response)}\n')
+        if len(saved_messages_artur) >= 6:
+            del saved_messages_artur[3:]
+    except Exception:
+        bot.send_message(group_id, "Сегодня день рождения у одного нашего заднеприводного, но поскольку я вчера вечером "
+                                   "перебрал, то не подготовил ничего особенного, поэтому просто с ДР бро!")
+        del saved_messages_artur[1:]
