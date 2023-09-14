@@ -11,8 +11,8 @@ from functions_file import value_plus_one, pstat, obnulenie_stat, ball_of_fate, 
 from paswords import *
 
 #token = lemonade
-#token = codemashine_test
-token = major_suetolog
+token = codemashine_test
+#token = major_suetolog
 
 bot = telebot.TeleBot(token)
 

@@ -3,7 +3,7 @@ import gspread
 import openai
 import g4f
 from g4f.Provider import (
-    Aichat)
+    Aichat, Aivvm)
 # библиотека проверки даты
 from datetime import datetime
 # библиотека рандома
@@ -193,9 +193,9 @@ class Davinci:
             self.bot.send_message(message.chat.id, f'секунду..')
 
             response = g4f.ChatCompletion.create(
-                model='gpt-3.5-turbo',
+                model='gpt-4',
                 messages=[{"role": "user", "content": f'{prompt_davinci}'}],
-                provider=Aichat,
+                provider=Aivvm,
                 stream=False)
 
             self.bot.send_message(message.chat.id, f'{response}')
