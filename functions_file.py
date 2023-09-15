@@ -1,9 +1,6 @@
 # библиотека работы с гугл таблицами
 import gspread
-import openai
 import g4f
-from g4f.Provider import (
-    Aichat, Aivvm)
 # библиотека проверки даты
 from datetime import datetime
 # библиотека рандома
@@ -12,6 +9,8 @@ from paswords import *
 
 saved_messages_davinci = []
 saved_messages_artur = []
+provider_list = [g4f.Provider.Aichat, g4f.Provider.Aivvm, g4f.Provider.CodeLinkAva, g4f.Provider.Vitalentum,
+                 g4f.Provider.Ylokh]
 
 
 # функция открывает гугл таблицу статистики, начисляет балл и возвращает новое значение
@@ -181,6 +180,7 @@ def ball_of_fate():
 
 class Davinci:
     global saved_messages_davinci
+    global provider_list
 
     def __init__(self, bot, message, text):
         try:
@@ -193,9 +193,9 @@ class Davinci:
             self.bot.send_message(message.chat.id, f'секунду..')
 
             response = g4f.ChatCompletion.create(
-                model='gpt-4',
+                model=g4f.models.gpt_35_turbo,
                 messages=[{"role": "user", "content": f'{prompt_davinci}'}],
-                provider=Aivvm,
+                provider=choice(provider_list),
                 stream=False)
 
             self.bot.send_message(message.chat.id, f'{response}')
@@ -209,6 +209,7 @@ class Davinci:
 
 class Artur:
     global saved_messages_artur
+    global provider_list
 
     def __init__(self, bot, message, text):
         try:
@@ -220,9 +221,9 @@ class Artur:
             prompt_text = (str(answer_model.read()) + ''.join(reversed(saved_messages_artur)))
             self.bot.send_message(message.chat.id, f'секунду..')
             response = g4f.ChatCompletion.create(
-                model='gpt-3.5-turbo',
+                model=g4f.models.gpt_35_turbo,
                 messages=[{"role": "user", "content": f'{prompt_text}'}],
-                provider=Aichat,
+                provider=(choice(provider_list)),
                 stream=False)
             self.bot.send_message(message.chat.id, f'{response}')
             saved_messages_artur.insert(0, f'{str(response)}\n')
@@ -239,15 +240,14 @@ def Artur_pozdravlyaet(bot, text):
         saved_messages_artur.insert(0, f'Вы: {text}\n')
         prompt_text = (str(answer_model.read()) + ''.join(reversed(saved_messages_artur)))
         response = g4f.ChatCompletion.create(
-            model='gpt-3.5-turbo',
+            model=g4f.models.gpt_35_turbo,
             messages=[{"role": "user", "content": f'{prompt_text}'}],
-            provider=Aichat,
+            provider=choice(provider_list),
             stream=False)
         bot.send_message(group_id, f'{response}')
         saved_messages_artur.insert(0, f'{str(response)}\n')
         if len(saved_messages_artur) >= 6:
             del saved_messages_artur[3:]
     except Exception:
-        bot.send_message(group_id, "Сегодня день рождения у одного нашего заднеприводного, но поскольку я вчера вечером "
-                                   "перебрал, то не подготовил ничего особенного, поэтому просто с ДР бро!")
+        Artur_pozdravlyaet(bot, text)
         del saved_messages_artur[1:]
