@@ -9,8 +9,8 @@ from paswords import *
 
 saved_messages_davinci = []
 saved_messages_artur = []
-provider_list = [g4f.Provider.Aichat, g4f.Provider.Aivvm, g4f.Provider.CodeLinkAva, g4f.Provider.Vitalentum,
-                 g4f.Provider.Ylokh]
+provider_list = [g4f.Provider.CodeLinkAva, g4f.Provider.Ails,
+                 g4f.Provider.ChatgptAi, g4f.Provider.DeepAi, g4f.Provider.H2o]
 
 
 # функция открывает гугл таблицу статистики, начисляет балл и возвращает новое значение
@@ -187,17 +187,14 @@ class Davinci:
             self.bot = bot
             self.message = message
             self.text = text
-            answer_davinci = open('davinci.txt.txt', 'r', encoding='utf-8')
             saved_messages_davinci.insert(0, f'Вы: {self.text}\n')
-            prompt_davinci = (str(answer_davinci.read()) + ''.join(reversed(saved_messages_davinci)))
+            prompt_davinci = (''.join(reversed(saved_messages_davinci)))
             self.bot.send_message(message.chat.id, f'секунду..')
-
             response = g4f.ChatCompletion.create(
-                model=g4f.models.gpt_35_turbo,
+                model=g4f.models.default,
                 messages=[{"role": "user", "content": f'{prompt_davinci}'}],
                 provider=choice(provider_list),
                 stream=False)
-
             self.bot.send_message(message.chat.id, f'{response}')
             saved_messages_davinci.insert(0, f'{str(response)}\n')
             if len(saved_messages_davinci) >= 8:
@@ -207,47 +204,42 @@ class Davinci:
             del saved_messages_davinci[1:]
 
 
-class Artur:
-    global saved_messages_artur
-    global provider_list
-
-    def __init__(self, bot, message, text):
-        try:
-            self.bot = bot
-            self.message = message
-            self.text = text
-            answer_model = open('Artur.txt', 'r', encoding='utf-8')
-            saved_messages_artur.insert(0, f'Вы: {self.text}\n')
-            prompt_text = (str(answer_model.read()) + ''.join(reversed(saved_messages_artur)))
-            self.bot.send_message(message.chat.id, f'секунду..')
-            response = g4f.ChatCompletion.create(
-                model=g4f.models.gpt_35_turbo,
-                messages=[{"role": "user", "content": f'{prompt_text}'}],
-                provider=(choice(provider_list)),
-                stream=False)
-            self.bot.send_message(message.chat.id, f'{response}')
-            saved_messages_artur.insert(0, f'{str(response)}\n')
-            if len(saved_messages_artur) >= 6:
-                del saved_messages_artur[3:]
-        except Exception:
-            self.bot.send_message(message.chat.id, "Занимайся..")
-            del saved_messages_artur[1:]
+# class Artur:
+#     global saved_messages_artur
+#     global provider_list
+#
+#     def __init__(self, bot, message, text):
+#         try:
+#             self.bot = bot
+#             self.message = message
+#             self.text = text
+#             answer_model = open('Artur_mini.txt', 'r', encoding='utf-8')
+#             saved_messages_artur.insert(0, f'Вы: {self.text}\n')
+#             prompt_text = (str(answer_model.read()) + ''.join(reversed(saved_messages_artur)))
+#             self.bot.send_message(message.chat.id, f'секунду..')
+#             response = g4f.ChatCompletion.create(
+#                 model=g4f.models.default,
+#                 messages=[{"role": "user", "content": f'{prompt_text}'}],
+#                 provider=(choice(provider_list)),
+#                 stream=False)
+#             self.bot.send_message(message.chat.id, f'{response}')
+#             saved_messages_artur.insert(0, f'{str(response)}\n')
+#             if len(saved_messages_artur) >= 6:
+#                 del saved_messages_artur[3:]
+#         except Exception:
+#             self.bot.send_message(message.chat.id, "Занимайся..")
+#             del saved_messages_artur[1:]
 
 
 def Artur_pozdravlyaet(bot, text):
     try:
-        answer_model = open('Artur.txt', 'r', encoding='utf-8')
-        saved_messages_artur.insert(0, f'Вы: {text}\n')
-        prompt_text = (str(answer_model.read()) + ''.join(reversed(saved_messages_artur)))
+        prompt_text = text
         response = g4f.ChatCompletion.create(
-            model=g4f.models.gpt_35_turbo,
+            model=g4f.models.default,
             messages=[{"role": "user", "content": f'{prompt_text}'}],
             provider=choice(provider_list),
             stream=False)
         bot.send_message(group_id, f'{response}')
-        saved_messages_artur.insert(0, f'{str(response)}\n')
-        if len(saved_messages_artur) >= 6:
-            del saved_messages_artur[3:]
     except Exception:
         Artur_pozdravlyaet(bot, text)
         del saved_messages_artur[1:]

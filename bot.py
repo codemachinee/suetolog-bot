@@ -6,13 +6,13 @@ from telebot import types
 from apscheduler.schedulers.background import BackgroundScheduler
 from datetime import datetime
 from random import *
-from functions_file import value_plus_one, pstat, obnulenie_stat, ball_of_fate, Davinci, Artur, celebrate_day, \
+from functions_file import value_plus_one, pstat, obnulenie_stat, ball_of_fate, Davinci, celebrate_day, \
     Artur_pozdravlyaet
 from paswords import *
 
 #token = lemonade
-token = codemashine_test
-#token = major_suetolog
+#token = codemashine_test
+token = major_suetolog
 
 bot = telebot.TeleBot(token)
 
@@ -137,77 +137,77 @@ def pidr():
         
 def dr():
     if datetime.now().day == 6 and datetime.now().month == 3:
-        bot.send_message(group_id, Artur_pozdravlyaet(bot, text=f'Поздравь с днем рождения в сатирической форме Кириху '
+        Artur_pozdravlyaet(bot, text=f'На русском языке в сатирической форме поздравь с днем рождения Кирилла '
                                                                 f'Подкастера - Великого венчестера нашего коллектива. '
                                     f'Благодаря его стараниям и материалам мы в подробностях '
                                     f'восстанавливаем в памяти все что происходило не смотря на количество и качество '
                                     f'выпитого. Кирилл учится на юриста и до сих пор любит свою бывшую девушку'
                                     f'Лизу, но всячески это отрицает. Всегда вписывается в любое приключение, особенно '
-                                    f'если это бесплатно. Прогуливает учебу в ресторанах KFC.'))
+                                    f'если это бесплатно. Прогуливает учебу в ресторанах KFC.')
         bot.send_message(group_id, 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
     elif datetime.now().day == 20 and datetime.now().month == 4:
-        bot.send_message(group_id, Artur_pozdravlyaet(bot, text=f'Поздравь с днем рождения в сатирической форме Игоря, '
+        Artur_pozdravlyaet(bot, text=f'На русском языке в сатирической форме поздравь с днем рождения Игоря, '
                                                                 f'который поселил тебя в этом чате, '
                                                                 f'а также беспалевно наполнил его своими родственниками.'
                                                                 f'Игорь спортсмен и красавчик, парень который мечтал '
                                                                 f'увидеть и покорить этот мир, но вместо этого сначала '
                                                                 f'пошел в армию а потом еще и женился чтобы мечты '
-                                                                f'навсегда остались недосигаемыми.'))
+                                                                f'навсегда остались недосигаемыми.')
         bot.send_message(group_id, 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
     elif datetime.now().day == 27 and datetime.now().month == 4:
-        bot.send_message(group_id, Artur_pozdravlyaet(bot, text=f'Поздравь с днем рождения в сатирической форме Леху '
+        Artur_pozdravlyaet(bot, text=f'На русском языке в сатирической форме поздравь с днем рождения Алексея '
                                                                 f'Фитиля. Этот парень настолько легендарный, что его '
                                                                 f'видно издалека. '
                                           f'Многие девушки/женщины могут делать ему миньет не вставая на колени, но они'
                                           f' его давно не интересуют.. Леха любит бегать, ходить в баню, а после этого'
                                                                 f'всего посещать макдоналдс. Леха душа компании и '
                                                                 f'человек - настроение, Амбассадор шуток про геев и '
-                                                                f'российских железных дорог.'))
+                                                                f'российских железных дорог.')
         bot.send_message(group_id, 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
     elif datetime.now().day == 5 and datetime.now().month == 5:
-        bot.send_message(group_id, Artur_pozdravlyaet(bot, text=f'Поздравь с днем рождения в сатирической форме Илюху '
+        Artur_pozdravlyaet(bot, text=f'На русском языке в сатирической форме поздравь с днем рождения Илью '
                                                                 f'обладателя фамилии на которую бронируются все столики '
                                                                 f'заведений города Орел. Илюха каратист, оптимист и '
                                                                 f'хороший друг. Если Илюха перепивает, то он словно '
                                                                 f'уходящая умирать в одиночестве кошка,  куда то скрывается '
                                                                 f'чтобы поблевать. Илья водит Форд Фокус и живет в '
-                                                                f'закрытом городе, любит томатное пиво.'))
+                                                                f'закрытом городе, любит томатное пиво.')
         bot.send_message(group_id, 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
     elif datetime.now().day == 19 and datetime.now().month == 5:
-        bot.send_message(group_id, Artur_pozdravlyaet(bot, text=f'Поздравь с днем рождения в сатирической форме Женька '
+        Artur_pozdravlyaet(bot, text=f'На русском языке в сатирической форме поздравь с днем рождения Евгения '
                                                                 f'Спасателя. Женек учится на спасателя, обладает пышными'
                                                                 f'волосами, большим опытом работы официантом. Женек '
                                                                 f'спит, только когда за рулем и везет пацанов в город '
                                                                 f'Орел, в остальное время он либо работает либо пьет. '
                                                                 f'Детство провел на Жилике и выжил там с женской '
-                                                                f'прической'))
+                                                                f'прической')
     elif datetime.now().day == 15 and datetime.now().month == 6:
-        bot.send_message(group_id, Artur_pozdravlyaet(bot, text=f'Поздравь с днем рождения в сатирической форме Евгения'
-                                                                f'Старого. Евгений самый старый обитатель чата, '
+        Artur_pozdravlyaet(bot, text=f'На русском языке в сатирической форме поздравь с днем рождения Евгения '
+                                                                f'Евгений самый старый обитатель чата, '
                                                                 f'бизнесмен, владелец барбершопов в '
                                                                 f'городе Москва, который любит активный образ жизни, '
                                                                 f'кататься на сноуборде, плавать на байдарках, играть '
                                                                 f'в сквош, а еще обожает шутки про геев, готовить '
-                                                                f'алкогольные коктейли и путешествовать'))
+                                                                f'алкогольные коктейли и путешествовать')
         bot.send_message(group_id, 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
     elif datetime.now().day == 14 and datetime.now().month == 7:
-        bot.send_message(group_id, Artur_pozdravlyaet(bot, text=f'Поздравь с днем рождения в сатирической форме Димана,'
+        Artur_pozdravlyaet(bot, text=f'На русском языке в сатирической форме поздравь с днем рождения Дмитрия,'
                                                                 f'Диман копия Маугли из сказки Киплинга. '
                                                                 f'Диман скрытый обитатель каменных джунглей, знает толк '
                                                                 f'в кальянах и кальянщиках. Диман один из немногих в '
                                                                 f'нашем чате кто уже стал отцом, однако умнее и '
-                                                                f'серьезнее он от этого не стал!'))
+                                                                f'серьезнее он от этого не стал!')
         bot.send_message(group_id, 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
     elif datetime.now().day == 16 and datetime.now().month == 7:
-        bot.send_message(group_id, Artur_pozdravlyaet(bot, text=f'Поздравь с днем рождения в сатирической форме Серегу, '
+        Artur_pozdravlyaet(bot, text=f'На русском языке в сатирической форме поздравь с днем рождения Сергея, '
                                                                 f'который часто пропадает, но ярко появляется. Серега'
                                                                 f'спортсмен, инвестор и тусовщик. Серега помимо того, '
                                                                 f'что на ровне со всеми пьет, потом садится за '
                                                                 f'руль и развозит их домой. Серега компанейский парень '
-                                                                f'и душа компании.'))
+                                                                f'и душа компании.')
         bot.send_message(group_id, 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
     elif datetime.now().day == 8 and datetime.now().month == 9:
-        bot.send_message(group_id, Artur_pozdravlyaet(bot, text=f'Поздравь с днем рождения в сатирической форме Саню, '
+        Artur_pozdravlyaet(bot, text=f'На русском языке в сатирической форме поздравь с днем рождения Александра, '
                                                                 f'самого младшего обитателя нашего сообщества, который '
                                                                 f'мог бы качественно использовать опыт старших товарищей, '
                                                                 f'но использовать особо нечего. Саня в душе брокер '
@@ -216,16 +216,17 @@ def dr():
                                                                 f'стильный, думает что мощный. Саня любит активный '
                                                                 f'отдых, сноуборд, теннис, вейкборд и женщин. Саня '
                                                                 f'пытается использовать '
-                                                                f'свободу по полному но она ограничена отпуском'))
+                                                                f'свободу по полному но она ограничена отпуском')
         bot.send_message(group_id, 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
-    elif datetime.now().day == 17 and datetime.now().month == 11:
-        bot.send_message(group_id, Artur_pozdravlyaet(bot, text=f'Поздравь с днем рождения в сатирической форме Леха(Саня)'
+    # elif datetime.now().day == 17 and datetime.now().month == 11:
+    elif datetime.now().day == 18 and datetime.now().month == 9:
+        Artur_pozdravlyaet(bot, text=f'На русском языке в сатирической форме поздравь с днем рождения Алексея'
                                                                 f'Леха это стиль и харизма Востока. Леха любит когда все '
                                                                 f'в этой жизни не дольше 4 минут. Леха любит все что '
                                                                 f'горит и дымит. Леха заботливо следит чтобы все '
                                                                 f'напились как следует и очень расстраивается если кто'
                                                                 f'то не пьет. Леха бывший успешный тиктокер и школьный '
-                                                                f'диджей!'))
+                                                                f'диджей!')
         bot.send_message(group_id, 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
 
     elif datetime.now().day == 31 and datetime.now().month == 12:
@@ -356,21 +357,27 @@ def chek_message(v):
         kb2 = types.ReplyKeyboardRemove()
         bot.send_message(v.chat.id, '...', reply_markup=kb2)
     if 'Давинчи' in v.text:
-        b = str(v.text).replace('Давинчи ', '', 1).replace('Давинчи, ', '', 1).replace('Давинчи,', '', 1).replace(
-            ' Давинчи', '', 1)
-        Davinci(bot, v, b)
+        if v.chat.id == admin_id:
+            b = str(v.text).replace('Давинчи ', '', 1).replace('Давинчи, ', '', 1).replace('Давинчи,', '', 1).replace(
+                ' Давинчи', '', 1)
+            Davinci(bot, v, b)
+        else:
+            bot.send_message(v.chat.id, 'нет доступа')
     if 'давинчи' in v.text:
-        b = str(v.text).replace('давинчи ', '', 1).replace('давинчи, ', '', 1).replace('давинчи,', '', 1).replace(
-            ' давинчи', '', 1)
-        Davinci(bot, v, b)
-    if 'Артур' in v.text:
-        b = str(v.text).replace('Артур ', '', 1).replace('Артур, ', '', 1).replace('Артур,', '', 1).replace(
-            ' Артур', '', 1)
-        Artur(bot, v, b)
-    if 'артур' in v.text:
-        b = str(v.text).replace('артур ', '', 1).replace('артур, ', '', 1).replace('артур,', '', 1).replace(
-            ' артур', '', 1)
-        Artur(bot, v, b)
+        if v.chat.id == admin_id:
+            b = str(v.text).replace('давинчи ', '', 1).replace('давинчи, ', '', 1).replace('давинчи,', '', 1).replace(
+                ' давинчи', '', 1)
+            Davinci(bot, v, b)
+        else:
+            bot.send_message(v.chat.id, 'нет доступа')
+    # if 'Артур' in v.text:
+    #     b = str(v.text).replace('Артур ', '', 1).replace('Артур, ', '', 1).replace('Артур,', '', 1).replace(
+    #         ' Артур', '', 1)
+    #     Artur(bot, v, b)
+    # if 'артур' in v.text:
+    #     b = str(v.text).replace('артур ', '', 1).replace('артур, ', '', 1).replace('артур,', '', 1).replace(
+    #         ' артур', '', 1)
+    #     Artur(bot, v, b)
 
 
 def sent_message_perehvat(message):
@@ -381,7 +388,7 @@ def sent_message_perehvat(message):
 if __name__ == '__main__':
     scheduler = BackgroundScheduler()
     scheduler.add_job(pidr, "cron", day_of_week='mon-sun', hour=11)
-    #scheduler.add_job(pidr, "interval", seconds=10)
+    # scheduler.add_job(pidr, "interval", seconds=10)
     scheduler.start()
 
     
