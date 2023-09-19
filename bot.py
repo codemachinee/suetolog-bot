@@ -22,14 +22,11 @@ but1 = types.InlineKeyboardButton(text='Купить билет в Орёл',
 but2 = types.InlineKeyboardButton(text='Бронь стола на Привале', url='http://onmap.uz/tel/74862484006')
 but3 = types.InlineKeyboardButton(text='Бронь стола 7 пятниц', url='http://onmap.uz/tel/74862490008')
 but4 = types.InlineKeyboardButton(text='Бронь стола Шаривари', url='http://onmap.uz/tel/74862445303')
-but5 = types.InlineKeyboardButton(text='Таблица расходов', url='https://docs.google.com/spreadsheets/d'
-                                                               '/1OJVOVnfRygWLN_OIK3w7FuAh37z0eAio0AkTbF7nBf4/edit'
-                                                               '#gid=431148771')
+but5 = types.InlineKeyboardButton(text='Форма расходов', url='https://forms.gle/MEesbSSkTfpztRrr7')
 but6 = types.InlineKeyboardButton(text='Яндекс.Диск', url='https://disk.yandex.ru/client/disk/бот%20суетологов/суетологи')
-but7 = types.InlineKeyboardButton(text='Важное про Орёл', callback_data='btn')
-but8 = types.InlineKeyboardButton(text='Шар судьбы', callback_data='bof')
-but9 = types.InlineKeyboardButton(text='Игровой чат', url='http://178.57.222.84/http://178.57.222.84/')
-kb1.add(but1, but2, but3, but4, but5, but6, but7, but8, but9)
+but7 = types.InlineKeyboardButton(text='Шар судьбы', callback_data='bof')
+but8 = types.InlineKeyboardButton(text='Игровой чат', url='http://178.57.222.84/http://178.57.222.84/')
+kb1.add(but1, but2, but3, but4, but5, but6, but7, but8)
 
 
 def pidr():
@@ -259,10 +256,7 @@ def dr():
 
 @bot.callback_query_handler(func=lambda callback: callback.data)
 def check_callback(callback):
-    if callback.data == 'btn':
-        file2 = open("важно.jpeg", 'rb')
-        bot.send_photo(group_id, file2)
-    elif callback.data == 'bof':
+    if callback.data == 'bof':
         start_file = open("ball/start_image.png", 'rb')
         bot.send_photo(callback.message.chat.id, start_file)
         bot.send_message(callback.message.chat.id, '''Решил попытать удачу или просто переложить ответственность?
