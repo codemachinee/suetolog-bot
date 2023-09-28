@@ -324,9 +324,10 @@ async def sent_message(message, state: FSMContext):    # базу старых �
 
 
 @dp.message(step_message.message)
-async def perehvat(message):
+async def perehvat(message, state: FSMContext):
     await bot.copy_message(group_id, admin_id, message.message_id)
     await Message.answer(message, text='сообщение отправлено', show_allert=True)
+    await state.clear()
 
 
 @dp.message(F.text)

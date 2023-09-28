@@ -7,7 +7,6 @@
     <list default="true" id="ff8fde5e-c92f-45db-b55d-27032f1e8543" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +160,8 @@
       <workItem from="1695709810501" duration="18267000" />
       <workItem from="1695804556807" duration="8327000" />
       <workItem from="1695883182789" duration="3938000" />
-      <workItem from="1695891347069" duration="2325000" />
+      <workItem from="1695891347069" duration="2645000" />
+      <workItem from="1695896060954" duration="416000" />
     </task>
     <servers />
   </component>
@@ -343,6 +343,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/bot_py$test.coverage" NAME="test Coverage Results" MODIFIED="1695883583347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ball" />
-    <SUITE FILE_PATH="coverage/bot_py$bot.coverage" NAME="bot Coverage Results" MODIFIED="1695894517420" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/bot_py$bot.coverage" NAME="bot Coverage Results" MODIFIED="1695896476843" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
