@@ -110,6 +110,10 @@ async def obnulenie_stat(bot):
             Пожелаем им здоровья, успехов в личной жизни и новых побед.''')
         worksheet.update('A1:A10', [[0], [0], [0], [0], [0], [0], [0], [0], [0], [0]])
     elif datetime.now().day == 31 and datetime.now().month == 12:
+        await bot.send_message(group_id, f'🚨🚨🚨Внимание!🚨🚨🚨 Пидр Клаус подводит итоги...\n'
+                                         f'Кто же станет пидаром года?')
+        file = FSInputFile(r'gif_mr.Bin.mp4', 'rb')
+        await bot.send_video(group_id, file)
         gc = gspread.service_account(filename='pidor-of-the-day-af3dd140b860.json')
         sh = gc.open("bot_statistic")
         worksheet = sh.get_worksheet(0)
@@ -146,6 +150,9 @@ async def obnulenie_stat(bot):
 
 Да здравствует наш ПИДАРАС года {d1_sort[0][1]}! В тяжелейшей борьбе он таки вырвал свою заслуженную победу.
 Пожелаем ему здоровья, успехов в личной жизни и новых побед.''')
+            await bot.send_message(group_id, f'За тобой приехали..')
+            file = FSInputFile(r'gif_zverev.mp4', 'rb')
+            await bot.send_video(group_id, file)
         else:
             await bot.send_message(group_id, f'🍾🍾🍾ии.. ими становится {", ".join(champions)}! Выдающиеся пидрилы черезвычайно'
                                        f' пидарского года!!! {", ".join(champions)} приймите наши поздравления, а также '
@@ -169,8 +176,14 @@ async def obnulenie_stat(bot):
     
 Да здравствует наши ПИДАРАСы года {", ".join(champions)}🎉🎉🎉! В тяжелейшей борьбе они таки вырвали свою заслуженную победу. 
 Пожелаем им здоровья, успехов в личной жизни и новых побед.''')
+            await bot.send_message(group_id, f'За вами приехали..')
+            file = FSInputFile(r'gif_zverev.mp4', 'rb')
+            await bot.send_video(group_id, file)
         worksheet.update('A1:A10', [[0], [0], [0], [0], [0], [0], [0], [0], [0], [0]])
         worksheet.update('C1:C10', [[0], [0], [0], [0], [0], [0], [0], [0], [0], [0]])
+        await bot.send_message(group_id, f'За тобой приехали..')
+        file = FSInputFile(r'gif_zverev.mp4', 'rb')
+        await bot.send_video(group_id, file)
     else:
         pass
 

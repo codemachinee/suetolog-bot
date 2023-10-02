@@ -13,8 +13,8 @@ from FSM import step_message
 from paswords import *
 
 #token = lemonade
-token = codemashine_test
-# token = major_suetolog
+# token = codemashine_test
+token = major_suetolog
 
 bot = Bot(token=token)
 dp = Dispatcher()
@@ -134,6 +134,7 @@ async def pidr():
 
 
 async def dr():
+    await obnulenie_stat(bot)
     if datetime.now().day == 6 and datetime.now().month == 3:
         await Artur_pozdravlyaet(bot, text=f'На русском языке в сатирической форме поздравь с днем рождения Кирилла '
                                                                 f'Подкастера - Великого венчестера нашего коллектива. '
@@ -227,16 +228,6 @@ async def dr():
                                                                 f'то не пьет. Леха бывший успешный тиктокер и школьный '
                                                                 f'диджей!')
         await bot.send_message(group_id, 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
-
-    elif datetime.now().day == 31 and datetime.now().month == 12:
-        await bot.send_message(group_id, f'🚨🚨🚨Внимание!🚨🚨🚨 Пидр Клаус подводит итоги...\n'
-                                   f'Кто же станет пидаром года?')
-        file = FSInputFile(r'gif_mr.Bin.mp4', 'rb')
-        await bot.send_video(group_id, file)
-        await obnulenie_stat(bot)
-        await bot.send_message(group_id, f'За тобой приехали..')
-        file = FSInputFile(r'gif_zverev.mp4', 'rb')
-        await bot.send_video(group_id, file)
 
 
 @dp.callback_query(F.data)
