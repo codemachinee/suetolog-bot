@@ -13,8 +13,8 @@ from FSM import step_message
 from paswords import *
 
 #token = lemonade
-# token = codemashine_test
-token = major_suetolog
+token = codemashine_test
+# token = major_suetolog
 
 bot = Bot(token=token)
 dp = Dispatcher()
@@ -33,104 +33,104 @@ kb1 = InlineKeyboardMarkup(inline_keyboard=[
 async def pidr():
     x = choice([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
     if x == 1:
+        await dr()
         file1 = FSInputFile(r"Я.jpg", 'rb')
         y = ("Игорь", file1)
         await value_plus_one('A2')
         await bot.send_photo(group_id, y[1])
-        await bot.send_message(group_id, f'''Всем привет!!! {await celebrate_day()} 
+        await bot.send_message(group_id, f'''{await celebrate_day()} 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
-        await dr()
 
     elif x == 2:
+        await dr()
         file1 = FSInputFile(r"Филч.jpg", 'rb')
         y = ("Филч", file1)
         await value_plus_one('A1')
         await bot.send_photo(group_id, y[1])
-        await bot.send_message(group_id, f'''Всем привет!!! {await celebrate_day()} 
+        await bot.send_message(group_id, f'''{await celebrate_day()} 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
-        await dr()
 
     elif x == 3:
+        await dr()
         file1 = FSInputFile(r"Серега.jpg", 'rb')
         y = ("Серега", file1)
         await value_plus_one('A3')
         await bot.send_photo(group_id, y[1])
-        await bot.send_message(group_id, f'''Всем привет!! {await celebrate_day()} 
+        await bot.send_message(group_id, f'''{await celebrate_day()} 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
-        await dr()
 
     elif x == 4:
+        await dr()
         file1 = FSInputFile(r"Леха.jpg", 'rb')
         y = ("Леха(Саня)", file1)
         await value_plus_one('A5')
         await bot.send_photo(group_id, y[1])
-        await bot.send_message(group_id, f'''Всем привет!! {await celebrate_day()} 
+        await bot.send_message(group_id, f'''{await celebrate_day()} 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
-        await dr()
 
     elif x == 5:
+        await dr()
         file1 = FSInputFile(r"фитиль.jpg", 'rb')
         y = ("Леха(Фитиль)", file1)
         await value_plus_one('A6')
         await bot.send_photo(group_id, y[1])
-        await bot.send_message(group_id, f'''Всем привет!! {await celebrate_day()} 
+        await bot.send_message(group_id, f'''{await celebrate_day()} 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
-        await dr()
 
     elif x == 6:
+        await dr()
         file1 = FSInputFile(r"маугли.jpg", 'rb')
         y = ("Диман", file1)
         await value_plus_one('A7')
         await bot.send_photo(group_id, y[1])
-        await bot.send_message(group_id, f'''Всем привет!! {await celebrate_day()}
+        await bot.send_message(group_id, f'''{await celebrate_day()}
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
-        await dr()
 
     elif x == 7:
+        await dr()
         file1 = FSInputFile(r"саня.jpg", 'rb')
         y = ("Саня", file1)
         await value_plus_one('A4')
         await bot.send_photo(group_id, y[1])
-        await bot.send_message(group_id, f'''Всем привет!! {await celebrate_day()} 
+        await bot.send_message(group_id, f'''{await celebrate_day()} 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
-        await dr()
 
     elif x == 8:
+        await dr()
         file1 = FSInputFile(r"Кирилл.jpg", 'rb')
         y = ("Кирюха подкастер", file1)
         await value_plus_one('A8')
         await bot.send_photo(group_id, y[1])
-        await bot.send_message(group_id, f'''Всем привет!! {await celebrate_day()} 
+        await bot.send_message(group_id, f'''{await celebrate_day()} 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
-        await dr()
 
     elif x == 9:
+        await dr()
         file1 = FSInputFile(r"Женек.jpg", 'rb')
         y = ("Женек спасатель", file1)
         await value_plus_one('A9')
         await bot.send_photo(group_id, y[1])
-        await bot.send_message(group_id, f'''Всем привет!! {await celebrate_day()} 
+        await bot.send_message(group_id, f'''{await celebrate_day()} 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
-        await dr()
 
     elif x == 10:
+        await dr()
         file1 = FSInputFile(r"Евгений.png", 'rb')
         y = ("Женек старый", file1)
         await value_plus_one('A10')
         await bot.send_photo(group_id, y[1])
-        await bot.send_message(group_id, f'''Всем привет!! {await celebrate_day()} 
+        await bot.send_message(group_id, f'''{await celebrate_day()} 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
 Справка по боту: /help''')
-        await dr()
 
 
 async def dr():
@@ -219,14 +219,17 @@ async def dr():
                                                                 f'свободу по полному но она ограничена отпуском')
         await bot.send_message(group_id, 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
     elif datetime.now().day == 17 and datetime.now().month == 11:
-    # elif datetime.now().day == 26 and datetime.now().month == 9:
-        await Artur_pozdravlyaet(bot, text=f'На русском языке в сатирической форме поздравь с днем рождения Алексея'
-                                                                f'Леха это стиль и харизма Востока. Леха любит когда все '
-                                                                f'в этой жизни не дольше 4 минут. Леха любит все что '
-                                                                f'горит и дымит. Леха заботливо следит чтобы все '
-                                                                f'напились как следует и очень расстраивается если кто'
-                                                                f'то не пьет. Леха бывший успешный тиктокер и школьный '
-                                                                f'диджей!')
+    # elif datetime.now().day == 8 and datetime.now().month == 11:
+        await Artur_pozdravlyaet(bot,
+                                 text=f'На русском языке в сатирической форме поздравь с днем рождения Алексея '
+                                      f'Леха это стиль и харизма Востока. Леха любит когда все '
+                                      f'в этой жизни не дольше 4 минут. Леха любит все что '
+                                      f'горит и дымит. Новое хобби Алексея заключается в комментировании фильмов '
+                                      f'под пиво. '
+                                      f'Леха заботливо следит чтобы все '
+                                      f'напились как следует и очень расстраивается если кто'
+                                      f'то не пьет. Леха бывший успешный тиктокер и школьный '
+                                      f'диджей!')
         await bot.send_message(group_id, 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
 
 
@@ -374,8 +377,8 @@ async def chek_message(v):
 
 async def main():
     scheduler = AsyncIOScheduler()
-    scheduler.add_job(pidr, "cron", day_of_week='mon-sun', hour=11)
-    # scheduler.add_job(pidr, trigger="interval", seconds=15)
+    # scheduler.add_job(pidr, "cron", day_of_week='mon-sun', hour=11)
+    scheduler.add_job(pidr, trigger="interval", seconds=15)
     scheduler.start()
     await dp.start_polling(bot)
 
