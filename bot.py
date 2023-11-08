@@ -13,8 +13,8 @@ from FSM import step_message
 from paswords import *
 
 #token = lemonade
-token = codemashine_test
-# token = major_suetolog
+# token = codemashine_test
+token = major_suetolog
 
 bot = Bot(token=token)
 dp = Dispatcher()
@@ -377,8 +377,8 @@ async def chek_message(v):
 
 async def main():
     scheduler = AsyncIOScheduler()
-    # scheduler.add_job(pidr, "cron", day_of_week='mon-sun', hour=11)
-    scheduler.add_job(pidr, trigger="interval", seconds=15)
+    scheduler.add_job(pidr, "cron", day_of_week='mon-sun', hour=11)
+    # scheduler.add_job(pidr, trigger="interval", seconds=15)
     scheduler.start()
     await dp.start_polling(bot)
 
