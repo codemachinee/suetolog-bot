@@ -13,8 +13,8 @@ from FSM import step_message
 from paswords import *
 
 #token = lemonade
-# token = codemashine_test
-token = major_suetolog
+token = codemashine_test
+#token = major_suetolog
 
 bot = Bot(token=token)
 dp = Dispatcher()

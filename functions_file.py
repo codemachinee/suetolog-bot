@@ -262,21 +262,21 @@ class Davinci:
         self.text = text
 
     async def answer(self):
-        try:
-            saved_messages_davinci.insert(0, f'Вы: {self.text}\n')
-            prompt_davinci = (''.join(reversed(saved_messages_davinci)))
-            await self.bot.send_message(self.message.chat.id, f'секунду..')
-            response = await g4f.ChatCompletion.create_async(
-                model=g4f.models.default,
-                messages=[{"role": "user", "content": f'{prompt_davinci}'}],
-                provider=choice(provider_list))
-            await self.bot.send_message(self.message.chat.id, f'{response}')
-            saved_messages_davinci.insert(0, f'{str(response)}\n')
-            if len(saved_messages_davinci) >= 8:
-                del saved_messages_davinci[3:]
-        except Exception:
-            await self.bot.send_message(self.message.chat.id, "Простите но мне нужен перекур..")
-            del saved_messages_davinci[1:]
+        # try:
+        saved_messages_davinci.insert(0, f'Вы: {self.text}\n')
+        prompt_davinci = (''.join(reversed(saved_messages_davinci)))
+        await self.bot.send_message(self.message.chat.id, f'секунду..')
+        response = await g4f.ChatCompletion.create_async(
+            model=g4f.models.default,
+            messages=[{"role": "user", "content": f'{prompt_davinci}'}],
+            provider=choice(provider_list))
+        await self.bot.send_message(self.message.chat.id, f'{response}')
+        saved_messages_davinci.insert(0, f'{str(response)}\n')
+        if len(saved_messages_davinci) >= 8:
+            del saved_messages_davinci[3:]
+        # except Exception:
+        #     await self.bot.send_message(self.message.chat.id, "Простите но мне нужен перекур..")
+        #     del saved_messages_davinci[1:]
 
 
 # class Artur:
