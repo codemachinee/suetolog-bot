@@ -334,12 +334,14 @@ class YaDisk:
             if y.exists(src) is False:
                 y.mkdir(src)
                 y.upload(await self.bot.download_file(file_path),
-                         f'{src}/{datetime.now().hour}.{datetime.now().minute}.{datetime.now().second}.jpg')
+                         f'{src}/{datetime.now().hour}.{datetime.now().minute}.{datetime.now().second}.'
+                         f'{datetime.now().microsecond}.jpg')
                 await self.bot.send_message(self.message.chat.id, 'фото успешно загружено')
 
             else:
                 y.upload(await self.bot.download_file(file_path),
-                         f'{src}/{datetime.now().hour}.{datetime.now().minute}.{datetime.now().second}.jpg')
+                         f'{src}/{datetime.now().hour}.{datetime.now().minute}.{datetime.now().second}.'
+                         f'{datetime.now().microsecond}.jpg')
                 await self.bot.send_message(self.message.chat.id, 'фото успешно загружено')
         except Exception:
             await self.bot.send_message(self.message.chat.id, 'отправка не удалась')
