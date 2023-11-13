@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ff8fde5e-c92f-45db-b55d-27032f1e8543" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
+=======
+>>>>>>> 5289971efce4c85716d1c897f65cd247db5aa61d
       <change beforePath="$PROJECT_DIR$/functions_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions_file.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +34,11 @@
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
+<<<<<<< HEAD
   "associatedIndex": 4
+=======
+  "associatedIndex": 0
+>>>>>>> 5289971efce4c85716d1c897f65cd247db5aa61d
 }]]></component>
   <component name="ProjectId" id="2K6PSHBhwXvemXcOWi71vpNpaaB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -46,7 +53,11 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
+<<<<<<< HEAD
     "last_opened_file_path": "C:/Users/Hloapps/PycharmProjects/suetolog-bot",
+=======
+    "last_opened_file_path": "D:/PycharmProjects/suetolog-bot",
+>>>>>>> 5289971efce4c85716d1c897f65cd247db5aa61d
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -208,6 +219,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+<<<<<<< HEAD
           <url>file://$PROJECT_DIR$/functions_file.py</url>
           <line>309</line>
           <option name="timeStamp" value="1" />
@@ -276,6 +288,11 @@
           <url>file://$PROJECT_DIR$/functions_file.py</url>
           <line>326</line>
           <option name="timeStamp" value="14" />
+=======
+          <url>file://$PROJECT_DIR$/test.py</url>
+          <line>29</line>
+          <option name="timeStamp" value="58" />
+>>>>>>> 5289971efce4c85716d1c897f65cd247db5aa61d
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

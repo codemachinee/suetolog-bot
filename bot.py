@@ -1,25 +1,24 @@
 # -*- coding: utf-8 -*-
-from aiogram import Bot, Dispatcher, F, types  # Импорт необходимых модулей из библиотеки aiogram
-import asyncio  # Импорт модуля asyncio для асинхронной работы
-from aiogram.filters import Command  # Импорт фильтра для обработки команд
-from aiogram.fsm.context import FSMContext  # Импорт контекста для работы с конечными автоматами
-from aiogram.types import CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton, FSInputFile, Message  # Импорт различных типов сообщений и клавиатуры
-from apscheduler.schedulers.asyncio import AsyncIOScheduler  # Импорт асинхронного планировщика задач
-from datetime import datetime  # Импорт модуля для работы с датой и временем
-from random import *  # Импорт функции для генерации случайных чисел
-from functions_file import value_plus_one, pstat, obnulenie_stat, ball_of_fate, Davinci, celebrate_day, Artur_pozdravlyaet, YaDisk  # Импорт функций из других файлов
-from FSM import step_message  # Импорт функции из модуля FSM
-from paswords import *  # Импорт паролей (предположительно)
+from aiogram import Bot, Dispatcher, F, types
+import asyncio
+from aiogram.filters import Command
+from aiogram.fsm.context import FSMContext
+from aiogram.types import CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton, FSInputFile, Message
+from apscheduler.schedulers.asyncio import AsyncIOScheduler
+from datetime import datetime
+from random import *
+from functions_file import value_plus_one, pstat, obnulenie_stat, ball_of_fate, Davinci, celebrate_day, \
+    Artur_pozdravlyaet, YaDisk
+from FSM import step_message
+from paswords import *
 
-# Определение токена для бота
 # token = lemonade
-# token = codemashine_test
-token = major_suetolog
+token = codemashine_test
+# token = major_suetolog
 
-bot = Bot(token=token)  # Создание объекта бота
-dp = Dispatcher()  # Создание объекта диспетчера
+bot = Bot(token=token)
+dp = Dispatcher()
 
-# Создание инлайн-клавиатуры
 kb1 = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='Купить билет в Орёл', url='https://жд-билеты.сайт/kupit-zhd-bilety/#/moskva/orel?')],
     [InlineKeyboardButton(text='Бронь стола на Привале', url='http://onmap.uz/tel/74862484006')],
@@ -31,128 +30,221 @@ kb1 = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='Игровой чат', url='http://178.57.222.84/http://178.57.222.84/')]])
 
 
-# Асинхронная функция для отправки сообщения с изображением и приветствием
 async def pidr():
-    x = choice([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])  # Генерация случайного числа от 1 до 10
-    if x == 1:  # Если x равно 1
-        file1 = FSInputFile(r"Я.jpg", 'rb')  # Загрузка изображения из файла
-        y = ("Игорь", file1)  # Создание кортежа с именем и изображением
-        await value_plus_one('A2')  # Вызов функции value_plus_one с аргументом 'A2'
-        await bot.send_photo(group_id, y[1])  # Отправка фотографии
-        await bot.send_message(group_id, f'''Всем привет!!! {await celebrate_day()} 
+    x = choice([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+    if x == 1:
+        await dr()
+        file1 = FSInputFile(r"Я.jpg", 'rb')
+        y = ("Игорь", file1)
+        await value_plus_one('A2')
+        await bot.send_photo(group_id, y[1])
+        await bot.send_message(group_id, f'''{await celebrate_day()} 
 {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
-Справка по боту: /help''')  # Отправка приветственного сообщения
-        await dr()  # Вызов функции dr()
+Справка по боту: /help''')
+
+    elif x == 2:
+        await dr()
+        file1 = FSInputFile(r"Филч.jpg", 'rb')
+        y = ("Филч", file1)
+        await value_plus_one('A1')
+        await bot.send_photo(group_id, y[1])
+        await bot.send_message(group_id, f'''{await celebrate_day()} 
+{datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
+Справка по боту: /help''')
+
+    elif x == 3:
+        await dr()
+        file1 = FSInputFile(r"Серега.jpg", 'rb')
+        y = ("Серега", file1)
+        await value_plus_one('A3')
+        await bot.send_photo(group_id, y[1])
+        await bot.send_message(group_id, f'''{await celebrate_day()} 
+{datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
+Справка по боту: /help''')
+
+    elif x == 4:
+        await dr()
+        file1 = FSInputFile(r"Леха.jpg", 'rb')
+        y = ("Леха(Саня)", file1)
+        await value_plus_one('A5')
+        await bot.send_photo(group_id, y[1])
+        await bot.send_message(group_id, f'''{await celebrate_day()} 
+{datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
+Справка по боту: /help''')
+
+    elif x == 5:
+        await dr()
+        file1 = FSInputFile(r"фитиль.jpg", 'rb')
+        y = ("Леха(Фитиль)", file1)
+        await value_plus_one('A6')
+        await bot.send_photo(group_id, y[1])
+        await bot.send_message(group_id, f'''{await celebrate_day()} 
+{datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
+Справка по боту: /help''')
+
+    elif x == 6:
+        await dr()
+        file1 = FSInputFile(r"маугли.jpg", 'rb')
+        y = ("Диман", file1)
+        await value_plus_one('A7')
+        await bot.send_photo(group_id, y[1])
+        await bot.send_message(group_id, f'''{await celebrate_day()}
+{datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
+Справка по боту: /help''')
+
+    elif x == 7:
+        await dr()
+        file1 = FSInputFile(r"саня.jpg", 'rb')
+        y = ("Саня", file1)
+        await value_plus_one('A4')
+        await bot.send_photo(group_id, y[1])
+        await bot.send_message(group_id, f'''{await celebrate_day()} 
+{datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
+Справка по боту: /help''')
+
+    elif x == 8:
+        await dr()
+        file1 = FSInputFile(r"Кирилл.jpg", 'rb')
+        y = ("Кирюха подкастер", file1)
+        await value_plus_one('A8')
+        await bot.send_photo(group_id, y[1])
+        await bot.send_message(group_id, f'''{await celebrate_day()} 
+{datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
+Справка по боту: /help''')
+
+    elif x == 9:
+        await dr()
+        file1 = FSInputFile(r"Женек.jpg", 'rb')
+        y = ("Женек спасатель", file1)
+        await value_plus_one('A9')
+        await bot.send_photo(group_id, y[1])
+        await bot.send_message(group_id, f'''{await celebrate_day()} 
+{datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
+Справка по боту: /help''')
+
+    elif x == 10:
+        await dr()
+        file1 = FSInputFile(r"Евгений.png", 'rb')
+        y = ("Женек старый", file1)
+        await value_plus_one('A10')
+        await bot.send_photo(group_id, y[1])
+        await bot.send_message(group_id, f'''{await celebrate_day()} 
+{datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
+Справка по боту: /help''')
 
 
-# Асинхронная функция для обработки различных случаев
 async def dr():
-    await obnulenie_stat(bot)  # Вызываем функцию для обнуления статистики
-
-    # Проверка текущей даты и месяца
-    # Если текущая дата 6 марта
+    await obnulenie_stat(bot)
     if datetime.now().day == 6 and datetime.now().month == 3:
-        await Artur_pozdravlyaet(bot, text=f'...')  # Вызываем функцию поздравления с днем рождения Кирилла Подкастера
-        await bot.send_message(group_id, 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')  # Отправляем ссылку на подарок
-
-    # Проверка текущей даты и месяца
-    # Если текущая дата 20 апреля
+        await Artur_pozdravlyaet(bot, text=f'На русском языке в сатирической форме поздравь с днем рождения Кирилла '
+                                           f'Подкастера - Великого венчестера нашего коллектива. '
+                                           f'Благодаря его стараниям и материалам мы в подробностях '
+                                           f'восстанавливаем в памяти все что происходило не смотря на количество и качество '
+                                           f'выпитого. Кирилл учится на юриста и до сих пор любит свою бывшую девушку'
+                                           f'Лизу, но всячески это отрицает. Всегда вписывается в любое приключение, особенно '
+                                           f'если это бесплатно. Прогуливает учебу в ресторанах KFC.')
+        await bot.send_message(group_id, 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
     elif datetime.now().day == 20 and datetime.now().month == 4:
-        await Artur_pozdravlyaet(bot, text=f'...')  # Вызываем функцию поздравления с днем рождения Игоря
-        await bot.send_message(group_id, 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')  # Отправляем ссылку на подарок
-
-    # Остальные ветви условия имеют аналогичную структуру
-
-    # Если текущая дата 27 апреля
+        await Artur_pozdravlyaet(bot, text=f'На русском языке в сатирической форме поздравь с днем рождения Игоря, '
+                                           f'который поселил тебя в этом чате, '
+                                           f'а также беспалевно наполнил его своими родственниками.'
+                                           f'Игорь спортсмен и красавчик, парень который мечтал '
+                                           f'увидеть и покорить этот мир, но вместо этого сначала '
+                                           f'пошел в армию а потом еще и женился чтобы мечты '
+                                           f'навсегда остались недосигаемыми.')
+        await bot.send_message(group_id, 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
     elif datetime.now().day == 27 and datetime.now().month == 4:
-        await Artur_pozdravlyaet(bot, text=f'...')  # Вызываем функцию поздравления с днем рождения Алексея Фитиля
-        await bot.send_message(group_id, 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')  # Отправляем ссылку на подарок
-
-    # ... Аналогичные комментарии и для остальных ветвей условия ...
+        await Artur_pozdravlyaet(bot, text=f'На русском языке в сатирической форме поздравь с днем рождения Алексея '
+                                           f'Фитиля. Этот парень настолько легендарный, что его '
+                                           f'видно издалека. '
+                                           f'Многие девушки/женщины могут делать ему миньет не вставая на колени, но они'
+                                           f' его давно не интересуют.. Леха любит бегать, ходить в баню, а после этого'
+                                           f'всего посещать макдоналдс. Леха душа компании и '
+                                           f'человек - настроение, Амбассадор шуток про геев и '
+                                           f'российских железных дорог.')
+        await bot.send_message(group_id, 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
     elif datetime.now().day == 5 and datetime.now().month == 5:
         await Artur_pozdravlyaet(bot, text=f'На русском языке в сатирической форме поздравь с днем рождения Илью '
-                                                                f'обладателя фамилии на которую бронируются все столики '
-                                                                f'заведений города Орел. Илюха каратист, оптимист и '
-                                                                f'хороший друг. Если Илюха перепивает, то он словно '
-                                                                f'уходящая умирать в одиночестве кошка,  куда то скрывается '
-                                                                f'чтобы поблевать. Илья водит Форд Фокус и живет в '
-                                                                f'закрытом городе, любит томатное пиво.')
+                                           f'обладателя фамилии на которую бронируются все столики '
+                                           f'заведений города Орел. Илюха каратист, оптимист и '
+                                           f'хороший друг. Если Илюха перепивает, то он словно '
+                                           f'уходящая умирать в одиночестве кошка,  куда то скрывается '
+                                           f'чтобы поблевать. Илья водит Форд Фокус и живет в '
+                                           f'закрытом городе, любит томатное пиво.')
         await bot.send_message(group_id, 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
     elif datetime.now().day == 19 and datetime.now().month == 5:
         await Artur_pozdravlyaet(bot, text=f'На русском языке в сатирической форме поздравь с днем рождения Евгения '
-                                                                f'Спасателя. Женек учится на спасателя, обладает пышными'
-                                                                f'волосами, большим опытом работы официантом. Женек '
-                                                                f'спит, только когда за рулем и везет пацанов в город '
-                                                                f'Орел, в остальное время он либо работает либо пьет. '
-                                                                f'Детство провел на Жилике и выжил там с женской '
-                                                                f'прической')
+                                           f'Спасателя. Женек учится на спасателя, обладает пышными'
+                                           f'волосами, большим опытом работы официантом. Женек '
+                                           f'спит, только когда за рулем и везет пацанов в город '
+                                           f'Орел, в остальное время он либо работает либо пьет. '
+                                           f'Детство провел на Жилике и выжил там с женской '
+                                           f'прической')
         await bot.send_message(group_id, 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
     elif datetime.now().day == 15 and datetime.now().month == 6:
         await Artur_pozdravlyaet(bot, text=f'На русском языке в сатирической форме поздравь с днем рождения Евгения '
-                                                                f'Евгений самый старый обитатель чата, '
-                                                                f'бизнесмен, владелец барбершопов в '
-                                                                f'городе Москва, который любит активный образ жизни, '
-                                                                f'кататься на сноуборде, плавать на байдарках, играть '
-                                                                f'в сквош, а еще обожает шутки про геев, готовить '
-                                                                f'алкогольные коктейли и путешествовать')
+                                           f'Евгений самый старый обитатель чата, '
+                                           f'бизнесмен, владелец барбершопов в '
+                                           f'городе Москва, который любит активный образ жизни, '
+                                           f'кататься на сноуборде, плавать на байдарках, играть '
+                                           f'в сквош, а еще обожает шутки про геев, готовить '
+                                           f'алкогольные коктейли и путешествовать')
         await bot.send_message(group_id, 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
     elif datetime.now().day == 14 and datetime.now().month == 7:
         await Artur_pozdravlyaet(bot, text=f'На русском языке в сатирической форме поздравь с днем рождения Дмитрия,'
-                                                                f'Диман копия Маугли из сказки Киплинга. '
-                                                                f'Диман скрытый обитатель каменных джунглей, знает толк '
-                                                                f'в кальянах и кальянщиках. Диман один из немногих в '
-                                                                f'нашем чате кто уже стал отцом, однако умнее и '
-                                                                f'серьезнее он от этого не стал!')
+                                           f'Диман копия Маугли из сказки Киплинга. '
+                                           f'Диман скрытый обитатель каменных джунглей, знает толк '
+                                           f'в кальянах и кальянщиках. Диман один из немногих в '
+                                           f'нашем чате кто уже стал отцом, однако умнее и '
+                                           f'серьезнее он от этого не стал!')
         await bot.send_message(group_id, 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
     elif datetime.now().day == 16 and datetime.now().month == 7:
         await Artur_pozdravlyaet(bot, text=f'На русском языке в сатирической форме поздравь с днем рождения Сергея, '
-                                                                f'который часто пропадает, но ярко появляется. Серега'
-                                                                f'спортсмен, инвестор и тусовщик. Серега помимо того, '
-                                                                f'что на ровне со всеми пьет, потом садится за '
-                                                                f'руль и развозит их домой. Серега компанейский парень '
-                                                                f'и душа компании.')
+                                           f'который часто пропадает, но ярко появляется. Серега'
+                                           f'спортсмен, инвестор и тусовщик. Серега помимо того, '
+                                           f'что на ровне со всеми пьет, потом садится за '
+                                           f'руль и развозит их домой. Серега компанейский парень '
+                                           f'и душа компании.')
         await bot.send_message(group_id, 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
     elif datetime.now().day == 8 and datetime.now().month == 9:
-        await Artur_pozdravlyaet(bot, text=f'На русском языке в сатирической форме поздравь с днем рождения Александра, '
-                                                                f'самого младшего обитателя нашего сообщества, который '
-                                                                f'мог бы качественно использовать опыт старших товарищей, '
-                                                                f'но использовать особо нечего. Саня в душе брокер '
-                                                                f'который нагнул мир, но зачем то пошел учиться на '
-                                                                f'военного и пока нагнул лишь только свои амбиции. Саня '
-                                                                f'стильный, думает что мощный. Саня любит активный '
-                                                                f'отдых, сноуборд, теннис, вейкборд и женщин. Саня '
-                                                                f'пытается использовать '
-                                                                f'свободу по полному но она ограничена отпуском')
+        await Artur_pozdravlyaet(bot,
+                                 text=f'На русском языке в сатирической форме поздравь с днем рождения Александра, '
+                                      f'самого младшего обитателя нашего сообщества, который '
+                                      f'мог бы качественно использовать опыт старших товарищей, '
+                                      f'но использовать особо нечего. Саня в душе брокер '
+                                      f'который нагнул мир, но зачем то пошел учиться на '
+                                      f'военного и пока нагнул лишь только свои амбиции. Саня '
+                                      f'стильный, думает что мощный. Саня любит активный '
+                                      f'отдых, сноуборд, теннис, вейкборд и женщин. Саня '
+                                      f'пытается использовать '
+                                      f'свободу по полному но она ограничена отпуском')
         await bot.send_message(group_id, 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
     elif datetime.now().day == 17 and datetime.now().month == 11:
-    # elif datetime.now().day == 26 and datetime.now().month == 9:
-        await Artur_pozdravlyaet(bot, text=f'На русском языке в сатирической форме поздравь с днем рождения Алексея'
-                                                                f'Леха это стиль и харизма Востока. Леха любит когда все '
-                                                                f'в этой жизни не дольше 4 минут. Леха любит все что '
-                                                                f'горит и дымит. Леха заботливо следит чтобы все '
-                                                                f'напились как следует и очень расстраивается если кто'
-                                                                f'то не пьет. Леха бывший успешный тиктокер и школьный '
-                                                                f'диджей!')
+        # elif datetime.now().day == 8 and datetime.now().month == 11:
+        await Artur_pozdravlyaet(bot,
+                                 text=f'На русском языке в сатирической форме поздравь с днем рождения Алексея '
+                                      f'Леха это стиль и харизма Востока. Леха любит когда все '
+                                      f'в этой жизни не дольше 4 минут. Леха любит все что '
+                                      f'горит и дымит. Новое хобби Алексея заключается в комментировании фильмов '
+                                      f'под пиво. '
+                                      f'Леха заботливо следит чтобы все '
+                                      f'напились как следует и очень расстраивается если кто'
+                                      f'то не пьет. Леха бывший успешный тиктокер и школьный '
+                                      f'диджей!')
         await bot.send_message(group_id, 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
 
 
-# Обработчик нажатий кнопок Inline Keyboard
 @dp.callback_query(F.data)
 async def check_callback(callback: CallbackQuery):
     if callback.data == 'bof':
-        # Отправка изображения и сообщения
         start_file = FSInputFile(r"ball/start_image.png", 'rb')
         await bot.send_photo(callback.message.chat.id, start_file)
         await bot.send_message(callback.message.chat.id, '''Решил попытать удачу или просто переложить ответственность?
 Что ж.. Чтобы все прошло как надо просто переведи сотку моему создателю на сбер и погладь шар''')
-
-        # Создание клавиатуры с вариантами ответа
         kb1 = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1, keyboard=[
             [types.KeyboardButton(text='Погладить шар')],
             [types.KeyboardButton(text='Шар съебись')]])
         await bot.send_message(callback.message.chat.id, '...', reply_markup=kb1)
-
-    # Далее аналогично для других вариантов callback.data
     elif callback.data == 'stat_day':
         load_message = await bot.edit_message_text('Загрузка..⏳', callback.message.chat.id, callback.message.message_id)
         kb2 = types.InlineKeyboardMarkup(row_width=1, inline_keyboard=[
@@ -176,7 +268,6 @@ async def check_callback(callback: CallbackQuery):
         await bot.edit_message_reply_markup(callback.message.chat.id, callback.message.message_id, reply_markup=kb2)
 
 
-# Обработчик команды /help
 @dp.message(Command(commands='help'))
 async def help(message):
     await bot.send_message(message.chat.id, ('Основные команды поддерживаемые ботом:\n'
@@ -187,7 +278,6 @@ async def help(message):
                                              '/test - тестирование бота'))
 
 
-# Обработчик команды /start
 @dp.message(Command(commands='start'))
 async def start(message):
     await bot.send_message(message.chat.id, '''Бот уже инициализирован.
@@ -195,26 +285,22 @@ async def start(message):
 в 11:00 по московскому времени
 
 /help - справка по боту''')
-    
-    
-# Обработчик команды /orel
+
+
 @dp.message(Command(commands='orel'))
 async def orel(message):
     await bot.send_message(message.chat.id, 'Орловский помощник..', reply_markup=kb1)
 
 
-# Обработчик команды /pidorstat
+@dp.message(Command(commands='pidorstat'))
 async def stat(message):
-    # Отправка сообщения "Загрузка.." и создание Inline Keyboard
     b = await bot.send_message(message.chat.id, 'Загрузка..⏳')
     kb2 = InlineKeyboardMarkup(row_width=1, inline_keyboard=[
         [InlineKeyboardButton(text='Статистика по месяцам', callback_data='stat_month')],
         [InlineKeyboardButton(text='Статистика по годам', callback_data='stat_year')]])
-    # Изменение текста сообщения и добавление Inline Keyboard
     await bot.edit_message_text(await pstat('A'), message.chat.id, b.message_id, reply_markup=kb2)
 
 
-# Обработчик команды /test
 @dp.message(Command(commands='test'))
 async def test(message):
     await bot.send_message(message.chat.id, '''Протестируй себя петушок...А моя работа давно проверена и отлажена.
@@ -222,26 +308,23 @@ async def test(message):
 /help - справка по боту''')
 
 
-# Обработчик команды /sent_message
-@dp.message(Command(commands='sent_message'))
-async def sent_message(message, state: FSMContext):
+@dp.message(Command(commands='sent_message'))  # команда для переброски клиента из базы потенциальных клиентов в
+async def sent_message(message, state: FSMContext):  # базу старых клиентов
     if message.chat.id == admin_id:
         await bot.send_message(admin_id, 'Введите текст сообщения')
         await state.set_state(step_message.message)
+
     else:
         await bot.send_message(message.chat.id, 'У Вас нет прав для использования данной команды')
 
 
-# Обработчик состояния step_message.message
 @dp.message(step_message.message)
 async def perehvat(message, state: FSMContext):
-    # Копирование сообщения и отправка ответа
     await bot.copy_message(group_id, admin_id, message.message_id)
     await Message.answer(message, text='сообщение отправлено', show_allert=True)
     await state.clear()
 
 
-# Обработчик текстовых сообщений
 @dp.message(F.text)
 async def chek_message(message):
     if message.text == 'Погладить шар':
@@ -251,14 +334,16 @@ async def chek_message(message):
         await bot.send_message(message.chat.id, '...', reply_markup=kb2)
     elif 'Давинчи' in message.text:
         if message.chat.id == admin_id:
-            b = str(message.text).replace('Давинчи ', '', 1).replace('Давинчи, ', '', 1).replace('Давинчи,', '', 1).replace(
+            b = str(message.text).replace('Давинчи ', '', 1).replace('Давинчи, ', '', 1).replace('Давинчи,', '',
+                                                                                                 1).replace(
                 ' Давинчи', '', 1)
             await Davinci(bot, message, b).answer()
         else:
             await bot.send_message(message.chat.id, 'нет доступа')
     elif 'давинчи' in message.text:
         if message.chat.id == admin_id:
-            b = str(message.text).replace('давинчи ', '', 1).replace('давинчи, ', '', 1).replace('давинчи,', '', 1).replace(
+            b = str(message.text).replace('давинчи ', '', 1).replace('давинчи, ', '', 1).replace('давинчи,', '',
+                                                                                                 1).replace(
                 ' давинчи', '', 1)
             await Davinci(bot, message, b).answer()
         else:
@@ -273,41 +358,36 @@ async def chek_message(message):
     #     Artur(bot, v, b)
 
 
-# Обработчик документов в личных чатах
 @dp.message(F.document, F.chat.type == 'private')
 async def chek_message(v):
     await YaDisk(bot, v).save_doc()
 
 
-# Обработчик фотографий в личных чатах
 @dp.message(F.photo, F.chat.type == 'private')
 async def chek_message(v):
     await YaDisk(bot, v).save_photo()
 
 
-# Обработчик видео в личных чатах
 @dp.message(F.video, F.chat.type == 'private')
 async def chek_message(v):
     await YaDisk(bot, v).save_video()
 
 
-# Асинхронная функция для запуска бота и планировщика
+# def sent_message_perehvat(message):
+#     bot.copy_message(group_id, admin_id, message.id)
+#     bot.send_message(admin_id, 'Сообщение отправлено!')
+
+
 async def main():
     scheduler = AsyncIOScheduler()
-    # Планирование выполнения функции pidr ежедневно в 11:00
     scheduler.add_job(pidr, "cron", day_of_week='mon-sun', hour=11)
-    # Для тестирования можно использовать триггер "interval" каждые 15 секунд
     # scheduler.add_job(pidr, trigger="interval", seconds=15)
     scheduler.start()
-    # Запуск бота
     await dp.start_polling(bot)
 
-# Запуск программы при запуске файла
+
 if __name__ == '__main__':
     try:
-        # Запуск асинхронной функции main()
         asyncio.run(main())
     except KeyboardInterrupt:
         print('Exit')
-
-
