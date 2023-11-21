@@ -337,20 +337,19 @@ class YaDisk:
             file = await self.bot.get_file(file_id)
             file_path = file.file_path
             src = f'/суетологи/{datetime.now().day}.{datetime.now().month}.{datetime.now().year}'
-            if y.exists(src) is False:
+            try:
+                y.upload(await self.bot.download_file(file_path),
+                             f'{src}/{datetime.now().hour}.{datetime.now().minute}.{datetime.now().second}.'
+                             f'{datetime.now().microsecond}.jpg')
+                await self.bot.send_message(self.message.chat.id, 'фото успешно загружено')
+            except yadisk.exceptions.ParentNotFoundError:
                 y.mkdir(src)
                 y.upload(await self.bot.download_file(file_path),
-                         f'{src}/{datetime.now().hour}.{datetime.now().minute}.{datetime.now().second}.'
-                         f'{datetime.now().microsecond}.jpg')
-                await self.bot.send_message(self.message.chat.id, 'фото успешно загружено')
-
-            else:
-                y.upload(await self.bot.download_file(file_path),
-                         f'{src}/{datetime.now().hour}.{datetime.now().minute}.{datetime.now().second}.'
-                         f'{datetime.now().microsecond}.jpg')
+                             f'{src}/{datetime.now().hour}.{datetime.now().minute}.{datetime.now().second}.'
+                             f'{datetime.now().microsecond}.jpg')
                 await self.bot.send_message(self.message.chat.id, 'фото успешно загружено')
         except Exception:
-            await self.bot.send_message(self.message.chat.id, 'отправка не удалась')
+            await self.bot.send_message(self.message.chat.id, 'Отправка не удалась. Сервер перегружен')
 
     async def save_doc(self):
         try:
@@ -358,18 +357,39 @@ class YaDisk:
             file = await self.bot.get_file(file_id)
             file_path = file.file_path
             src = f'/суетологи/{datetime.now().day}.{datetime.now().month}.{datetime.now().year}'
-            if y.exists(src) is False:
+            try:
+                y.upload(await self.bot.download_file(file_path),
+                         f'{src}/{self.message.document.file_name}')
+                await self.bot.send_message(self.message.chat.id, 'документ успешно загружен')
+            except yadisk.exceptions.ParentNotFoundError:
                 y.mkdir(src)
                 y.upload(await self.bot.download_file(file_path),
                          f'{src}/{self.message.document.file_name}')
                 await self.bot.send_message(self.message.chat.id, 'документ успешно загружен')
-
-            else:
+            except yadisk.exceptions.PathExistsError:
                 y.upload(await self.bot.download_file(file_path),
-                         f'{src}/{self.message.document.file_name}')
+                         f'{src}/{self.message.document.file_name}.{datetime.now().hour}.{datetime.now().minute}.'
+                         f'{datetime.now().second}.')
                 await self.bot.send_message(self.message.chat.id, 'документ успешно загружен')
         except Exception:
-            await self.bot.send_message(self.message.chat.id, 'отправка не удалась')
+            await self.bot.send_message(self.message.chat.id, 'Отправка не удалась. Сервер перегружен')
+        # try:
+        #     file_id = self.message.document.file_id
+        #     file = await self.bot.get_file(file_id)
+        #     file_path = file.file_path
+        #     src = f'/суетологи/{datetime.now().day}.{datetime.now().month}.{datetime.now().year}'
+        #     if y.exists(src) is False:
+        #         y.mkdir(src)
+        #         y.upload(await self.bot.download_file(file_path),
+        #                  f'{src}/{self.message.document.file_name}')
+        #         await self.bot.send_message(self.message.chat.id, 'документ успешно загружен')
+        #
+        #     else:
+        #         y.upload(await self.bot.download_file(file_path),
+        #                  f'{src}/{self.message.document.file_name}')
+        #         await self.bot.send_message(self.message.chat.id, 'документ успешно загружен')
+        # except Exception:
+        #     await self.bot.send_message(self.message.chat.id, 'отправка не удалась')
 
     async def save_video(self):
         try:
@@ -377,15 +397,32 @@ class YaDisk:
             file = await self.bot.get_file(file_id)
             file_path = file.file_path
             src = f'/суетологи/{datetime.now().day}.{datetime.now().month}.{datetime.now().year}'
-            if y.exists(src) is False:
+            try:
+                y.upload(await self.bot.download_file(file_path),
+                         f'{src}/{self.message.video.file_name}')
+                await self.bot.send_message(self.message.chat.id, 'видео успешно загружено')
+            except yadisk.exceptions.ParentNotFoundError:
                 y.mkdir(src)
                 y.upload(await self.bot.download_file(file_path),
                          f'{src}/{self.message.video.file_name}')
                 await self.bot.send_message(self.message.chat.id, 'видео успешно загружено')
+        except Exception:
+            await self.bot.send_message(self.message.chat.id, 'Отправка не удалась. Сервер перегружен')
 
-            else:
+    async def save_video_note(self):
+        try:
+            file_id = self.message.video_note.file_id
+            file = await self.bot.get_file(file_id)
+            file_path = file.file_path
+            src = f'/суетологи/{datetime.now().day}.{datetime.now().month}.{datetime.now().year}'
+            try:
                 y.upload(await self.bot.download_file(file_path),
-                         f'{src}/{self.message.video.file_name}')
+                         f'{src}/{self.message.video_note.file_id}')
+                await self.bot.send_message(self.message.chat.id, 'видео успешно загружено')
+            except yadisk.exceptions.ParentNotFoundError:
+                y.mkdir(src)
+                y.upload(await self.bot.download_file(file_path),
+                         f'{src}/{self.message.video_note.file_id}')
                 await self.bot.send_message(self.message.chat.id, 'видео успешно загружено')
         except Exception:
-            await self.bot.send_message(self.message.chat.id, 'отправка не удалась')
+            await self.bot.send_message(self.message.chat.id, 'Отправка не удалась. Сервер перегружен')

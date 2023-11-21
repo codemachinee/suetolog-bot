@@ -370,12 +370,14 @@ async def chek_message(v):
 
 @dp.message(F.video, F.chat.type == 'private')
 async def chek_message(v):
+    await bot.send_message(v.chat.id, 'видео')
     await YaDisk(bot, v).save_video()
 
 
-# def sent_message_perehvat(message):
-#     bot.copy_message(group_id, admin_id, message.id)
-#     bot.send_message(admin_id, 'Сообщение отправлено!')
+@dp.message(F.video_note, F.chat.type == 'private')
+async def chek_message(v):
+    await bot.send_message(v.chat.id, 'видео')
+    await YaDisk(bot, v).save_video_note()
 
 
 async def main():
