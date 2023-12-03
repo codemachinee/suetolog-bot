@@ -13,8 +13,8 @@ from FSM import step_message
 from paswords import *
 
 # token = lemonade
-token = codemashine_test
-# token = major_suetolog
+# token = codemashine_test
+token = major_suetolog
 
 bot = Bot(token=token)
 dp = Dispatcher()
@@ -370,13 +370,11 @@ async def chek_message(v):
 
 @dp.message(F.video, F.chat.type == 'private')
 async def chek_message(v):
-    await bot.send_message(v.chat.id, 'видео')
     await YaDisk(bot, v).save_video()
 
 
 @dp.message(F.video_note, F.chat.type == 'private')
 async def chek_message(v):
-    await bot.send_message(v.chat.id, 'видео')
     await YaDisk(bot, v).save_video_note()
 
 
