@@ -1,7 +1,7 @@
 # библиотека работы с гугл таблицами
 import gspread
 import yadisk
-import g4f
+import requests
 # библиотека проверки даты
 from datetime import datetime
 # библиотека рандома
@@ -15,16 +15,6 @@ y = yadisk.YaDisk(token=yadisk_token)
 
 saved_messages_davinci = []
 saved_messages_artur = []
-provider_list = [
-    g4f.Provider.GptGo,
-    g4f.Provider.ChatBase,
-    g4f.Provider.Llama2,
-    g4f.Provider.GPTalk,
-    g4f.Provider.ChatgptAi,
-    g4f.Provider.AiAsk,
-    g4f.Provider.Liaobots,
-    g4f.Provider.GeekGpt
-]
 
 
 # функция открывает гугл таблицу статистики, начисляет балл и возвращает новое значение
@@ -42,8 +32,10 @@ async def pstat(cell):
     worksheet = sh.get_worksheet(0)
     d1 = [(int(worksheet.acell(f'{cell}1').value), "Филч"), (int(worksheet.acell(f'{cell}2').value), "Игорь"),
           (int(worksheet.acell(f'{cell}3').value), "Серега"), (int(worksheet.acell(f'{cell}4').value), "Саня"),
-          (int(worksheet.acell(f'{cell}5').value), "Леха(Саня)"), (int(worksheet.acell(f'{cell}6').value), "Леха(Фитиль)"),
-          (int(worksheet.acell(f'{cell}7').value), "Диман"), (int(worksheet.acell(f'{cell}8').value), "Кирюха подкастер"),
+          (int(worksheet.acell(f'{cell}5').value), "Леха(Саня)"),
+          (int(worksheet.acell(f'{cell}6').value), "Леха(Фитиль)"),
+          (int(worksheet.acell(f'{cell}7').value), "Диман"),
+          (int(worksheet.acell(f'{cell}8').value), "Кирюха подкастер"),
           (int(worksheet.acell(f'{cell}9').value), "Женек спасатель"),
           (int(worksheet.acell(f'{cell}10').value), "Женек старый")]
     d1_sort = sorted(d1, reverse=True)
@@ -78,7 +70,8 @@ async def obnulenie_stat(bot):
               (int(worksheet.acell('A3').value), "Серега"), (int(worksheet.acell('A4').value), "Саня"),
               (int(worksheet.acell('A5').value), "Леха(Саня)"), (int(worksheet.acell('A6').value), "Леха(Фитиль)"),
               (int(worksheet.acell('A7').value), "Диман"), (int(worksheet.acell('A8').value), "Кирюха подкастер"),
-              (int(worksheet.acell('A9').value), "Женек спасатель"), (int(worksheet.acell('A10').value), "Женек старый")]
+              (int(worksheet.acell('A9').value), "Женек спасатель"),
+              (int(worksheet.acell('A10').value), "Женек старый")]
         d1_sort = sorted(d1, reverse=True)
         cells = worksheet.findall(str(d1_sort[0][0]), in_column=1)
         for cell in cells:
@@ -129,20 +122,22 @@ async def obnulenie_stat(bot):
               (int(worksheet.acell('C3').value), "Серега"), (int(worksheet.acell('C4').value), "Саня"),
               (int(worksheet.acell('C5').value), "Леха(Саня)"), (int(worksheet.acell('C6').value), "Леха(Фитиль)"),
               (int(worksheet.acell('C7').value), "Диман"), (int(worksheet.acell('C8').value), "Кирюха подкастер"),
-              (int(worksheet.acell('C9').value), "Женек спасатель"), (int(worksheet.acell('C10').value), "Женек старый")]
+              (int(worksheet.acell('C9').value), "Женек спасатель"),
+              (int(worksheet.acell('C10').value), "Женек старый")]
         d1_sort = sorted(d1, reverse=True)
         cells = worksheet.findall(str(d1_sort[0][0]), in_column=3)
         for cell in cells:
             worksheet.update(f'D{cell.row}', f'{int(worksheet.acell(f"D{cell.row}").value) + 1}')
             champions.append(str(worksheet.acell(f"B{cell.row}").value))
         if len(champions) == 1:
-            await bot.send_message(group_id, f'🍾🍾🍾ии.. им становится {d1_sort[0][1]}! Самый главный пидрила черезвычайно'
-                                       f' пидарского года!!! {d1_sort[0][1]} прийми наши поздравления, а также '
-                                       f'обязательства по амбассадорству "Голубой устрицы". На ближайший год '
-                                       f'на всех наших тусовках ты на разливе ибо больше всех заинтересован поскорее '
-                                       f'споить пацанов. Тебе также полагается денежный приз в размере всех денег '
-                                       f'накопленных в нашем фонде (в случае их отсутствия возмещаем глубоким '
-                                       f'уважением. Хорошего нового года в новом статусе!')
+            await bot.send_message(group_id,
+                                   f'🍾🍾🍾ии.. им становится {d1_sort[0][1]}! Самый главный пидрила черезвычайно'
+                                   f' пидарского года!!! {d1_sort[0][1]} прийми наши поздравления, а также '
+                                   f'обязательства по амбассадорству "Голубой устрицы". На ближайший год '
+                                   f'на всех наших тусовках ты на разливе ибо больше всех заинтересован поскорее '
+                                   f'споить пацанов. Тебе также полагается денежный приз в размере всех денег '
+                                   f'накопленных в нашем фонде (в случае их отсутствия возмещаем глубоким '
+                                   f'уважением. Хорошего нового года в новом статусе!')
             await bot.send_message(group_id, f'''ИТОГИ ГОДА:
 
  1. {d1_sort[0][1]} -----> {d1_sort[0][0]} раз(а) 🎉🎉🎉
@@ -162,13 +157,14 @@ async def obnulenie_stat(bot):
             file = FSInputFile(r'gif_zverev.mp4', 'rb')
             await bot.send_video(group_id, file)
         else:
-            await bot.send_message(group_id, f'🍾🍾🍾ии.. ими становятся {", ".join(champions)}! Выдающиеся пидрилы черезвычайно'
-                                       f' пидарского года!!! {", ".join(champions)} приймите наши поздравления, а также '
-                                       f'обязательства по амбассадорству "Голубой устрицы". На ближайший год '
-                                       f'на всех наших тусовках вы на разливе ибо больше всех заинтересованы поскорее '
-                                       f'споить пацанов. Вам также полагается денежный приз в размере всех денег '
-                                       f'накопленных в нашем фонде (в случае их отсутствия возмещаем глубоким '
-                                       f'уважением. Хорошего Нового года в новом статусе!')
+            await bot.send_message(group_id,
+                                   f'🍾🍾🍾ии.. ими становятся {", ".join(champions)}! Выдающиеся пидрилы черезвычайно'
+                                   f' пидарского года!!! {", ".join(champions)} приймите наши поздравления, а также '
+                                   f'обязательства по амбассадорству "Голубой устрицы". На ближайший год '
+                                   f'на всех наших тусовках вы на разливе ибо больше всех заинтересованы поскорее '
+                                   f'споить пацанов. Вам также полагается денежный приз в размере всех денег '
+                                   f'накопленных в нашем фонде (в случае их отсутствия возмещаем глубоким '
+                                   f'уважением. Хорошего Нового года в новом статусе!')
             await bot.send_message(group_id, f'''ИТОГИ ГОДА:
     
 1. {d1_sort[0][1]} -----> {d1_sort[0][0]} раз(а)
@@ -254,7 +250,6 @@ async def ball_of_fate():
 
 class Davinci:
     global saved_messages_davinci
-    global provider_list
 
     def __init__(self, bot, message, text):
         self.bot = bot
@@ -262,21 +257,43 @@ class Davinci:
         self.text = text
 
     async def answer(self):
-        # try:
-        saved_messages_davinci.insert(0, f'Вы: {self.text}\n')
-        prompt_davinci = (''.join(reversed(saved_messages_davinci)))
+        saved_messages_davinci.insert(len(saved_messages_davinci) + 1, {
+            "role": "user",
+            "text": f'{self.text}'})
         await self.bot.send_message(self.message.chat.id, f'секунду..')
-        response = await g4f.ChatCompletion.create_async(
-            model=g4f.models.default,
-            messages=[{"role": "user", "content": f'{prompt_davinci}'}],
-            provider=choice(provider_list))
-        await self.bot.send_message(self.message.chat.id, f'{response}')
-        saved_messages_davinci.insert(0, f'{str(response)}\n')
-        if len(saved_messages_davinci) >= 8:
-            del saved_messages_davinci[3:]
-        # except Exception:
-        #     await self.bot.send_message(self.message.chat.id, "Простите но мне нужен перекур..")
-        #     del saved_messages_davinci[1:]
+        prompt = {
+            "modelUri": f"gpt://{yandex_gpt_catalog_id}/yandexgpt-lite",
+            "completionOptions": {
+                "stream": False,
+                "temperature": 0.2,
+                "maxTokens": "300"
+            },
+            "messages": []
+        }
+        prompt['messages'] = {
+            "role": "system",
+            "text": f"Ты Давинчи, бот помощник знающий ответы на все вопросы. Ты даешь краткий и лаконичный "
+                    f"ответ на любые вопросы, а также способен найти запрашиваемое в интернете. Ты максимально "
+                    f"вежлив и учтив."
+        }, *saved_messages_davinci
+        url = "https://llm.api.cloud.yandex.net/foundationModels/v1/completion"
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Api-Key {yandex_gpt_api_key}"
+        }
+        response = requests.post(url, headers=headers, json=prompt)
+        try:
+            answer = response.json()['result']['alternatives'][0]['message']['text']
+            await self.bot.send_message(self.message.chat.id, f'{answer}')
+            saved_messages_davinci.insert(len(saved_messages_davinci) + 1, {
+                "role": "assistant",
+                "text": f'{str(answer)}'})
+            if len(saved_messages_davinci) >= 8:
+                del saved_messages_davinci[0:5]
+        except Exception:
+            await self.bot.send_message(self.message.chat.id, f"Траблы с мотивацией\n"
+                                                              f"Логи:{response.json()}")
+            del saved_messages_davinci[-1]
 
 
 # class Artur:
@@ -307,16 +324,43 @@ class Davinci:
 
 
 async def Artur_pozdravlyaet(bot, text):
+    await bot.send_message(group_id, f'секунду..')
+    prompt = {
+        "modelUri": f"gpt://{yandex_gpt_catalog_id}/yandexgpt-lite",
+        "completionOptions": {
+            "stream": False,
+            "temperature": 0.5,
+            "maxTokens": "2000"
+        },
+        "messages": [
+            {
+                "role": "system",
+                "text": f"Ты Артур, бот который профессионально в сатирической форме, развернуто поздравляет с днем "
+                        f"рождения"
+                        f" и обязательно с применением шуток на тему гомосексуальности виновника торжества. Ты всегда "
+                        f"обращаешься к поздравляемым на 'Ты'."
+            },
+            {
+                "role": "user",
+                "text": f'{text}'
+            },
+        ]
+    }
+
+    url = "https://llm.api.cloud.yandex.net/foundationModels/v1/completion"
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Api-Key {yandex_gpt_api_key}"
+    }
+
+    response = requests.post(url, headers=headers, json=prompt)
     try:
-        prompt_text = text
-        response = await g4f.ChatCompletion.create_async(
-            model=g4f.models.default,
-            messages=[{"role": "user", "content": f'{prompt_text}'}],
-            provider=choice(provider_list))
-        await bot.send_message(group_id, f'{response}')
+        answer = response.json()['result']['alternatives'][0]['message']['text']
+        await bot.send_message(group_id, f'{answer}')
     except Exception:
-        await Artur_pozdravlyaet(bot, text)
-        del saved_messages_artur[1:]
+        await bot.send_message(group_id, "Короче с др брат, ты и так все знаешь.."
+                                         "а эта суета с лишними словами для слабых духом"
+                                         "мы же с тобой сильные... обнял")
 
 
 class YaDisk:
