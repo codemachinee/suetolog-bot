@@ -260,7 +260,7 @@ class Davinci:
         saved_messages_davinci.insert(len(saved_messages_davinci) + 1, {
             "role": "user",
             "text": f'{self.text}'})
-        await self.bot.send_message(self.message.chat.id, f'секунду..')
+        message = await self.bot.send_message(self.message.chat.id, f'секунду..')
         prompt = {
             "modelUri": f"gpt://{yandex_gpt_catalog_id}/yandexgpt-lite",
             "completionOptions": {
@@ -284,7 +284,8 @@ class Davinci:
         response = requests.post(url, headers=headers, json=prompt)
         try:
             answer = response.json()['result']['alternatives'][0]['message']['text']
-            await self.bot.send_message(self.message.chat.id, f'{answer}')
+            #await self.bot.send_message(self.message.chat.id, f'{answer}')
+            await self.bot.edit_message_text(f'{answer}', self.message.chat.id, message.message_id)
             saved_messages_davinci.insert(len(saved_messages_davinci) + 1, {
                 "role": "assistant",
                 "text": f'{str(answer)}'})
@@ -324,7 +325,6 @@ class Davinci:
 
 
 async def Artur_pozdravlyaet(bot, text):
-    await bot.send_message(group_id, f'секунду..')
     prompt = {
         "modelUri": f"gpt://{yandex_gpt_catalog_id}/yandexgpt-lite",
         "completionOptions": {

@@ -13,7 +13,7 @@ from FSM import step_message
 from paswords import *
 
 # token = lemonade
-# token = codemashine_test
+#token = codemashine_test
 token = major_suetolog
 
 bot = Bot(token=token)
@@ -196,7 +196,7 @@ async def dr():
                                         f'алкогольные коктейли и путешествовать')
         await bot.send_message(group_id, 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
     elif datetime.now().day == 14 and datetime.now().month == 7:
-    #elif datetime.now().day == 17 and datetime.now().month == 12:
+    #elif datetime.now().day == 18 and datetime.now().month == 12:
         await Artur_pozdravlyaet(bot, text=f'Поздравь с днем рождения Дмитрия с учетом следующих фактов о нем: '
                                            f'1) Диман полная копия Маугли из сказки Киплинга. '
                                            f'2) Диман скрытый обитатель каменных джунглей, знает толк в кальянах '
@@ -341,21 +341,21 @@ async def chek_message(message):
         kb2 = types.ReplyKeyboardRemove()
         await bot.send_message(message.chat.id, '...', reply_markup=kb2)
     elif 'Давинчи' in message.text:
-        if message.chat.id == admin_id:
-            b = str(message.text).replace('Давинчи ', '', 1).replace('Давинчи, ', '', 1).replace('Давинчи,', '',
-                                                                                                 1).replace(
-                ' Давинчи', '', 1)
-            await Davinci(bot, message, b).answer()
-        else:
-            await bot.send_message(message.chat.id, 'нет доступа')
+        #if message.chat.id == admin_id:
+        b = str(message.text).replace('Давинчи ', '', 1).replace('Давинчи, ', '', 1).replace('Давинчи,', '',
+                                                                                             1).replace(
+            ' Давинчи', '', 1)
+        await Davinci(bot, message, b).answer()
+        # else:
+        #     await bot.send_message(message.chat.id, 'нет доступа')
     elif 'давинчи' in message.text:
-        if message.chat.id == admin_id:
-            b = str(message.text).replace('давинчи ', '', 1).replace('давинчи, ', '', 1).replace('давинчи,', '',
-                                                                                                 1).replace(
-                ' давинчи', '', 1)
-            await Davinci(bot, message, b).answer()
-        else:
-            await bot.send_message(message.chat.id, 'нет доступа')
+        # if message.chat.id == admin_id:
+        b = str(message.text).replace('давинчи ', '', 1).replace('давинчи, ', '', 1).replace('давинчи,', '',
+                                                                                             1).replace(
+            ' давинчи', '', 1)
+        await Davinci(bot, message, b).answer()
+        # else:
+        #     await bot.send_message(message.chat.id, 'нет доступа')
     # if 'Артур' in v.text:
     #     b = str(v.text).replace('Артур ', '', 1).replace('Артур, ', '', 1).replace('Артур,', '', 1).replace(
     #         ' Артур', '', 1)
