@@ -6,7 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="ff8fde5e-c92f-45db-b55d-27032f1e8543" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
+=======
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
+=======
+>>>>>>> 5289971efce4c85716d1c897f65cd247db5aa61d
+>>>>>>> ccdbe680d37f4df6e0261a905d557ad79912b39e
       <change beforePath="$PROJECT_DIR$/functions_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions_file.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,9 +37,19 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
+<<<<<<< HEAD
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
+=======
+  <component name="ProjectColorInfo"><![CDATA[{
+<<<<<<< HEAD
+  "associatedIndex": 4
+=======
+  "associatedIndex": 0
+>>>>>>> 5289971efce4c85716d1c897f65cd247db5aa61d
+}]]></component>
+>>>>>>> ccdbe680d37f4df6e0261a905d557ad79912b39e
   <component name="ProjectId" id="2K6PSHBhwXvemXcOWi71vpNpaaB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -46,7 +63,11 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
+<<<<<<< HEAD
+    "last_opened_file_path": "C:/Users/Hloapps/PycharmProjects/suetolog-bot",
+=======
     "last_opened_file_path": "D:/PycharmProjects/suetolog-bot",
+>>>>>>> 5289971efce4c85716d1c897f65cd247db5aa61d
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -170,6 +191,7 @@
       <workItem from="1695902079530" duration="591000" />
       <workItem from="1695978811636" duration="34000" />
       <workItem from="1695979684056" duration="17000" />
+      <workItem from="1696227513267" duration="1107000" />
     </task>
     <servers />
   </component>
@@ -207,9 +229,80 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+<<<<<<< HEAD
+          <url>file://$PROJECT_DIR$/functions_file.py</url>
+          <line>309</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/functions_file.py</url>
+          <line>314</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/functions_file.py</url>
+          <line>315</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/functions_file.py</url>
+          <line>316</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/functions_file.py</url>
+          <line>317</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/functions_file.py</url>
+          <line>318</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/functions_file.py</url>
+          <line>319</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/functions_file.py</url>
+          <line>320</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/functions_file.py</url>
+          <line>321</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/functions_file.py</url>
+          <line>322</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/functions_file.py</url>
+          <line>323</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/functions_file.py</url>
+          <line>324</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/functions_file.py</url>
+          <line>325</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/functions_file.py</url>
+          <line>326</line>
+          <option name="timeStamp" value="14" />
+=======
           <url>file://$PROJECT_DIR$/test.py</url>
           <line>29</line>
           <option name="timeStamp" value="58" />
+>>>>>>> 5289971efce4c85716d1c897f65cd247db5aa61d
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

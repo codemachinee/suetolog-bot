@@ -12,9 +12,9 @@ from functions_file import value_plus_one, pstat, obnulenie_stat, ball_of_fate, 
 from FSM import step_message
 from paswords import *
 
-#token = lemonade
-token = codemashine_test
-#token = major_suetolog
+# token = lemonade
+# token = codemashine_test
+token = major_suetolog
 
 bot = Bot(token=token)
 dp = Dispatcher()
@@ -293,8 +293,8 @@ async def start(message):
 в 11:00 по московскому времени
 
 /help - справка по боту''')
-    
-    
+
+
 @dp.message(Command(commands='orel'))
 async def orel(message):
     await bot.send_message(message.chat.id, 'Орловский помощник..', reply_markup=kb1)
@@ -317,7 +317,7 @@ async def test(message):
 
 
 @dp.message(Command(commands='sent_message'))  # команда для переброски клиента из базы потенциальных клиентов в
-async def sent_message(message, state: FSMContext):    # базу старых клиентов
+async def sent_message(message, state: FSMContext):  # базу старых клиентов
     if message.chat.id == admin_id:
         await bot.send_message(admin_id, 'Введите текст сообщения')
         await state.set_state(step_message.message)
@@ -342,14 +342,16 @@ async def chek_message(message):
         await bot.send_message(message.chat.id, '...', reply_markup=kb2)
     elif 'Давинчи' in message.text:
         if message.chat.id == admin_id:
-            b = str(message.text).replace('Давинчи ', '', 1).replace('Давинчи, ', '', 1).replace('Давинчи,', '', 1).replace(
+            b = str(message.text).replace('Давинчи ', '', 1).replace('Давинчи, ', '', 1).replace('Давинчи,', '',
+                                                                                                 1).replace(
                 ' Давинчи', '', 1)
             await Davinci(bot, message, b).answer()
         else:
             await bot.send_message(message.chat.id, 'нет доступа')
     elif 'давинчи' in message.text:
         if message.chat.id == admin_id:
-            b = str(message.text).replace('давинчи ', '', 1).replace('давинчи, ', '', 1).replace('давинчи,', '', 1).replace(
+            b = str(message.text).replace('давинчи ', '', 1).replace('давинчи, ', '', 1).replace('давинчи,', '',
+                                                                                                 1).replace(
                 ' давинчи', '', 1)
             await Davinci(bot, message, b).answer()
         else:
@@ -379,9 +381,9 @@ async def chek_message(v):
     await YaDisk(bot, v).save_video()
 
 
-# def sent_message_perehvat(message):
-#     bot.copy_message(group_id, admin_id, message.id)
-#     bot.send_message(admin_id, 'Сообщение отправлено!')
+@dp.message(F.video_note, F.chat.type == 'private')
+async def chek_message(v):
+    await YaDisk(bot, v).save_video_note()
 
 
 async def main():
@@ -391,10 +393,9 @@ async def main():
     scheduler.start()
     await dp.start_polling(bot)
 
+
 if __name__ == '__main__':
     try:
         asyncio.run(main())
     except KeyboardInterrupt:
         print('Exit')
-
-
