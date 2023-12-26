@@ -11,9 +11,10 @@ from functions_file import value_plus_one, pstat, obnulenie_stat, ball_of_fate, 
     Artur_pozdravlyaet, YaDisk
 from FSM import step_message
 from paswords import *
+from SaluteSpeech import *
 
 # token = lemonade
-#token = codemashine_test
+# token = codemashine_test
 token = major_suetolog
 
 bot = Bot(token=token)
@@ -141,9 +142,9 @@ async def dr():
                                            f'восстанавливаем в памяти все что происходило не смотря на количество '
                                            f'и качество выпитого. '
                                            f'2) Кирилл учится на юриста и до сих пор любит свою бывшую девушку '
-                                    f'Лизу, но всячески это отрицает. '
+                                           f'Лизу, но всячески это отрицает. '
                                            f'3) Кирилл всегда готов вписаться в любое приключение, особенно '
-                                    f'если это бесплатно. '
+                                           f'если это бесплатно. '
                                            f'4) Кирилл прогуливает учебу в ресторанах KFC. '
                                            f'5) Кирилл открытый сторонник и доверенное лицо Президента на выборах '
                                            f'6) Мама Кирилла работает в медицине катастроф и в случае чего достанет его '
@@ -193,10 +194,10 @@ async def dr():
                                            f'2) Евгений бизнесмен, владелец барбершопов в городе Москва, '
                                            f'который любит активный образ жизни, кататься на сноуборде, плавать на '
                                            f'байдарках, играть в сквош. 3) Женек обожает шутки про геев, готовить '
-                                        f'алкогольные коктейли и путешествовать')
+                                           f'алкогольные коктейли и путешествовать')
         await bot.send_message(group_id, 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
     elif datetime.now().day == 14 and datetime.now().month == 7:
-    #elif datetime.now().day == 18 and datetime.now().month == 12:
+        # elif datetime.now().day == 18 and datetime.now().month == 12:
         await Artur_pozdravlyaet(bot, text=f'Поздравь с днем рождения Дмитрия с учетом следующих фактов о нем: '
                                            f'1) Диман полная копия Маугли из сказки Киплинга. '
                                            f'2) Диман скрытый обитатель каменных джунглей, знает толк в кальянах '
@@ -341,19 +342,25 @@ async def chek_message(message):
         kb2 = types.ReplyKeyboardRemove()
         await bot.send_message(message.chat.id, '...', reply_markup=kb2)
     elif 'Давинчи' in message.text:
-        #if message.chat.id == admin_id:
-        b = str(message.text).replace('Давинчи ', '', 1).replace('Давинчи, ', '', 1).replace('Давинчи,', '',
+        try:
+            if message.reply_to_message.voice.file_id:
+                await save_audio(bot, message.reply_to_message)
+        except AttributeError:
+            b = str(message.text).replace('Давинчи ', '', 1).replace('Давинчи, ', '', 1).replace('Давинчи,', '',
                                                                                              1).replace(
-            ' Давинчи', '', 1)
-        await Davinci(bot, message, b).answer()
+                ' Давинчи', '', 1)
+            await Davinci(bot, message, b).answer()
         # else:
         #     await bot.send_message(message.chat.id, 'нет доступа')
     elif 'давинчи' in message.text:
-        # if message.chat.id == admin_id:
-        b = str(message.text).replace('давинчи ', '', 1).replace('давинчи, ', '', 1).replace('давинчи,', '',
-                                                                                             1).replace(
-            ' давинчи', '', 1)
-        await Davinci(bot, message, b).answer()
+        try:
+            if message.reply_to_message.voice.file_id:
+                await save_audio(bot, message.reply_to_message)
+        except AttributeError:
+            b = str(message.text).replace('давинчи ', '', 1).replace('давинчи, ', '',
+                                                                     1).replace('давинчи,', '',
+                                                                                1).replace(' давинчи', '', 1)
+            await Davinci(bot, message, b).answer()
         # else:
         #     await bot.send_message(message.chat.id, 'нет доступа')
     # if 'Артур' in v.text:
@@ -386,10 +393,15 @@ async def chek_message(v):
     await YaDisk(bot, v).save_video_note()
 
 
+@dp.message(F.voice, F.chat.type == 'private')
+async def chek_message(v):
+    await save_audio(bot, v)
+
+
 async def main():
     scheduler = AsyncIOScheduler()
     scheduler.add_job(pidr, "cron", day_of_week='mon-sun', hour=11)
-    #scheduler.add_job(pidr, trigger="interval", seconds=15)
+    # scheduler.add_job(pidr, trigger="interval", seconds=15)
     scheduler.start()
     await dp.start_polling(bot)
 
