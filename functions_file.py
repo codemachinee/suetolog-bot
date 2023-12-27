@@ -266,7 +266,7 @@ class Davinci:
             "completionOptions": {
                 "stream": False,
                 "temperature": 0.2,
-                "maxTokens": "300"
+                "maxTokens": "1200"
             },
             "messages": []
         }
@@ -292,7 +292,7 @@ class Davinci:
             if len(saved_messages_davinci) >= 8:
                 del saved_messages_davinci[0:5]
         except Exception:
-            await self.bot.send_message(self.message.chat.id, f"Траблы с мотивацией\n"
+            await self.bot.send_message(self.message.chat.id, f"Ошибка\n"
                                                               f"Логи:{response.json()}")
             del saved_messages_davinci[-1]
 
