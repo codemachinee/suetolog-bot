@@ -5,17 +5,15 @@ from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.types import CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton, FSInputFile, Message
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
-from datetime import datetime
 from random import *
-from functions_file import value_plus_one, pstat, obnulenie_stat, ball_of_fate, Davinci, celebrate_day, \
-    Artur_pozdravlyaet, YaDisk
+from functions_file import value_plus_one, pstat, obnulenie_stat, ball_of_fate, celebrate_day
 from FSM import step_message
-from paswords import *
 from SaluteSpeech import *
+from yandex_services import *
 
 # token = lemonade
-# token = codemashine_test
-token = major_suetolog
+token = codemashine_test
+# token = major_suetolog
 
 bot = Bot(token=token)
 dp = Dispatcher()
@@ -363,14 +361,14 @@ async def chek_message(message):
             await Davinci(bot, message, b).answer()
         # else:
         #     await bot.send_message(message.chat.id, 'нет доступа')
-    # if 'Артур' in v.text:
-    #     b = str(v.text).replace('Артур ', '', 1).replace('Артур, ', '', 1).replace('Артур,', '', 1).replace(
-    #         ' Артур', '', 1)
-    #     Artur(bot, v, b)
-    # if 'артур' in v.text:
-    #     b = str(v.text).replace('артур ', '', 1).replace('артур, ', '', 1).replace('артур,', '', 1).replace(
-    #         ' артур', '', 1)
-    #     Artur(bot, v, b)
+    elif 'Артур' in message.text:
+        b = str(message.text).replace('Артур ', '', 1).replace('Артур, ', '', 1).replace('Артур,', '', 1).replace(
+            ' Артур', '', 1)
+        await Artur(bot, message, b)
+    elif 'артур' in message.text:
+        b = str(message.text).replace('артур ', '', 1).replace('артур, ', '', 1).replace('артур,', '', 1).replace(
+            ' артур', '', 1)
+        await Artur(bot, message, b)
 
 
 @dp.message(F.document, F.chat.type == 'private')
