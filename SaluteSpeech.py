@@ -1,7 +1,6 @@
 import requests
 import uuid
 import os
-import aiohttp
 from paswords import *
 saved_message_salute = []
 
@@ -124,32 +123,32 @@ async def Artur(bot, message, text):
         "content": "не я такой, жизнь такая. Это ты меня еще во Вьетнаме не видел, там я таких сосунков воспитывал."
     }, *saved_message_salute
     ]
-    # response = requests.post(url, headers=headers, json=data, verify=False)
-    # try:
-    #     answer = response.json()['choices'][0]['message']['content']
-    #     # await self.bot.send_message(self.message.chat.id, f'{answer}')
-    #     await bot.edit_message_text(f'{answer}', message.chat.id, message.message_id)
-    #     saved_message_salute.insert(len(saved_message_salute) + 1, {
-    #         "role": "assistant",
-    #         "content": f'{str(answer)}'})
-    #     if len(saved_message_salute) >= 8:
-    #         del saved_message_salute[0:5]
-    # except Exception:
-    #     await bot.send_message(message.chat.id, f"Ошибка\n"
-    #                                                  f"Логи:{response.text}")
-    #     del saved_message_salute[-1]
-    async with aiohttp.ClientSession() as session:
-        async with session.post(url, headers=headers, json=data) as response:
-            try:
-                answer = (await response.json())['choices'][0]['message']['content']
-                # await self.bot.send_message(self.message.chat.id, f'{answer}')
-                await bot.edit_message_text(f'{answer}', message.chat.id, message.message_id)
-                saved_message_salute.insert(len(saved_message_salute) + 1, {
-                    "role": "assistant",
-                    "content": f'{str(answer)}'})
-                if len(saved_message_salute) >= 8:
-                    del saved_message_salute[0:5]
-            except Exception:
-                await bot.send_message(message.chat.id, f"Ошибка\n"
-                                                             f"Логи:{response.text}")
-                del saved_message_salute[-1]
+    response = requests.post(url, headers=headers, json=data, verify=False)
+    try:
+        answer = response.json()['choices'][0]['message']['content']
+        # await self.bot.send_message(self.message.chat.id, f'{answer}')
+        await bot.edit_message_text(f'{answer}', message.chat.id, message.message_id)
+        saved_message_salute.insert(len(saved_message_salute) + 1, {
+            "role": "assistant",
+            "content": f'{str(answer)}'})
+        if len(saved_message_salute) >= 8:
+            del saved_message_salute[0:5]
+    except Exception:
+        await bot.send_message(message.chat.id, f"Ошибка\n"
+                                                     f"Логи:{response.text}")
+        del saved_message_salute[-1]
+    # async with aiohttp.ClientSession() as session:
+    #     async with session.post(url, headers=headers, json=data) as response:
+    #         try:
+    #             answer = (await response.json())['choices'][0]['message']['content']
+    #             # await self.bot.send_message(self.message.chat.id, f'{answer}')
+    #             await bot.edit_message_text(f'{answer}', message.chat.id, message.message_id)
+    #             saved_message_salute.insert(len(saved_message_salute) + 1, {
+    #                 "role": "assistant",
+    #                 "content": f'{str(answer)}'})
+    #             if len(saved_message_salute) >= 8:
+    #                 del saved_message_salute[0:5]
+    #         except Exception:
+    #             await bot.send_message(message.chat.id, f"Ошибка\n"
+    #                                                          f"Логи:{response.text}")
+    #             del saved_message_salute[-1]

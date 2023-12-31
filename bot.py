@@ -11,8 +11,8 @@ from FSM import step_message
 from SaluteSpeech import *
 from yandex_services import *
 
-# token = lemonade
-token = codemashine_test
+token = lemonade
+# token = codemashine_test
 # token = major_suetolog
 
 bot = Bot(token=token)
@@ -277,12 +277,17 @@ async def check_callback(callback: CallbackQuery):
 
 @dp.message(Command(commands='help'))
 async def help(message):
-    await bot.send_message(message.chat.id, ('Основные команды поддерживаемые ботом:\n'
-                                             '/orel -  вызвать орловского помощника\n'
-                                             '/pidorstat - пидорский рейтинг \n'
-                                             '/start - инициализация бота\n'
-                                             '/help - справка по боту\n'
-                                             '/test - тестирование бота'))
+    await bot.send_message(message.chat.id, (f'Основные команды поддерживаемые ботом:\n'
+                                             f'/orel -  вызвать орловского помощника\n'
+                                             f'/pidorstat - пидорский рейтинг \n'
+                                             f'/start - инициализация бота\n'
+                                             f'/help - справка по боту\n'
+                                             f'/test - тестирование бота\n'
+                                             f'для вызова Давинчи или Артура необходимо указать имя в сообщении\n'
+                                             f'для перевода воиса(длительность до 1 мин.) в текст ответьте на него '
+                                             f'словом "давинчи" или перешлите в личку боту\n'
+                                             f'для отправки фото/видео/документа в общую папку на яндекс отправьте '
+                                             f'необходимые файлы в личку боту'))
 
 
 @dp.message(Command(commands='start'))
