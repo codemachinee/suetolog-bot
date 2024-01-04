@@ -11,9 +11,9 @@ from FSM import step_message
 from SaluteSpeech import *
 from yandex_services import *
 
-token = lemonade
+# token = lemonade
 # token = codemashine_test
-# token = major_suetolog
+token = major_suetolog
 
 bot = Bot(token=token)
 dp = Dispatcher()
@@ -64,7 +64,7 @@ async def pidr():
     elif x == 4:
         await dr()
         file1 = FSInputFile(r"Леха.jpg", 'rb')
-        y = ("Леха(Саня)", file1)
+        y = ("Леха(Demix)", file1)
         await value_plus_one('A5')
         await bot.send_photo(group_id, y[1])
         await bot.send_message(group_id, f'''{await celebrate_day()} 

@@ -1,5 +1,6 @@
 import aiohttp
 import yadisk
+from aiogram import exceptions
 # библиотека проверки даты
 from datetime import datetime
 from paswords import*
@@ -142,6 +143,8 @@ class YaDisk:
                          f'{src}/{self.message.document.file_name}.{datetime.now().hour}.{datetime.now().minute}.'
                          f'{datetime.now().second}.')
                 await self.bot.send_message(self.message.chat.id, 'документ успешно загружен')
+        except exceptions.TelegramBadRequest:
+            await self.bot.send_message(self.message.chat.id, 'ОШИБКА! Документ слишком большой')
         except Exception:
             await self.bot.send_message(self.message.chat.id, 'Отправка не удалась. Сервер перегружен')
         # try:
@@ -170,12 +173,12 @@ class YaDisk:
             src = f'/суетологи/{datetime.now().day}.{datetime.now().month}.{datetime.now().year}'
             try:
                 y.upload(await self.bot.download_file(file_path),
-                         f'{src}/{self.message.video.file_name}')
+                         f'{src}/{self.message.video.file_unique_id}')
                 await self.bot.send_message(self.message.chat.id, 'видео успешно загружено')
             except yadisk.exceptions.ParentNotFoundError:
                 y.mkdir(src)
                 y.upload(await self.bot.download_file(file_path),
-                         f'{src}/{self.message.video.file_name}')
+                         f'{src}/{self.message.video.file_unique_id}')
                 await self.bot.send_message(self.message.chat.id, 'видео успешно загружено')
         except Exception:
             await self.bot.send_message(self.message.chat.id, 'Отправка не удалась. Сервер перегружен')

@@ -24,7 +24,7 @@ async def pstat(cell):
     worksheet = sh.get_worksheet(0)
     d1 = [(int(worksheet.acell(f'{cell}1').value), "Филч"), (int(worksheet.acell(f'{cell}2').value), "Игорь"),
           (int(worksheet.acell(f'{cell}3').value), "Серега"), (int(worksheet.acell(f'{cell}4').value), "Саня"),
-          (int(worksheet.acell(f'{cell}5').value), "Леха(Саня)"),
+          (int(worksheet.acell(f'{cell}5').value), "Леха(Demix)"),
           (int(worksheet.acell(f'{cell}6').value), "Леха(Фитиль)"),
           (int(worksheet.acell(f'{cell}7').value), "Диман"),
           (int(worksheet.acell(f'{cell}8').value), "Кирюха подкастер"),
@@ -60,7 +60,7 @@ async def obnulenie_stat(bot):
         worksheet = sh.get_worksheet(0)
         d1 = [(int(worksheet.acell('A1').value), "Филч"), (int(worksheet.acell('A2').value), "Игорь"),
               (int(worksheet.acell('A3').value), "Серега"), (int(worksheet.acell('A4').value), "Саня"),
-              (int(worksheet.acell('A5').value), "Леха(Саня)"), (int(worksheet.acell('A6').value), "Леха(Фитиль)"),
+              (int(worksheet.acell('A5').value), "Леха(Demix)"), (int(worksheet.acell('A6').value), "Леха(Фитиль)"),
               (int(worksheet.acell('A7').value), "Диман"), (int(worksheet.acell('A8').value), "Кирюха подкастер"),
               (int(worksheet.acell('A9').value), "Женек спасатель"),
               (int(worksheet.acell('A10').value), "Женек старый")]
@@ -112,7 +112,7 @@ async def obnulenie_stat(bot):
         worksheet = sh.get_worksheet(0)
         d1 = [(int(worksheet.acell('C1').value), "Филч"), (int(worksheet.acell('C2').value), "Игорь"),
               (int(worksheet.acell('C3').value), "Серега"), (int(worksheet.acell('C4').value), "Саня"),
-              (int(worksheet.acell('C5').value), "Леха(Саня)"), (int(worksheet.acell('C6').value), "Леха(Фитиль)"),
+              (int(worksheet.acell('C5').value), "Леха(Demix)"), (int(worksheet.acell('C6').value), "Леха(Фитиль)"),
               (int(worksheet.acell('C7').value), "Диман"), (int(worksheet.acell('C8').value), "Кирюха подкастер"),
               (int(worksheet.acell('C9').value), "Женек спасатель"),
               (int(worksheet.acell('C10').value), "Женек старый")]
