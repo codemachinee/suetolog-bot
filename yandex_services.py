@@ -71,7 +71,7 @@ async def Artur_pozdravlyaet(bot, text):
                 "role": "system",
                 "text": f"Ты Артур, бот который профессионально в сатирической форме, развернуто поздравляет с днем "
                         f"рождения"
-                        f" и обязательно с применением шуток на тему гомосексуальности виновника торжества. Ты всегда "
+                        f" и обязательно дерзко пошутишь над виновником торжества. Ты всегда "
                         f"обращаешься к поздравляемым на 'Ты'."
             },
             {
@@ -87,7 +87,7 @@ async def Artur_pozdravlyaet(bot, text):
         "Authorization": f"Api-Key {yandex_gpt_api_key}"
     }
     async with aiohttp.ClientSession() as session:
-        async with session.post(url, headers=headers, json=prompt) as response:
+        async with session.post(url, headers=headers, json=prompt, ssl=False) as response:
             try:
                 answer = (await response.json())['result']['alternatives'][0]['message']['text']
                 await bot.send_message(group_id, f'{answer}')

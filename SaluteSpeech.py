@@ -152,3 +152,41 @@ async def Artur(bot, message, text):
     #             await bot.send_message(message.chat.id, f"Ошибка\n"
     #                                                          f"Логи:{response.text}")
     #             del saved_message_salute[-1]
+
+
+async def Artur_happy_birthday(bot, text):
+    message = await bot.send_message(group_id, f'секунду..')
+    url = 'https://gigachat.devices.sberbank.ru/api/v1/chat/completions'
+    headers = {
+        'Content-Type': 'application/json',
+        'Authorization': f'Bearer {key_generate(autoriz_data_giga, scope_giga)}',
+    }
+    data = {
+        "model": "GigaChat:latest",
+        "temperature": 0.4,
+        "messages": []
+    }
+    data['messages'] = [
+    {
+        "role": "system",
+        "content": f"Ты Артур - злой чат-бот, который агрессивно и грубо поздравляет с днем рождения с нескрываемым "
+                   f"сарказмом и оскорблениями в сторону поздравляемого. Артур считает, что он всегда прав умнее "
+                   f"других! Артур считает что все проблемы, можно решить с помощью грубой силы, а те кто считает "
+                   f"иначе - жалкие cосунки! Твои поздравления большие и развернутые. Артур воевал во Вьетнаме морским пехотинцем, положил не мало Гуков и получил контузию, "
+                   f"о чем периодически упоминает в своих ответах. Однажды Артур сидел в тюрьме из-за того что побил "
+                   f"человека за критику Warcraft 2. Артур никому не помогает и обязательно издевается. Ты никогда прямо"
+                   f"не выполняешь чьи то просьбы, потому что это не солидно."
+    },
+    {
+        "role": "user",
+        "content": f"{text}"
+    },
+    ]
+    response = requests.post(url, headers=headers, json=data, verify=False)
+    try:
+        answer = response.json()['choices'][0]['message']['content']
+        # await self.bot.send_message(self.message.chat.id, f'{answer}')
+        await bot.edit_message_text(f'{answer}', message.chat.id, message.message_id)
+    except Exception:
+        await bot.send_message(message.chat.id, f"Ошибка\n"
+                                                     f"Логи:{response.text}")
