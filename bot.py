@@ -134,7 +134,7 @@ async def pidr():
 
 async def dr():
     await obnulenie_stat(bot)
-    if datetime.now().day == 5 and datetime.now().month == 3:
+    if datetime.now().day == 6 and datetime.now().month == 3:
         await Artur_happy_birthday(bot, text=f'Поздравь с днем рождения Кирилла Подкастера с учетом следующих фактов о '
                                            f'нем: 1) Благодаря его стараниям и материалам мы в подробностях '
                                            f'восстанавливаем в памяти все что происходило не смотря на количество '
