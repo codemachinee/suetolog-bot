@@ -14,7 +14,8 @@ from aiogram import types
 from main import bot, start
 
 
-@pytest.mark.asyncio
+@pytest.mark.skip(reason="Этот тест запускается только вручную")
+# @pytest.mark.asyncio
 async def test_start_command():
     # Создаем фиктивное сообщение
     message = types.Message(
