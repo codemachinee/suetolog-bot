@@ -8,39 +8,39 @@ import aiofiles
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))) # нужно для норм видимости коневой папки
 
 import pytest
-from unittest.mock import AsyncMock
-from aiogram import types
+# from unittest.mock import AsyncMock
+# from aiogram import types
 
-from main import bot, start
-
-
-@pytest.mark.skip(reason="Этот тест запускается только вручную")
-# @pytest.mark.asyncio
-async def test_start_command():
-    # Создаем фиктивное сообщение
-    message = types.Message(
-        message_id=1,
-        date=0,
-        chat=types.Chat(id=123, type="private"),
-        from_user=types.User(id=456, is_bot=False, first_name="TestUser"),
-        text="/start"
-    )
-
-    # Мокаем объект бота и его метод send_message
-    bot.send_message = AsyncMock(return_value=None)
-
-    # Выполняем команду start
-    await start(message)
-
-    # Проверяем, что метод send_message был вызван с ожидаемыми параметрами
-    bot.send_message.assert_called_once_with(
-        123,  # ID чата
-        '''Бот уже инициализирован.
-Я работаю по расписанию. Пидр дня назначается ежедневно 
-в 11:00 по московскому времени
-
-/help - справка по боту'''
-    )
+# from main import bot, start
+#
+#
+# @pytest.mark.skip(reason="Этот тест запускается только вручную")
+# # @pytest.mark.asyncio
+# async def test_start_command():
+#     # Создаем фиктивное сообщение
+#     message = types.Message(
+#         message_id=1,
+#         date=0,
+#         chat=types.Chat(id=123, type="private"),
+#         from_user=types.User(id=456, is_bot=False, first_name="TestUser"),
+#         text="/start"
+#     )
+#
+#     # Мокаем объект бота и его метод send_message
+#     bot.send_message = AsyncMock(return_value=None)
+#
+#     # Выполняем команду start
+#     await start(message)
+#
+#     # Проверяем, что метод send_message был вызван с ожидаемыми параметрами
+#     bot.send_message.assert_called_once_with(
+#         123,  # ID чата
+#         '''Бот уже инициализирован.
+# Я работаю по расписанию. Пидр дня назначается ежедневно
+# в 11:00 по московскому времени
+#
+# /help - справка по боту'''
+#     )
 
 
 @pytest.mark.asyncio
