@@ -10,3 +10,4 @@ venv/
 logs/
 *.log
 .dockerignore
+paswords.py
