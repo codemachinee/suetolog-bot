@@ -28,4 +28,4 @@ jobs:
             docker rm -f suetolog-bot || true
             # Собираем новый образ
             docker build -t suetolog-bot .
-            docker run -d --name suetolog-bot --env-file .env -v suetolog-bot:/app/bot suetolog-bot
+            docker run -d --name suetolog-bot --env-file .env -v /root/suetolog-bot:/app/bot suetolog-bot

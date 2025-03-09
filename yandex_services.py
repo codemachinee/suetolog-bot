@@ -3,6 +3,9 @@ import yadisk
 from aiogram import exceptions
 # библиотека проверки даты
 from datetime import datetime
+
+from loguru import logger
+
 from paswords import*
 saved_messages_davinci = []
 y = yadisk.YaDisk(token=yadisk_token)
@@ -120,8 +123,9 @@ class YaDisk:
                              f'{src}/{datetime.now().hour}.{datetime.now().minute}.{datetime.now().second}.'
                              f'{datetime.now().microsecond}.jpg')
                 await self.bot.send_message(self.message.chat.id, 'фото успешно загружено')
-        except Exception:
-            await self.bot.send_message(self.message.chat.id, 'Отправка не удалась. Сервер перегружен')
+        except Exception as e:
+            logger.exception('Ошибка в yandex_services/save_photo', e)
+            await self.bot.send_message(self.message.chat.id, f'Отправка не удалась. Сервер перегружен, {e}')
 
     async def save_doc(self):
         try:
@@ -145,8 +149,9 @@ class YaDisk:
                 await self.bot.send_message(self.message.chat.id, 'документ успешно загружен')
         except exceptions.TelegramBadRequest:
             await self.bot.send_message(self.message.chat.id, 'ОШИБКА! Документ слишком большой')
-        except Exception:
-            await self.bot.send_message(self.message.chat.id, 'Отправка не удалась. Сервер перегружен')
+        except Exception as e:
+            logger.exception('Ошибка в yandex_services/save_doc', e)
+            await self.bot.send_message(self.message.chat.id, f'Отправка не удалась. Сервер перегружен, {e}')
 
     async def save_video(self):
         try:
@@ -163,8 +168,9 @@ class YaDisk:
                 y.upload(await self.bot.download_file(file_path),
                          f'{src}/{self.message.video.file_unique_id}')
                 await self.bot.send_message(self.message.chat.id, 'видео успешно загружено')
-        except Exception:
-            await self.bot.send_message(self.message.chat.id, 'Отправка не удалась. Сервер перегружен')
+        except Exception as e:
+            logger.exception('Ошибка в yandex_services/save_video', e)
+            await self.bot.send_message(self.message.chat.id, f'Отправка не удалась. Сервер перегружен, {e}')
 
     async def save_video_note(self):
         try:
@@ -181,5 +187,6 @@ class YaDisk:
                 y.upload(await self.bot.download_file(file_path),
                          f'{src}/{self.message.video_note.file_id}')
                 await self.bot.send_message(self.message.chat.id, 'видео успешно загружено')
-        except Exception:
-            await self.bot.send_message(self.message.chat.id, 'Отправка не удалась. Сервер перегружен')
+        except Exception as e:
+            logger.exception('Ошибка в yandex_services/video_note', e)
+            await self.bot.send_message(self.message.chat.id, f'Отправка не удалась. Сервер перегружен, {e}')

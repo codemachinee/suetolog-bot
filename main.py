@@ -175,9 +175,10 @@ async def check_callback(callback: CallbackQuery):
         if callback.data == 'bof':
             start_file = FSInputFile(r"ball/start_image.png", 'rb')
             await bot.send_photo(callback.message.chat.id, start_file)
-            await bot.send_message(callback.message.chat.id, '''Решил попытать удачу или просто переложить 
-            ответственность? Что ж.. Чтобы все прошло как надо просто переведи сотку моему создателю на сбер и 
-            погладь шар''')
+            await bot.send_message(callback.message.chat.id, f'Решил попытать удачу или просто переложить '
+                                                             f'ответственность? Что ж.. Чтобы все прошло как надо '
+                                                             f'просто переведи сотку моему создателю на сбер и '
+                                                             f'погладь шар')
             kb1 = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1, keyboard=[
                 [types.KeyboardButton(text='Погладить шар')],
                 [types.KeyboardButton(text='Шар съебись')]])

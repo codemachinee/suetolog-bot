@@ -7,6 +7,6 @@ venv/
 .vscode/
 .env
 *.pem
-config.json
 logs/
 *.log
+.dockerignore
