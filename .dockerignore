@@ -10,5 +10,4 @@ venv/
 config.json
 logs/
 *.log
-paswords.py
 pidor-of-the-day-af3dd140b860.json
