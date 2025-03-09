@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.DS_Store
+.idea/
+.vscode/
+.env
+*.pem
+config.json
+logs/
+*.log
+paswords.py
+pidor-of-the-day-af3dd140b860.json

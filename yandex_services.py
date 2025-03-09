@@ -60,7 +60,7 @@ class Davinci:
 
 async def Artur_pozdravlyaet(bot, text):
     prompt = {
-        "modelUri": f"gpt://{yandex_gpt_catalog_id}/yandexgpt-lite",
+        "modelUri": f"gpt://{yandex_gpt_catalog_id}/yandexgpt",
         "completionOptions": {
             "stream": False,
             "temperature": 0.5,
@@ -147,23 +147,6 @@ class YaDisk:
             await self.bot.send_message(self.message.chat.id, 'ОШИБКА! Документ слишком большой')
         except Exception:
             await self.bot.send_message(self.message.chat.id, 'Отправка не удалась. Сервер перегружен')
-        # try:
-        #     file_id = self.message.document.file_id
-        #     file = await self.bot.get_file(file_id)
-        #     file_path = file.file_path
-        #     src = f'/суетологи/{datetime.now().day}.{datetime.now().month}.{datetime.now().year}'
-        #     if y.exists(src) is False:
-        #         y.mkdir(src)
-        #         y.upload(await self.bot.download_file(file_path),
-        #                  f'{src}/{self.message.document.file_name}')
-        #         await self.bot.send_message(self.message.chat.id, 'документ успешно загружен')
-        #
-        #     else:
-        #         y.upload(await self.bot.download_file(file_path),
-        #                  f'{src}/{self.message.document.file_name}')
-        #         await self.bot.send_message(self.message.chat.id, 'документ успешно загружен')
-        # except Exception:
-        #     await self.bot.send_message(self.message.chat.id, 'отправка не удалась')
 
     async def save_video(self):
         try:

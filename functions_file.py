@@ -190,14 +190,20 @@ async def celebrate_day():
         return '🎉Личным пидарасом Валентина🎉'
     elif datetime.now().day == 23 and datetime.now().month == 2:
         return '🎉Защищенным пидарасом🎉'
+    elif datetime.now().day == 1 and datetime.now().month == 3:
+        return '🎉Весенним пидарасом🎉'
     elif datetime.now().day == 8 and datetime.now().month == 3:
         return '🎉Международным женским пидарасом🎉'
     elif datetime.now().day == 1 and datetime.now().month == 5:
         return '🎉Мирным трудолюбивым и майским пидарасом🎉'
+    elif datetime.now().day == 1 and datetime.now().month == 6:
+        return '🎉Летним пидарасом🎉'
     elif datetime.now().day == 1 and datetime.now().month == 9:
-        return '🎉Школьным пидарасом🎉'
+        return '🎉Школьным осенним пидарасом🎉'
     elif datetime.now().day == 4 and datetime.now().month == 11:
         return '🎉Народным пидарасом🎉'
+    elif datetime.now().day == 1 and datetime.now().month == 12:
+        return '🎉Зимним пидарасом🎉'
     else:
         return 'Пидарасом дня'
 
