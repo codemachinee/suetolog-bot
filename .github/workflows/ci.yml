@@ -52,7 +52,7 @@ jobs:
             git pull origin master
             # Останавливаем и удаляем контейнер с именем suetolog-bot, если он существует
             docker rm -f suetolog-bot || true
-			docker rmi -f telegram_bot || true
+	    docker rmi -f telegram_bot || true
             # Собираем новый образ
             docker build -t suetolog-bot .
             docker run -d --name suetolog-bot -v /root/suetolog-bot:/app suetolog-bot
