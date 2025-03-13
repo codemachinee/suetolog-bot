@@ -54,9 +54,9 @@ async def pidr():
             y = ("Игорь", file1)
             await value_plus_one('A2')
             await bot.send_photo(group_id, y[1])
-            await bot.send_message(group_id, f'''{await celebrate_day()} 
-    {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
-    Справка по боту: /help''')
+            await bot.send_message(group_id, f'{await celebrate_day()}\n'
+                                             f'{datetime.now().day}.{datetime.now().month}.{datetime.now().year} '
+                                             f'объявляется {y[0]}\nСправка по боту: /help')
 
         elif x == 2:
             await dr()
@@ -64,9 +64,9 @@ async def pidr():
             y = ("Филч", file1)
             await value_plus_one('A1')
             await bot.send_photo(group_id, y[1])
-            await bot.send_message(group_id, f'''{await celebrate_day()} 
-    {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
-    Справка по боту: /help''')
+            await bot.send_message(group_id, f'{await celebrate_day()}\n'
+                                             f'{datetime.now().day}.{datetime.now().month}.{datetime.now().year} '
+                                             f'объявляется {y[0]}\nСправка по боту: /help')
 
         elif x == 3:
             await dr()
@@ -74,9 +74,9 @@ async def pidr():
             y = ("Серега", file1)
             await value_plus_one('A3')
             await bot.send_photo(group_id, y[1])
-            await bot.send_message(group_id, f'''{await celebrate_day()} 
-    {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
-    Справка по боту: /help''')
+            await bot.send_message(group_id, f'{await celebrate_day()}\n'
+                                             f'{datetime.now().day}.{datetime.now().month}.{datetime.now().year} '
+                                             f'объявляется {y[0]}\nСправка по боту: /help')
 
         elif x == 4:
             await dr()
@@ -84,9 +84,9 @@ async def pidr():
             y = ("Леха(Demix)", file1)
             await value_plus_one('A5')
             await bot.send_photo(group_id, y[1])
-            await bot.send_message(group_id, f'''{await celebrate_day()} 
-    {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
-    Справка по боту: /help''')
+            await bot.send_message(group_id, f'{await celebrate_day()}\n'
+                                             f'{datetime.now().day}.{datetime.now().month}.{datetime.now().year} '
+                                             f'объявляется {y[0]}\nСправка по боту: /help')
 
         elif x == 5:
             await dr()
@@ -94,9 +94,9 @@ async def pidr():
             y = ("Леха(Фитиль)", file1)
             await value_plus_one('A6')
             await bot.send_photo(group_id, y[1])
-            await bot.send_message(group_id, f'''{await celebrate_day()} 
-    {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
-    Справка по боту: /help''')
+            await bot.send_message(group_id, f'{await celebrate_day()}\n'
+                                             f'{datetime.now().day}.{datetime.now().month}.{datetime.now().year} '
+                                             f'объявляется {y[0]}\nСправка по боту: /help')
 
         elif x == 6:
             await dr()
@@ -104,9 +104,9 @@ async def pidr():
             y = ("Диман", file1)
             await value_plus_one('A7')
             await bot.send_photo(group_id, y[1])
-            await bot.send_message(group_id, f'''{await celebrate_day()}
-    {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
-    Справка по боту: /help''')
+            await bot.send_message(group_id, f'{await celebrate_day()}\n'
+                                             f'{datetime.now().day}.{datetime.now().month}.{datetime.now().year} '
+                                             f'объявляется {y[0]}\nСправка по боту: /help')
 
         elif x == 7:
             await dr()
@@ -114,9 +114,9 @@ async def pidr():
             y = ("Саня", file1)
             await value_plus_one('A4')
             await bot.send_photo(group_id, y[1])
-            await bot.send_message(group_id, f'''{await celebrate_day()} 
-    {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
-    Справка по боту: /help''')
+            await bot.send_message(group_id, f'{await celebrate_day()}\n'
+                                             f'{datetime.now().day}.{datetime.now().month}.{datetime.now().year} '
+                                             f'объявляется {y[0]}\nСправка по боту: /help')
 
         elif x == 8:
             await dr()
@@ -124,9 +124,9 @@ async def pidr():
             y = ("Кирюха подкастер", file1)
             await value_plus_one('A8')
             await bot.send_photo(group_id, y[1])
-            await bot.send_message(group_id, f'''{await celebrate_day()} 
-    {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
-    Справка по боту: /help''')
+            await bot.send_message(group_id, f'{await celebrate_day()}\n'
+                                             f'{datetime.now().day}.{datetime.now().month}.{datetime.now().year} '
+                                             f'объявляется {y[0]}\nСправка по боту: /help')
 
         elif x == 9:
             await dr()
@@ -134,9 +134,9 @@ async def pidr():
             y = ("Женек спасатель", file1)
             await value_plus_one('A9')
             await bot.send_photo(group_id, y[1])
-            await bot.send_message(group_id, f'''{await celebrate_day()} 
-    {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
-    Справка по боту: /help''')
+            await bot.send_message(group_id, f'{await celebrate_day()}\n'
+                                             f'{datetime.now().day}.{datetime.now().month}.{datetime.now().year} '
+                                             f'объявляется {y[0]}\nСправка по боту: /help')
 
         elif x == 10:
             await dr()
@@ -144,9 +144,9 @@ async def pidr():
             y = ("Женек старый", file1)
             await value_plus_one('A10')
             await bot.send_photo(group_id, y[1])
-            await bot.send_message(group_id, f'''{await celebrate_day()} 
-    {datetime.now().day}.{datetime.now().month}.{datetime.now().year} объявляется {y[0]} 
-    Справка по боту: /help''')
+            await bot.send_message(group_id, f'{await celebrate_day()}\n'
+                                             f'{datetime.now().day}.{datetime.now().month}.{datetime.now().year} '
+                                             f'объявляется {y[0]}\nСправка по боту: /help')
     except Exception as e:
         logger.exception('Ошибка в main/pidr', e)
         await bot.send_message(loggs_acc, f'Ошибка в main/pidr: {e}')
@@ -162,6 +162,7 @@ async def dr():
             await Artur_happy_birthday(bot, text=data[f'{datetime.now().day}.{datetime.now().month}'])
             # await Artur_pozdravlyaet(bot, text=data[f'{datetime.now().day}.{datetime.now().month}'])
             await bot.send_message(group_id, 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
+            await bot.send_message(group_id, 'понравилось поздравление?')
         else:
             pass
     except Exception as e:
@@ -304,10 +305,14 @@ async def perehvat(message, state: FSMContext):
 async def chek_message(message):
     try:
         sosal_list = ['да', 'Да', 'Конечно', 'конечно', 'Очень', 'очень', 'Сильно', 'сильно', "Великолепно", "великолепно",
-                      'Это было великолепно', 'это было великолепно', 'волшебно', 'Волшебно', "Потрясающе", "потрясающе"]
+                      'Это было великолепно', 'это было великолепно', 'волшебно', 'Волшебно', "Потрясающе",
+                      "потрясающе", "Нет", "нет"]
         if message.text in sosal_list:
             if message.reply_to_message.from_user.is_bot is True:
-                await bot.edit_message_text('Сосал?', message.chat.id, message.reply_to_message.message_id)
+                if message.text == 'Нет' or message.text == 'нет':
+                    await message.reply('Пидора ответ')
+                else:
+                    await bot.edit_message_text('Сосал?', message.chat.id, message.reply_to_message.message_id)
         elif message.text == 'Погладить шар':
             await bot.send_photo(message.chat.id, await ball_of_fate())
         elif message.text == 'Шар съебись':
@@ -338,11 +343,31 @@ async def chek_message(message):
         elif 'Артур' in message.text:
             b = str(message.text).replace('Артур ', '', 1).replace('Артур, ', '', 1).replace('Артур,', '', 1).replace(
                 ' Артур', '', 1)
-            await Artur(bot, message, b)
+            if b in sosal_list:
+                try:
+                    if message.reply_to_message.from_user.is_bot is True:
+                        if message.text == 'Нет' or message.text == 'нет':
+                            await message.reply('Пидора ответ')
+                        else:
+                            await bot.edit_message_text('Сосал?', message.chat.id, message.reply_to_message.message_id)
+                except AttributeError:
+                    await Artur(bot, message, b)
+            else:
+                await Artur(bot, message, b)
         elif 'артур' in message.text:
             b = str(message.text).replace('артур ', '', 1).replace('артур, ', '', 1).replace('артур,', '', 1).replace(
                 ' артур', '', 1)
-            await Artur(bot, message, b)
+            if b in sosal_list:
+                try:
+                    if message.reply_to_message.from_user.is_bot is True:
+                        if message.text == 'Нет' or message.text == 'нет':
+                            await message.reply('Пидора ответ')
+                        else:
+                            await bot.edit_message_text('Сосал?', message.chat.id, message.reply_to_message.message_id)
+                except AttributeError:
+                    await Artur(bot, message, b)
+            else:
+                await Artur(bot, message, b)
     except Exception as e:
         logger.exception('Ошибка в main/chek_message', e)
         await bot.send_message(loggs_acc, f'Ошибка в main/chek_message: {e}')
