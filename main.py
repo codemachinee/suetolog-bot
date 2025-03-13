@@ -346,7 +346,7 @@ async def chek_message(message):
             if b in sosal_list:
                 try:
                     if message.reply_to_message.from_user.is_bot is True:
-                        if message.text == 'Нет' or message.text == 'нет':
+                        if b == 'Нет' or b == 'нет':
                             await message.reply('Пидора ответ')
                         else:
                             await bot.edit_message_text('Сосал?', message.chat.id, message.reply_to_message.message_id)
@@ -360,7 +360,7 @@ async def chek_message(message):
             if b in sosal_list:
                 try:
                     if message.reply_to_message.from_user.is_bot is True:
-                        if message.text == 'Нет' or message.text == 'нет':
+                        if b == 'Нет' or b == 'нет':
                             await message.reply('Пидора ответ')
                         else:
                             await bot.edit_message_text('Сосал?', message.chat.id, message.reply_to_message.message_id)
