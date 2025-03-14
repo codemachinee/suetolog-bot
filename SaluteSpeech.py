@@ -1,8 +1,13 @@
 import requests
 import uuid
 import os
+
+import urllib3
+
 from paswords import *
 saved_message_salute = []
+# Отключаем предупреждения
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
 def key_generate(service_key, scope):

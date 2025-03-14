@@ -53,7 +53,7 @@ async def pidr():
             file1 = FSInputFile(r"Я.jpg", 'rb')
             y = ("Игорь", file1)
             await value_plus_one('A2')
-            await bot.send_photo(group_id, y[1])
+            await bot.send_photo(group_id, y[1], request_timeout=60)
             await bot.send_message(group_id, f'{await celebrate_day()}\n'
                                              f'{datetime.now().day}.{datetime.now().month}.{datetime.now().year} '
                                              f'объявляется {y[0]}\nСправка по боту: /help')
@@ -63,7 +63,7 @@ async def pidr():
             file1 = FSInputFile(r"Филч.jpg", 'rb')
             y = ("Филч", file1)
             await value_plus_one('A1')
-            await bot.send_photo(group_id, y[1])
+            await bot.send_photo(group_id, y[1], request_timeout=60)
             await bot.send_message(group_id, f'{await celebrate_day()}\n'
                                              f'{datetime.now().day}.{datetime.now().month}.{datetime.now().year} '
                                              f'объявляется {y[0]}\nСправка по боту: /help')
@@ -73,7 +73,7 @@ async def pidr():
             file1 = FSInputFile(r"Серега.jpg", 'rb')
             y = ("Серега", file1)
             await value_plus_one('A3')
-            await bot.send_photo(group_id, y[1])
+            await bot.send_photo(group_id, y[1], request_timeout=60)
             await bot.send_message(group_id, f'{await celebrate_day()}\n'
                                              f'{datetime.now().day}.{datetime.now().month}.{datetime.now().year} '
                                              f'объявляется {y[0]}\nСправка по боту: /help')
@@ -83,7 +83,7 @@ async def pidr():
             file1 = FSInputFile(r"Леха.jpg", 'rb')
             y = ("Леха(Demix)", file1)
             await value_plus_one('A5')
-            await bot.send_photo(group_id, y[1])
+            await bot.send_photo(group_id, y[1], request_timeout=60)
             await bot.send_message(group_id, f'{await celebrate_day()}\n'
                                              f'{datetime.now().day}.{datetime.now().month}.{datetime.now().year} '
                                              f'объявляется {y[0]}\nСправка по боту: /help')
@@ -93,7 +93,7 @@ async def pidr():
             file1 = FSInputFile(r"фитиль.jpg", 'rb')
             y = ("Леха(Фитиль)", file1)
             await value_plus_one('A6')
-            await bot.send_photo(group_id, y[1])
+            await bot.send_photo(group_id, y[1], request_timeout=60)
             await bot.send_message(group_id, f'{await celebrate_day()}\n'
                                              f'{datetime.now().day}.{datetime.now().month}.{datetime.now().year} '
                                              f'объявляется {y[0]}\nСправка по боту: /help')
@@ -103,7 +103,7 @@ async def pidr():
             file1 = FSInputFile(r"маугли.jpg", 'rb')
             y = ("Диман", file1)
             await value_plus_one('A7')
-            await bot.send_photo(group_id, y[1])
+            await bot.send_photo(group_id, y[1], request_timeout=60)
             await bot.send_message(group_id, f'{await celebrate_day()}\n'
                                              f'{datetime.now().day}.{datetime.now().month}.{datetime.now().year} '
                                              f'объявляется {y[0]}\nСправка по боту: /help')
@@ -113,7 +113,7 @@ async def pidr():
             file1 = FSInputFile(r"саня.jpg", 'rb')
             y = ("Саня", file1)
             await value_plus_one('A4')
-            await bot.send_photo(group_id, y[1])
+            await bot.send_photo(group_id, y[1], request_timeout=60)
             await bot.send_message(group_id, f'{await celebrate_day()}\n'
                                              f'{datetime.now().day}.{datetime.now().month}.{datetime.now().year} '
                                              f'объявляется {y[0]}\nСправка по боту: /help')
@@ -123,7 +123,7 @@ async def pidr():
             file1 = FSInputFile(r"Кирилл.jpg", 'rb')
             y = ("Кирюха подкастер", file1)
             await value_plus_one('A8')
-            await bot.send_photo(group_id, y[1])
+            await bot.send_photo(group_id, y[1], request_timeout=60)
             await bot.send_message(group_id, f'{await celebrate_day()}\n'
                                              f'{datetime.now().day}.{datetime.now().month}.{datetime.now().year} '
                                              f'объявляется {y[0]}\nСправка по боту: /help')
@@ -133,7 +133,7 @@ async def pidr():
             file1 = FSInputFile(r"Женек.jpg", 'rb')
             y = ("Женек спасатель", file1)
             await value_plus_one('A9')
-            await bot.send_photo(group_id, y[1])
+            await bot.send_photo(group_id, y[1], request_timeout=60)
             await bot.send_message(group_id, f'{await celebrate_day()}\n'
                                              f'{datetime.now().day}.{datetime.now().month}.{datetime.now().year} '
                                              f'объявляется {y[0]}\nСправка по боту: /help')
@@ -143,7 +143,7 @@ async def pidr():
             file1 = FSInputFile(r"Евгений.png", 'rb')
             y = ("Женек старый", file1)
             await value_plus_one('A10')
-            await bot.send_photo(group_id, y[1])
+            await bot.send_photo(group_id, y[1], request_timeout=60)
             await bot.send_message(group_id, f'{await celebrate_day()}\n'
                                              f'{datetime.now().day}.{datetime.now().month}.{datetime.now().year} '
                                              f'объявляется {y[0]}\nСправка по боту: /help')
@@ -162,6 +162,7 @@ async def dr():
             await Artur_happy_birthday(bot, text=data[f'{datetime.now().day}.{datetime.now().month}'])
             # await Artur_pozdravlyaet(bot, text=data[f'{datetime.now().day}.{datetime.now().month}'])
             await bot.send_message(group_id, 'твой подарок - https://www.youtube.com/watch?v=N6nJpNIK4PU')
+            await asyncio.sleep(0.3)
             await bot.send_message(group_id, 'понравилось поздравление?')
         else:
             pass
@@ -175,7 +176,7 @@ async def check_callback(callback: CallbackQuery):
     try:
         if callback.data == 'bof':
             start_file = FSInputFile(r"ball/start_image.png", 'rb')
-            await bot.send_photo(callback.message.chat.id, start_file)
+            await bot.send_photo(callback.message.chat.id, start_file, request_timeout=60)
             await bot.send_message(callback.message.chat.id, f'Решил попытать удачу или просто переложить '
                                                              f'ответственность? Что ж.. Чтобы все прошло как надо '
                                                              f'просто переведи сотку моему создателю на сбер и '
@@ -307,14 +308,16 @@ async def chek_message(message):
         sosal_list = ['да', 'Да', 'Конечно', 'конечно', 'Очень', 'очень', 'Сильно', 'сильно', "Великолепно", "великолепно",
                       'Это было великолепно', 'это было великолепно', 'волшебно', 'Волшебно', "Потрясающе",
                       "потрясающе", "Нет", "нет"]
-        if message.text in sosal_list:
+        if message.reply_to_message and message.text in sosal_list:
             if message.reply_to_message.from_user.is_bot is True:
                 if message.text == 'Нет' or message.text == 'нет':
                     await message.reply('Пидора ответ')
                 else:
                     await bot.edit_message_text('Сосал?', message.chat.id, message.reply_to_message.message_id)
+            else:
+                pass
         elif message.text == 'Погладить шар':
-            await bot.send_photo(message.chat.id, await ball_of_fate())
+            await bot.send_photo(message.chat.id, await ball_of_fate(), request_timeout=60)
         elif message.text == 'Шар съебись':
             kb2 = types.ReplyKeyboardRemove()
             await bot.send_message(message.chat.id, '...', reply_markup=kb2)
@@ -343,13 +346,15 @@ async def chek_message(message):
         elif 'Артур' in message.text:
             b = str(message.text).replace('Артур ', '', 1).replace('Артур, ', '', 1).replace('Артур,', '', 1).replace(
                 ' Артур', '', 1)
-            if b in sosal_list:
+            if message.reply_to_message and b in sosal_list:
                 try:
                     if message.reply_to_message.from_user.is_bot is True:
                         if b == 'Нет' or b == 'нет':
                             await message.reply('Пидора ответ')
                         else:
                             await bot.edit_message_text('Сосал?', message.chat.id, message.reply_to_message.message_id)
+                    else:
+                        await Artur(bot, message, b)
                 except AttributeError:
                     await Artur(bot, message, b)
             else:
@@ -357,13 +362,15 @@ async def chek_message(message):
         elif 'артур' in message.text:
             b = str(message.text).replace('артур ', '', 1).replace('артур, ', '', 1).replace('артур,', '', 1).replace(
                 ' артур', '', 1)
-            if b in sosal_list:
+            if message.reply_to_message and b in sosal_list:
                 try:
                     if message.reply_to_message.from_user.is_bot is True:
                         if b == 'Нет' or b == 'нет':
                             await message.reply('Пидора ответ')
                         else:
                             await bot.edit_message_text('Сосал?', message.chat.id, message.reply_to_message.message_id)
+                    else:
+                        await Artur(bot, message, b)
                 except AttributeError:
                     await Artur(bot, message, b)
             else:

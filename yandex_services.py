@@ -45,7 +45,7 @@ class Davinci:
             "Authorization": f"Api-Key {yandex_gpt_api_key}"
         }
         async with aiohttp.ClientSession() as session:
-            async with session.post(url, headers=headers, json=prompt) as response:
+            async with session.post(url, headers=headers, json=prompt, ssl=False) as response:
                 try:
                     answer = (await response.json())['result']['alternatives'][0]['message']['text']
                     # await self.bot.send_message(self.message.chat.id, f'{answer}')
