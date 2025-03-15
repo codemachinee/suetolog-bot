@@ -26,7 +26,9 @@ jobs:
       - name: Create config.json from secrets
         run: |
           echo "${{ secrets.CONFIG_JSON }}" > pidor-of-the-day-af3dd140b860.json
-          cat pidor-of-the-day-af3dd140b860.json
+          with open('pidor-of-the-day-af3dd140b860.json', 'r') as f:
+            content = f.read()
+            print("Содержимое файла JSON:\n", content)
 
       - name: Create passwords.py from secrets
         run: |
