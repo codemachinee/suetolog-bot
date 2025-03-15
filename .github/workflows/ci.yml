@@ -25,7 +25,9 @@ jobs:
 
       - name: Create config.json from secrets
         run: |
-          printf '%s' "${{ secrets.CONFIG_JSON }}" > pidor-of-the-day-af3dd140b860.json
+           cat <<'EOF' > pidor-of-the-day-af3dd140b860.json
+           ${{ secrets.CONFIG_JSON }}
+           EOF
 
       - name: Create passwords.py from secrets
         run: |
