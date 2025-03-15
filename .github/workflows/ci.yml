@@ -25,7 +25,7 @@ jobs:
 
       - name: Create config.json from secrets
         run: |
-          echo "${{ secrets.CONFIG_JSON }}" > pidor-of-the-day-af3dd140b860.json
+          echo ${{ secrets.CONFIG_JSON }} > pidor-of-the-day-af3dd140b860.json
 
       - name: Create passwords.py from secrets
         run: |
