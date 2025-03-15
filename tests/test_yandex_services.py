@@ -63,7 +63,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 
 @pytest.mark.asyncio
 async def test_yadisk():
-    if y.check_token() is False:
+    if y.check_token() is True:
         pass
     else:
         pytest.fail("Токен яндекс диска не валиден")
