@@ -27,6 +27,10 @@ jobs:
         run: |
           echo "${{ secrets.CONFIG_JSON }}" > pidor-of-the-day-af3dd140b860.json
 
+      - name: Create passwords.py from secrets
+        run: |
+          echo "${{ secrets.PASWORDS_PY }}" > paswords.py
+
       - name: Запуск тестов
         run: |
           pytest -m asyncio

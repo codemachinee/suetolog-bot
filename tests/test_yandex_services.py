@@ -6,6 +6,9 @@ import aiofiles
 import aiohttp
 import pytest
 
+from paswords import yandex_gpt_catalog_id, yandex_gpt_api_key
+from yandex_services import y
+
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))) # нужно для норм видимости коневой папки
 # from paswords import yandex_gpt_catalog_id, yandex_gpt_api_key
 #
@@ -56,3 +59,47 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 #                     print(f'{answer}')
 #             except Exception as e:
 #                 pytest.fail(f"Ошибка работы Artur_pozdravlyaet: {str(e)}")
+
+
+@pytest.mark.asyncio
+async def test_yadisk():
+    if y.check_token() is True:
+        pass
+    else:
+        pytest.fail("Токен яндекс диска не валиден")
+
+
+@pytest.mark.asyncio
+async def test_yagpt():
+    prompt = {
+        "modelUri": f"gpt://{yandex_gpt_catalog_id}/yandexgpt",
+        "completionOptions": {
+            "stream": False,
+            "temperature": 0.2,
+            "maxTokens": "10"
+        },
+        "messages": [{
+            "role": "system",
+            "text": f"тест"
+        }]
+    }
+    url = "https://llm.api.cloud.yandex.net/foundationModels/v1/completion"
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Api-Key {yandex_gpt_api_key}"
+    }
+    async with aiohttp.ClientSession() as session:
+        async with session.post(url, headers=headers, json=prompt, ssl=False) as response:
+            answer = await response.json()
+            keys_list = list(answer.keys())
+            if 'result' in keys_list:
+                pass
+            elif 'error' in keys_list:
+                if "Unknown api key" in answer['error']['message']:
+                    pytest.fail('неверный yandex_gpt_api_key')
+                elif "Specified folder ID" in answer['error']['message']:
+                    pytest.fail('неверный yandex_gpt_catalog_id')
+                else:
+                    pytest.fail('не валидные параметры авторизации')
+            else:
+                pytest.fail('Не известная ошибка при проверке подключения yagpt')
