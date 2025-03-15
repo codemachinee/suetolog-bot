@@ -29,7 +29,9 @@ jobs:
 
       - name: Create passwords.py from secrets
         run: |
-          printf "%s\n" "${{ secrets.PASWORDS_PY }}" > paswords.py
+          echo "yadisk_token = \"${{ secrets.YADISK_TOKEN }}\"" > paswords.py
+          echo "yandex_gpt_catalog_id = \"${{ secrets.YANDEX_GPT_CATALOG_ID }}\"" >> paswords.py
+          echo "yandex_gpt_api_key = \"${{ secrets.YANDEX_GPT_API_KEY }}\"" >> paswords.py
 
       - name: Запуск тестов
         run: |
