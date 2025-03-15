@@ -16,7 +16,7 @@ async def test_value_plus_one():
             print("Содержимое файла JSON:\n", content)
         gc = gspread.service_account(filename='pidor-of-the-day-af3dd140b860.json')
         # Пытаемся открыть таблицу "bot_statistic"
-        sh = gc.open("bot_statistic")
+        sh = gc.open("bot_statistica")
 
         # Пытаемся получить первый лист (worksheet)
         worksheet = sh.get_worksheet(0)
